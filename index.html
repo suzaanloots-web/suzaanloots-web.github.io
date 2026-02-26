@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Hunt House Kitchen — Kanya Hunt · Master Chocolatier · Cape Town</title>
-  <meta name="description" content="Bespoke chocolate wedding and celebration cakes by Kanya Hunt — master chocolatier and qualified dietician. Cape Town & Winelands."/>
+  <title>The Hunt House Kitchen — Kanya Hunt · Chocolatier Extraordinaire · Cape Town</title>
+  <meta name="description" content="Bespoke chocolate wedding and celebration cakes by Kanya Hunt — chocolatier extraordinaire and qualified dietician. Cape Town & Winelands."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
@@ -197,24 +197,40 @@
     .btn-submit { align-self:flex-start; background:var(--ink); color:var(--linen); padding:0.95rem 3rem; font-family:var(--font-b); font-size:0.79rem; letter-spacing:0.14em; text-transform:uppercase; border:none; cursor:pointer; transition:all 0.25s; }
     .btn-submit:hover { background:var(--mocha); transform:translateY(-1px); }
 
-    /* ── PARISIAN FRAME ── */
+    /* ── PARISIAN FRAME — Rococo-inspired ── */
     .frame-parisian {
       position:relative;
-      padding:12px;
-      background:var(--linen);
+      padding:22px;
+      background:linear-gradient(135deg, #F7F0E3 0%, #FAF7F2 40%, #F0E6D3 100%);
       margin-top:1.5rem;
+      box-shadow:
+        0 0 0 1px rgba(212,170,96,0.3),
+        0 0 0 3px var(--linen),
+        0 0 0 4px var(--light-gold),
+        0 0 0 7px var(--linen),
+        0 0 0 8px rgba(212,170,96,0.25),
+        0 4px 20px rgba(30,15,6,0.08);
     }
+    /* Outer decorative border */
     .frame-parisian::before {
       content:'';
       position:absolute;
-      inset:4px;
+      inset:10px;
       border:1px solid var(--light-gold);
+      border-image:repeating-linear-gradient(
+        90deg,
+        var(--light-gold) 0px, var(--light-gold) 8px,
+        transparent 8px, transparent 14px,
+        rgba(212,170,96,0.4) 14px, rgba(212,170,96,0.4) 16px,
+        transparent 16px, transparent 22px
+      ) 1;
       pointer-events:none;
     }
+    /* Inner fine border */
     .frame-parisian::after {
       content:'';
       position:absolute;
-      inset:8px;
+      inset:14px;
       border:1px solid rgba(212,170,96,0.35);
       pointer-events:none;
     }
@@ -222,6 +238,7 @@
       position:relative;
       width:100%;
       overflow:hidden;
+      box-shadow:inset 0 0 12px rgba(30,15,6,0.1);
     }
     .frame-parisian-inner img {
       width:100%;
@@ -229,34 +246,78 @@
       object-fit:cover;
       display:block;
     }
-    /* Corner ornaments */
+
+    /* Corner ornaments — Rococo scrollwork */
     .frame-corner {
       position:absolute;
-      width:20px;
-      height:20px;
+      width:28px;
+      height:28px;
       pointer-events:none;
-      z-index:1;
+      z-index:2;
     }
     .frame-corner::before,
     .frame-corner::after {
       content:'';
       position:absolute;
       background:var(--light-gold);
+      border-radius:50%;
     }
-    .frame-corner::before { width:20px; height:1px; }
-    .frame-corner::after  { width:1px;  height:20px; }
-    .fc-tl { top:0; left:0; }
+    /* Ornamental dot */
+    .frame-corner::before {
+      width:6px; height:6px;
+    }
+    /* Scrollwork arc */
+    .frame-corner::after {
+      width:22px; height:22px;
+      background:transparent;
+      border:1.5px solid var(--light-gold);
+    }
+    .fc-tl { top:4px; left:4px; }
     .fc-tl::before { top:0; left:0; }
-    .fc-tl::after  { top:0; left:0; }
-    .fc-tr { top:0; right:0; }
+    .fc-tl::after  { top:2px; left:2px; border-radius:0 0 100% 0; border-top:none; border-left:none; }
+    .fc-tr { top:4px; right:4px; }
     .fc-tr::before { top:0; right:0; }
-    .fc-tr::after  { top:0; right:0; }
-    .fc-bl { bottom:0; left:0; }
+    .fc-tr::after  { top:2px; right:2px; border-radius:0 0 0 100%; border-top:none; border-right:none; }
+    .fc-bl { bottom:4px; left:4px; }
     .fc-bl::before { bottom:0; left:0; }
-    .fc-bl::after  { bottom:0; left:0; }
-    .fc-br { bottom:0; right:0; }
+    .fc-bl::after  { bottom:2px; left:2px; border-radius:0 100% 0 0; border-bottom:none; border-left:none; }
+    .fc-br { bottom:4px; right:4px; }
     .fc-br::before { bottom:0; right:0; }
-    .fc-br::after  { bottom:0; right:0; }
+    .fc-br::after  { bottom:2px; right:2px; border-radius:100% 0 0 0; border-bottom:none; border-right:none; }
+
+    /* Edge mid-point flourishes */
+    .frame-edge {
+      position:absolute;
+      pointer-events:none;
+      z-index:2;
+    }
+    .frame-edge::before {
+      content:'';
+      position:absolute;
+      background:var(--light-gold);
+      border-radius:50%;
+    }
+    .frame-edge::after {
+      content:'';
+      position:absolute;
+      width:30px;
+      height:1px;
+      background:linear-gradient(90deg, transparent, var(--light-gold), transparent);
+    }
+    .fe-top, .fe-bottom { left:50%; transform:translateX(-50%); }
+    .fe-top { top:5px; }
+    .fe-top::before { width:5px; height:5px; top:0; left:50%; transform:translateX(-50%); }
+    .fe-top::after { top:6px; left:50%; transform:translateX(-50%); }
+    .fe-bottom { bottom:5px; }
+    .fe-bottom::before { width:5px; height:5px; bottom:0; left:50%; transform:translateX(-50%); }
+    .fe-bottom::after { bottom:6px; left:50%; transform:translateX(-50%); }
+    .fe-left, .fe-right { top:50%; transform:translateY(-50%); }
+    .fe-left { left:5px; }
+    .fe-left::before { width:5px; height:5px; left:0; top:50%; transform:translateY(-50%); }
+    .fe-left::after { width:1px; height:30px; left:2px; top:50%; transform:translateY(-50%); background:linear-gradient(180deg, transparent, var(--light-gold), transparent); }
+    .fe-right { right:5px; }
+    .fe-right::before { width:5px; height:5px; right:0; top:50%; transform:translateY(-50%); }
+    .fe-right::after { width:1px; height:30px; right:2px; top:50%; transform:translateY(-50%); background:linear-gradient(180deg, transparent, var(--light-gold), transparent); }
 
     /* ── INSTAGRAM — now AFTER contact ── */
     #insta { background:var(--linen); padding:2.5rem 3.5rem; text-align:center; border-top:1px solid var(--border); }
@@ -391,10 +452,14 @@
       .form-row { gap:0.8rem; }
 
       /* Frame */
-      .frame-parisian { margin-top:1rem; padding:8px; }
-      .frame-corner { width:14px; height:14px; }
-      .frame-corner::before { width:14px; }
-      .frame-corner::after  { height:14px; }
+      .frame-parisian { margin-top:1rem; padding:14px; }
+      .frame-parisian::before { inset:6px; }
+      .frame-parisian::after { inset:9px; }
+      .frame-corner { width:18px; height:18px; }
+      .frame-corner::before { width:4px; height:4px; }
+      .frame-corner::after { width:14px; height:14px; }
+      .frame-edge::after { width:20px; }
+      .fe-left::after, .fe-right::after { height:20px; }
 
       /* Instagram */
       #insta { padding:1rem 1.2rem; }
@@ -432,7 +497,7 @@
 <nav id="topnav">
   <a href="#" class="nav-brand">
     <span class="nav-brand-main">The Hunt House Kitchen</span>
-    <span class="nav-brand-sub">Kanya Hunt · Master Chocolatier</span>
+    <span class="nav-brand-sub">Kanya Hunt · Chocolatier Extraordinaire</span>
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -448,7 +513,7 @@
 <section id="hero">
   <div class="hero-panel">
     <div class="hero-top">
-      <p class="hero-overline">Master Chocolatier · Cape Town</p>
+      <p class="hero-overline">Chocolatier Extraordinaire · Cape Town</p>
       <h1 class="hero-title">Where<br><em>chocolate</em><br>becomes<br>unforgettable</h1>
     </div>
     <div class="hero-bottom">
@@ -490,8 +555,8 @@
     <p class="eyebrow reveal">The Baker Behind the Chocolate</p>
     <h2 class="display-title reveal">Hello, I'm <em>Kanya</em></h2>
     <div class="divider-line"></div>
-    <p class="about-origin reveal">She was four years old when her mother first let her help in the kitchen. She still remembers that first cake — pink, with pink icing.</p>
-    <p class="about-body reveal">Two decades later, Kanya Hunt is Cape Town's foremost chocolate cake artist — a master chocolatier who works exclusively with Lindt couverture. Every decorative element you see is chocolate, formed entirely by her hands. The protea petals. The delicate ruffles. The spirals. All chocolate.</p>
+    <p class="about-origin reveal">I was four years old when my mother first let me help in the kitchen. I still remember that first cake — pink, with pink icing.</p>
+    <p class="about-body reveal">Two decades later, Kanya Hunt is Cape Town's foremost chocolate cake artist — a chocolatier extraordinaire who works exclusively with Lindt couverture. Every decorative element you see is chocolate, formed entirely by her hands. The protea petals. The delicate ruffles. The spirals. All chocolate.</p>
     <p class="about-body reveal">Her background in dietetics gives her a rare analytical understanding of what makes flavour work — how layers interact, how richness balances, how texture and temperature create a complete experience. She doesn't just bake. She designs something you taste long after you've eaten it.</p>
     <div class="about-quote reveal">"Chocolate is not just an ingredient. It is everything I want to say that words cannot."</div>
     <p class="about-wit reveal">✦ "In my spare time I run and cycle — <em>because then I can eat more cake.</em>"</p>
@@ -543,17 +608,14 @@
   </div>
   <div class="order-steps">
     <div class="step reveal">
-      <div class="step-num">01</div>
       <h3 class="step-title">Tell me your vision</h3>
       <p class="step-body">WhatsApp or the form below. Share your occasion, date, guest count, and any flavour or style inspiration. Every enquiry is welcomed personally by Kanya.</p>
     </div>
     <div class="step reveal d1">
-      <div class="step-num">02</div>
       <h3 class="step-title">We design together</h3>
       <p class="step-body">Chocolate varieties, flavour profiles, aesthetic direction. This is where your vision and the craft find each other — a dietician's precision meets a chocolatier's eye.</p>
     </div>
     <div class="step reveal d2">
-      <div class="step-num">03</div>
       <h3 class="step-title">Your cake is created</h3>
       <p class="step-body">Every element sculpted by hand with Lindt couverture. Collected or delivered fresh on the day — exactly as you imagined it, and better than you expected.</p>
     </div>
@@ -617,6 +679,10 @@
       <span class="frame-corner fc-tr"></span>
       <span class="frame-corner fc-bl"></span>
       <span class="frame-corner fc-br"></span>
+      <span class="frame-edge fe-top"></span>
+      <span class="frame-edge fe-bottom"></span>
+      <span class="frame-edge fe-left"></span>
+      <span class="frame-edge fe-right"></span>
       <div class="frame-parisian-inner">
         <img src="images/image_29.jpg" alt="Chocolate artistry by Kanya Hunt"/>
       </div>
@@ -685,7 +751,7 @@
   <div class="footer-top">
     <div class="footer-brand-col">
       <span class="footer-brand">The Hunt House Kitchen</span>
-      <span class="footer-tagline">Kanya Hunt · Master Chocolatier</span>
+      <span class="footer-tagline">Kanya Hunt · Chocolatier Extraordinaire</span>
       <p style="font-size:0.9rem; color:var(--text-light); line-height:1.85; margin-top:1rem; font-family:var(--font-d); font-style:italic; max-width:240px;">Bespoke chocolate wedding and celebration cakes. Crafted with Lindt couverture in Melkbosstrand, Cape Town.</p>
     </div>
     <div>
