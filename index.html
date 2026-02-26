@@ -140,7 +140,7 @@
     .offerings-intro { display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-bottom:3rem; align-items:end; }
     .offerings-intro-right { font-size:1rem; color:var(--text-mid); line-height:2; }
     .offerings-intro-right strong { color:var(--ink); font-weight:500; }
-    .offerings-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:3rem; }
+    .offerings-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
     .offering { border-top:1px solid var(--border); padding-top:1.8rem; }
     .offering:hover { background:var(--parchment); }
     .offering:hover::before { transform:scaleX(1); }
@@ -149,20 +149,20 @@
     .offering-body { font-size:0.92rem; color:var(--text-mid); line-height:1.85; }
 
     /* ── d) ORDER (How it works) — now AFTER offerings ── */
-    #order { background:var(--linen); padding:3rem 3.5rem; border-top:1px solid var(--border); }
-    .order-intro { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:end; margin-bottom:3rem; }
-    .order-intro-right { font-size:1rem; color:var(--text-mid); line-height:2; }
-    .order-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:3rem; }
-    .step { border-top:1px solid var(--border); padding-top:1.8rem; }
-    .step-num { font-family:var(--font-d); font-size:3.7rem; font-weight:300; color:rgba(30,15,6,0.09); line-height:1; margin-bottom:1rem; }
-    .step-title { font-family:var(--font-d); font-size:1.5rem; color:var(--ink); margin-bottom:0.6rem; }
-    .step-body { font-size:0.95rem; color:var(--text-mid); line-height:1.95; }
+    #order { background:var(--linen); padding:1.5rem 3.5rem; border-top:1px solid var(--border); }
+    .order-intro { display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:end; margin-bottom:1.5rem; }
+    .order-intro-right { font-size:1rem; color:var(--text-mid); line-height:1.7; }
+    .order-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+    .step { border-top:1px solid var(--border); padding-top:1rem; padding-bottom:0.5rem; }
+    .step-num { font-family:var(--font-d); font-size:3rem; font-weight:300; color:rgba(30,15,6,0.09); line-height:1; margin-bottom:0.5rem; }
+    .step-title { font-family:var(--font-d); font-size:1.3rem; color:var(--ink); margin-bottom:0.4rem; }
+    .step-body { font-size:0.95rem; color:var(--text-mid); line-height:1.65; }
     /* d) Removed order note + coloured CTA buttons */
 
     /* ── f) REVIEWS — embedded in contact right column ── */
-    .reviews-inline { margin-top:2.5rem; border-top:1px solid var(--border); padding-top:2rem; }
+    .reviews-inline { margin-top:0; border-top:1px solid var(--border); padding-top:2rem; padding-bottom:2rem; grid-column:1/-1; }
     .reviews-inline-label { font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--rose); margin-bottom:1.6rem; }
-    .reviews-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
+    .reviews-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--border); border:1px solid var(--border); width:100%; }
     .review-card {
       background:var(--white);
       padding:2rem 2rem;
@@ -179,7 +179,7 @@
     .reviews-note { margin-top:2rem; font-size:0.85rem; color:var(--text-light); font-style:italic; font-family:var(--font-d); text-align:center; }
 
     /* ── g) CONTACT — form left, info+reviews right ── */
-    #contact { background:var(--white); padding:3rem 3.5rem; display:grid; grid-template-columns:1.4fr 1fr; gap:6rem; align-items:start; border-top:1px solid var(--border); }
+    #contact { background:var(--white); padding:3rem 3.5rem 0.5rem; display:grid; grid-template-columns:1.4fr 1fr; gap:6rem; align-items:start; border-top:1px solid var(--border); }
     .contact-lbl { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--rose); margin-bottom:0.2rem; }
     .contact-val { font-family:var(--font-d); font-size:1.12rem; color:var(--ink); }
     .contact-val a { color:var(--ink); text-decoration:none; transition:color 0.2s; }
@@ -271,15 +271,15 @@
       footer { padding:2.5rem 1.5rem; }
       .footer-top { grid-template-columns:1fr; gap:2rem; }
       .footer-bottom { flex-direction:column; text-align:center; }
-      .offering-img { height:150px; }
+      .offering-img { padding-bottom:100%; height:0; }
     }
 
     /* Offering card images */
-    .offering-img { width:100%; height:220px; overflow:hidden; margin-bottom:1.2rem; }
-    .offering-img img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; transition:transform 0.5s; }
+    .offering-img { width:100%; height:0; padding-bottom:100%; overflow:hidden; margin-bottom:1.2rem; position:relative; }
+    .offering-img img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center; display:block; transition:transform 0.5s; }
     .offering:hover .offering-img img { transform:scale(1.04); }
     @media (max-width:900px) {
-      .offering-img { height:150px; }
+      .offering-img { padding-bottom:100%; height:0; }
     }
   </style>
 </head>
