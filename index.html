@@ -197,6 +197,67 @@
     .btn-submit { align-self:flex-start; background:var(--ink); color:var(--linen); padding:0.95rem 3rem; font-family:var(--font-b); font-size:0.79rem; letter-spacing:0.14em; text-transform:uppercase; border:none; cursor:pointer; transition:all 0.25s; }
     .btn-submit:hover { background:var(--mocha); transform:translateY(-1px); }
 
+    /* ── PARISIAN FRAME ── */
+    .frame-parisian {
+      position:relative;
+      padding:12px;
+      background:var(--linen);
+      margin-top:1.5rem;
+    }
+    .frame-parisian::before {
+      content:'';
+      position:absolute;
+      inset:4px;
+      border:1px solid var(--light-gold);
+      pointer-events:none;
+    }
+    .frame-parisian::after {
+      content:'';
+      position:absolute;
+      inset:8px;
+      border:1px solid rgba(212,170,96,0.35);
+      pointer-events:none;
+    }
+    .frame-parisian-inner {
+      position:relative;
+      width:100%;
+      overflow:hidden;
+    }
+    .frame-parisian-inner img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    /* Corner ornaments */
+    .frame-corner {
+      position:absolute;
+      width:20px;
+      height:20px;
+      pointer-events:none;
+      z-index:1;
+    }
+    .frame-corner::before,
+    .frame-corner::after {
+      content:'';
+      position:absolute;
+      background:var(--light-gold);
+    }
+    .frame-corner::before { width:20px; height:1px; }
+    .frame-corner::after  { width:1px;  height:20px; }
+    .fc-tl { top:0; left:0; }
+    .fc-tl::before { top:0; left:0; }
+    .fc-tl::after  { top:0; left:0; }
+    .fc-tr { top:0; right:0; }
+    .fc-tr::before { top:0; right:0; }
+    .fc-tr::after  { top:0; right:0; }
+    .fc-bl { bottom:0; left:0; }
+    .fc-bl::before { bottom:0; left:0; }
+    .fc-bl::after  { bottom:0; left:0; }
+    .fc-br { bottom:0; right:0; }
+    .fc-br::before { bottom:0; right:0; }
+    .fc-br::after  { bottom:0; right:0; }
+
     /* ── INSTAGRAM — now AFTER contact ── */
     #insta { background:var(--linen); padding:2.5rem 3.5rem; text-align:center; border-top:1px solid var(--border); }
     .insta-handle { font-family:var(--font-d); font-size:2rem; font-style:italic; color:var(--ink); margin-bottom:0.3rem; }
@@ -328,6 +389,12 @@
       .form-group input, .form-group select, .form-group textarea { padding:0.65rem 0.8rem; font-size:0.92rem; }
       .contact-form { gap:0.8rem; }
       .form-row { gap:0.8rem; }
+
+      /* Frame */
+      .frame-parisian { margin-top:1rem; padding:8px; }
+      .frame-corner { width:14px; height:14px; }
+      .frame-corner::before { width:14px; }
+      .frame-corner::after  { height:14px; }
 
       /* Instagram */
       #insta { padding:1rem 1.2rem; }
@@ -545,7 +612,15 @@
   <div class="reveal d1">
     <p class="eyebrow">Say Hello</p>
     <h2 class="display-title">Let's create something<br><em>extraordinary</em></h2>
-    <img src="images/image_29.jpg" alt="Chocolate artistry by Kanya Hunt" style="width:100%; display:block; margin-top:1.5rem;"/>
+    <div class="frame-parisian">
+      <span class="frame-corner fc-tl"></span>
+      <span class="frame-corner fc-tr"></span>
+      <span class="frame-corner fc-bl"></span>
+      <span class="frame-corner fc-br"></span>
+      <div class="frame-parisian-inner">
+        <img src="images/image_29.jpg" alt="Chocolate artistry by Kanya Hunt"/>
+      </div>
+    </div>
   </div>
 
   <!-- What clients say — full width below -->
