@@ -252,7 +252,7 @@
       .intro-right { padding:3rem 2rem; }
       .intro-detail { grid-template-columns:1fr 1fr; }
       .intro-detail-item { border-right:none; margin-right:0; padding-right:0; border-bottom:1px solid var(--border); padding-bottom:1rem; margin-bottom:1rem; }
-      #position { grid-template-columns:1fr; padding:2rem 2rem; gap:2rem; }
+      #intro > div { grid-template-columns:1fr !important; }
       #about { grid-template-columns:1fr; }
       .about-gallery { min-height:260px; }
       .about-content { padding:2rem 2rem; }
@@ -316,12 +316,11 @@
       <a href="#contact" class="btn-primary">Commission a Cake</a>
       <a href="#about" class="btn-secondary">The Work</a>
     </div>
-    <p class="hero-thumb-label">The work →</p>
-    <div class="hero-thumbs" id="heroThumbs">
-      <div class="hero-thumb active" data-index="0"><img src="images/image_01.png" alt="Naked floral wedding cake"/></div>
-      <div class="hero-thumb" data-index="1"><img src="images/image_02.png" alt="White chocolate ruffles"/></div>
-      <div class="hero-thumb" data-index="2"><img src="images/image_03.png" alt="White couverture spiral"/></div>
-      <div class="hero-thumb" data-index="3"><img src="images/image_04.png" alt="Dark chocolate protea"/></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem 1.5rem; border-top:1px solid var(--border); padding-top:1.8rem;">
+      <div><div class="d-label">Craft</div><div class="d-value">Lindt Couverture Chocolatier</div></div>
+      <div><div class="d-label">Credentials</div><div class="d-value">Qualified Dietician · Galliova 2003</div></div>
+      <div><div class="d-label">Location</div><div class="d-value">Melkbosstrand, Cape Town</div></div>
+      <div><div class="d-label">Enquiries</div><div class="d-value"><a href="https://wa.me/27000000000" style="color:var(--ink); text-decoration:none;">WhatsApp Welcome</a></div></div>
     </div>
   </div>
   <div class="hero-stage" id="heroStage">
@@ -332,52 +331,7 @@
   </div>
 </section>
 
-<!-- INTRO STRIP -->
-<section id="intro">
-  <div class="intro-left reveal">
-    <blockquote>"Dit is in my wese: ek droom oor koek en obsesseer oor mooi koekgoed. Dis my manier om kuns tot 'n mate uit te beeld."</blockquote>
-    <span class="af-trans">It is in my nature: I dream about cake and obsess over beautiful bakes — my way of expressing art. · Kanya Hunt</span>
-    <p>Kanya Hunt is a qualified dietician who bakes with the soul of an artist. <strong>Her cakes are not fondant-draped showpieces designed for the photograph — they are chocolate desserts designed to stop a room and then satisfy it completely.</strong></p>
-  </div>
-  <div class="intro-right reveal d1">
-    <div>
-      <p class="intro-right-body">Based in Melkbosstrand, Cape Town, Kanya works exclusively with Lindt couverture chocolate — sculpting every decorative element entirely by hand. The protea petals, the ruffles, the spirals — <strong>nothing is fondant, nothing is store-bought. Everything is chocolate, and everything is made by her.</strong></p>
-      <p class="intro-right-body">As a Galliova Food Writer of the Year and qualified dietician, she brings a depth of flavour understanding that most cake artists simply don't have — and the result is a cake that is as extraordinary to eat as it is to look at.</p>
-    </div>
-    <!-- a) 4 details in a single horizontal row -->
-    <div class="intro-detail">
-      <div class="intro-detail-item">
-        <div class="d-label">Craft</div>
-        <div class="d-value">Lindt Couverture Chocolatier</div>
-      </div>
-      <div class="intro-detail-item">
-        <div class="d-label">Credentials</div>
-        <div class="d-value">Qualified Dietician · Galliova 2003</div>
-      </div>
-      <div class="intro-detail-item">
-        <div class="d-label">Location</div>
-        <div class="d-value">Melkbosstrand, Cape Town</div>
-      </div>
-      <div class="intro-detail-item">
-        <div class="d-label">Enquiries</div>
-        <div class="d-value"><a href="https://wa.me/27000000000">WhatsApp Welcome</a></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- POSITIONING -->
-<section id="position">
-  <div class="pos-left reveal">
-    <p class="eyebrow">A Different Kind of Cake</p>
-    <div class="divider-line"></div>
-    <p>Cape Town's wedding cake market is dominated by fondant — flawless white tiers built for the photograph. Kanya Hunt works in an entirely different medium, producing cakes that are visually extraordinary <em>and</em> genuinely extraordinary to eat.</p>
-  </div>
-  <div class="pos-right reveal d1">
-    <blockquote>"Not just beautiful to look at — made to be the best thing anyone eats that day."</blockquote>
-    <p><strong>Chocolate is not Kanya's specialty — it is her language.</strong> Where other artists reach for fondant, she reaches for Lindt couverture, sculpting it into ruffles, proteas, spirals, and roses that look almost too beautiful to cut. Almost. Because these cakes are designed as dessert — deep, indulgent, layered — giving your guests something to remember long after the evening is over.</p>
-  </div>
-</section>
 
 <!-- ABOUT — Left: The Work gallery, Right: story -->
 <section id="about">
