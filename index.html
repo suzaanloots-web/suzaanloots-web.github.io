@@ -672,4 +672,16 @@
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = '✓ Enquiry Sent!'; btn.style.background = '#2
+    btn.textContent = '\u2713 Enquiry Sent!';
+    btn.style.background = '#2d6a4f';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Send Enquiry \u2192';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+</body>
+</html>
