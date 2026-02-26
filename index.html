@@ -245,8 +245,10 @@
       nav { padding:0 1.5rem; }
       .nav-links, .nav-cta { display:none; }
       #hero { grid-template-columns:1fr; min-height:auto; }
-      .hero-stage { height:90vw; }
-      .hero-panel { padding:3rem 2rem 2.5rem; border-right:none; border-bottom:1px solid var(--border); }
+      .hero-panel { display:contents; }
+      .hero-top { order:1; background:var(--linen); padding:3rem 2rem 1.5rem; }
+      .hero-stage { order:2; height:70vw; position:relative; }
+      .hero-bottom { order:3; background:var(--linen); padding:1.5rem 2rem 2.5rem; border-bottom:1px solid var(--border); }
       #intro { grid-template-columns:1fr; }
       .intro-left { border-right:none; border-bottom:1px solid var(--border); padding:3rem 2rem; }
       .intro-right { padding:3rem 2rem; }
@@ -304,22 +306,26 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-panel">
-    <p class="hero-overline">Master Chocolatier · Cape Town</p>
-    <h1 class="hero-title">Where<br><em>chocolate</em><br>becomes<br>unforgettable</h1>
-    <div class="hero-divider"></div>
-    <p class="hero-body">
-      <strong>Every ruffle, petal, spiral, and drip is handcrafted chocolate.</strong>
-      Bespoke Lindt couverture artistry by Cape Town's foremost chocolate cake artist —
-      designed not just to be admired, but to be the best thing anyone eats that day.
-    </p>
-    <div class="hero-ctas">
-      <a href="#contact" class="btn-primary">Commission a Cake</a>
+    <div class="hero-top">
+      <p class="hero-overline">Master Chocolatier · Cape Town</p>
+      <h1 class="hero-title">Where<br><em>chocolate</em><br>becomes<br>unforgettable</h1>
     </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem 1.5rem; border-top:1px solid var(--border); padding-top:1.8rem;">
-      <div><div class="d-label">Craft</div><div class="d-value">Lindt Couverture Chocolatier</div></div>
-      <div><div class="d-label">Credentials</div><div class="d-value">Qualified Dietician · Galliova 2003</div></div>
-      <div><div class="d-label">Location</div><div class="d-value">Melkbosstrand, Cape Town</div></div>
-      <div><div class="d-label">Enquiries</div><div class="d-value"><a href="https://wa.me/27000000000" style="color:var(--ink); text-decoration:none;">WhatsApp Welcome</a></div></div>
+    <div class="hero-bottom">
+      <div class="hero-divider"></div>
+      <p class="hero-body">
+        <strong>Every ruffle, petal, spiral, and drip is handcrafted chocolate.</strong>
+        Bespoke Lindt couverture artistry by Cape Town's foremost chocolate cake artist —
+        designed not just to be admired, but to be the best thing anyone eats that day.
+      </p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Commission a Cake</a>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem 1.5rem; border-top:1px solid var(--border); padding-top:1.8rem;">
+        <div><div class="d-label">Craft</div><div class="d-value">Lindt Couverture Chocolatier</div></div>
+        <div><div class="d-label">Credentials</div><div class="d-value">Qualified Dietician · Galliova 2003</div></div>
+        <div><div class="d-label">Location</div><div class="d-value">Melkbosstrand, Cape Town</div></div>
+        <div><div class="d-label">Enquiries</div><div class="d-value"><a href="https://wa.me/27000000000" style="color:var(--ink); text-decoration:none;">WhatsApp Welcome</a></div></div>
+      </div>
     </div>
   </div>
   <div class="hero-stage" id="heroStage">
