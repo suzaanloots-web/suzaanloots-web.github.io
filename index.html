@@ -41,9 +41,9 @@
     .nav-cta:hover { background:var(--mocha); }
 
     /* ── HERO ── */
-    #hero { padding-top:68px; min-height:100vh; display:grid; grid-template-columns:50% 50%; }
+    #hero { padding-top:68px; min-height:100vh; display:grid; grid-template-columns:1fr 28px 1fr; }
 
-    .hero-panel { background:var(--linen); display:flex; flex-direction:column; justify-content:center; padding:4rem 3.5rem 3rem; border-right:1px solid var(--border); position:relative; }
+    .hero-panel { background:var(--linen); display:flex; flex-direction:column; justify-content:center; padding:4rem 3.5rem 3rem; position:relative; }
     .hero-overline { font-size:0.72rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--caramel); margin-bottom:2rem; }
     .hero-title { font-family:var(--font-d); font-size:clamp(3rem,4vw,5.2rem); font-weight:300; line-height:1.0; color:var(--ink); margin-bottom:1.6rem; opacity:0; animation:fadeUp 0.8s 0.2s forwards; }
     .hero-title em { font-style:italic; color:var(--rose); }
@@ -64,6 +64,43 @@
     .hero-slide img { width:100%; height:100%; object-fit:cover; object-position:center center; display:block; }
     .slide-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(30,15,6,0.42) 0%, transparent 100%); padding:3rem 2rem 1.8rem; }
     .slide-caption-text { font-family:var(--font-d); font-style:italic; font-size:1rem; color:rgba(255,255,255,0.85); }
+
+    /* ── CHOCOLATE DRIP DIVIDER ── */
+    .hero-drip {
+      position:relative; overflow:hidden; pointer-events:none;
+      background:linear-gradient(90deg, var(--linen), rgba(107,58,31,0.04) 50%, var(--linen));
+      border-left:1px solid var(--border); border-right:1px solid var(--border);
+    }
+    .hero-drip::before {
+      content:''; position:absolute; inset:0; z-index:1;
+      background:linear-gradient(90deg, rgba(30,15,6,0.05) 0%, transparent 35%, transparent 65%, rgba(30,15,6,0.05) 100%);
+    }
+    .hero-drip::after {
+      content:''; position:absolute; top:50%; left:50%; z-index:2;
+      transform:translate(-50%,-50%) rotate(45deg);
+      width:6px; height:6px; background:var(--light-gold); opacity:0.5;
+    }
+    .choc-stream {
+      position:absolute; top:-200px; left:var(--x); width:var(--w,2px); height:var(--h,150px);
+      border-radius:1px; opacity:var(--o,0.5);
+      background:linear-gradient(180deg, transparent 0%, #5C2E0E 8%, #7B3F1A 35%, #4A2008 65%, #5C2E0E 92%, transparent 100%);
+      animation:dripDown var(--dur,6s) var(--del,0s) linear infinite;
+      will-change:transform;
+    }
+    .choc-drop {
+      position:absolute; top:-20px; left:var(--x); width:4px; height:7px;
+      border-radius:50%; opacity:var(--o,0.8);
+      background:radial-gradient(ellipse at 35% 30%, #8B4A20 0%, #4A2008 100%);
+      animation:dripDown var(--dur,5s) var(--del,0s) ease-in infinite;
+      will-change:transform;
+    }
+    @keyframes dripDown {
+      from { transform:translateY(0); }
+      to   { transform:translateY(calc(100vh + 300px)); }
+    }
+    @media(prefers-reduced-motion:reduce) {
+      .choc-stream, .choc-drop { animation:none; }
+    }
 
     /* ── BUTTONS ── */
     .btn-primary { display:inline-flex; align-items:center; background:var(--ink); color:var(--linen); padding:0.85rem 2rem; font-family:var(--font-b); font-size:0.79rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer; transition:all 0.25s; }
@@ -247,6 +284,7 @@
 
       /* Hero */
       #hero { grid-template-columns:1fr; min-height:auto; padding-top:56px; }
+      .hero-drip { display:none; }
       .hero-panel { display:contents; }
       .hero-top { order:1; background:var(--linen); padding:1rem 1.2rem 0.5rem; }
       .hero-overline { margin-bottom:0.4rem; font-size:0.65rem; }
@@ -398,6 +436,17 @@
         <div><div class="d-label">Enquiries</div><div class="d-value"><a href="https://wa.me/27000000000" style="color:var(--ink); text-decoration:none;">WhatsApp Welcome</a></div></div>
       </div>
     </div>
+  </div>
+  <div class="hero-drip" aria-hidden="true">
+    <div class="choc-stream" style="--x:3px;--w:1.5px;--h:140px;--dur:7s;--del:0s;--o:0.4"></div>
+    <div class="choc-stream" style="--x:8px;--w:2px;--h:200px;--dur:5.5s;--del:1.5s;--o:0.6"></div>
+    <div class="choc-stream" style="--x:13px;--w:1px;--h:100px;--dur:8.5s;--del:0.5s;--o:0.3"></div>
+    <div class="choc-stream" style="--x:17px;--w:2.5px;--h:220px;--dur:5s;--del:2.5s;--o:0.7"></div>
+    <div class="choc-stream" style="--x:22px;--w:1.5px;--h:160px;--dur:6.5s;--del:1s;--o:0.45"></div>
+    <div class="choc-stream" style="--x:12px;--w:1px;--h:80px;--dur:9s;--del:4s;--o:0.25"></div>
+    <div class="choc-drop" style="--x:8px;--dur:4.5s;--del:3s;--o:0.8"></div>
+    <div class="choc-drop" style="--x:17px;--dur:4s;--del:6.5s;--o:0.75"></div>
+    <div class="choc-drop" style="--x:13px;--dur:5s;--del:10s;--o:0.7"></div>
   </div>
   <div class="hero-stage" id="heroStage">
     <div class="hero-slide active"><img src="images/image_01.jpg" alt="Bespoke chocolate cake"/><div class="slide-caption"><span class="slide-caption-text">Bespoke chocolate artistry — handcrafted with Lindt couverture</span></div></div>
