@@ -61,7 +61,7 @@
     .hero-stage { position:relative; overflow:hidden; background:var(--parchment); }
     .hero-slide { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; }
     .hero-slide.active { opacity:1; }
-    .hero-slide img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
+    .hero-slide img { width:100%; height:100%; object-fit:contain; object-position:center center; display:block; }
     .slide-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(30,15,6,0.42) 0%, transparent 100%); padding:3rem 2rem 1.8rem; }
     .slide-caption-text { font-family:var(--font-d); font-style:italic; font-size:1rem; color:rgba(255,255,255,0.85); }
 
@@ -251,7 +251,7 @@
       .hero-top { order:1; background:var(--linen); padding:1rem 1.2rem 0.5rem; }
       .hero-overline { margin-bottom:0.4rem; font-size:0.65rem; }
       .hero-title { margin-bottom:0.3rem; font-size:clamp(2.2rem,7vw,3rem); }
-      .hero-stage { order:2; height:60vw; position:relative; }
+      .hero-stage { order:2; height:80vh; position:relative; }
       .hero-bottom { order:3; background:var(--linen); padding:0.6rem 1.2rem 1rem; border-bottom:1px solid var(--border); }
       .hero-divider { margin-bottom:0.5rem; }
       .hero-body { margin-bottom:0.6rem; line-height:1.6; font-size:0.9rem; }
