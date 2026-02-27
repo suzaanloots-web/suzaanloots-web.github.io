@@ -109,20 +109,38 @@
     .mobile-menu-overlay.open { display: block; }
 
     /* ── HERO ── */
-    #hero { padding-top:74px; min-height:75vh; display:grid; grid-template-columns:50% 50%; }
+    #hero { padding-top:74px; min-height:100vh; position:relative; }
 
-    .hero-panel { background:var(--linen); display:flex; flex-direction:column; justify-content:center; padding:4rem 3.5rem 3rem; border-right:1px solid var(--border); position:relative; }
+    .hero-panel {
+      position:absolute;
+      top:74px;
+      left:0;
+      bottom:0;
+      width:48%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:4rem 3.5rem 3rem;
+      background:linear-gradient(to right, var(--linen) 55%, rgba(250,247,242,0.85) 75%, rgba(250,247,242,0) 100%);
+      z-index:10;
+      border-right:none;
+    }
     .hero-title { font-family:var(--font-d); font-size:clamp(3rem,4vw,5.2rem); font-weight:300; line-height:1.0; color:var(--ink); margin-bottom:1.6rem; opacity:0; animation:fadeUp 0.8s 0.2s forwards; }
     .hero-title em { font-style:italic; color:var(--rose); }
     .hero-divider { width:40px; height:1px; background:var(--light-gold); margin-bottom:1.8rem; opacity:0; animation:fadeUp 0.8s 0.35s forwards; }
-    .hero-body { font-size:1rem; color:var(--text-mid); line-height:2; max-width:340px; margin-bottom:2.5rem; opacity:0; animation:fadeUp 0.8s 0.5s forwards; }
+    .hero-body { font-size:1rem; color:var(--text-mid); line-height:2; max-width:420px; margin-bottom:2.5rem; opacity:0; animation:fadeUp 0.8s 0.5s forwards; }
     .hero-body strong { color:var(--ink); font-weight:500; }
     .hero-ctas { display:flex; gap:0.9rem; flex-wrap:wrap; margin-bottom:3rem; opacity:0; animation:fadeUp 0.8s 0.65s forwards; }
-    .hero-stage { position:relative; overflow:hidden; background:var(--linen); }
+    .hero-stage { position:absolute; inset:0; top:74px; overflow:hidden; background:var(--parchment); }
     .hero-slide { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; }
     .hero-slide.active { opacity:1; }
     .hero-slide img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
-    .slide-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(30,15,6,0.42) 0%, transparent 100%); padding:3rem 2rem 1.8rem; }
+    /* Per-slide focal point — adjust after seeing live result */
+    .hero-slide:nth-child(1) img { object-position: 55% 20%; }
+    .hero-slide:nth-child(2) img { object-position: center 30%; }
+    .hero-slide:nth-child(3) img { object-position: 45% 25%; }
+    .hero-slide:nth-child(4) img { object-position: center 20%; }
+    .slide-caption { position:absolute; bottom:0; left:50%; right:0; background:linear-gradient(to top, rgba(30,15,6,0.42) 0%, transparent 100%); padding:3rem 2rem 1.8rem; }
     .slide-caption-text { font-family:var(--font-d); font-style:italic; font-size:1rem; color:rgba(255,255,255,0.85); }
 
     /* ── BUTTONS ── */
@@ -354,10 +372,11 @@
 
       /* Hero */
       #hero { grid-template-columns:1fr; min-height:auto; padding-top:60px; }
-      .hero-panel { display:contents; }
+      .hero-panel { position:relative; top:auto; width:100%; background:var(--linen); display:contents; }
       .hero-top { order:1; background:var(--linen); padding:1rem 1.2rem 0.5rem; }
       .hero-title { margin-bottom:0.3rem; font-size:clamp(2.2rem,7vw,3rem); }
-      .hero-stage { order:2; height:80vh; position:relative; }
+      .hero-stage { order:2; height:80vh; position:relative; inset:auto; top:auto; }
+      .slide-caption { left:0; }
       .hero-bottom { order:3; background:var(--linen); padding:0.6rem 1.2rem 1rem; border-bottom:1px solid var(--border); }
       .hero-divider { margin-bottom:0.5rem; }
       .hero-body { margin-bottom:0.6rem; line-height:1.6; font-size:0.9rem; }
@@ -512,10 +531,10 @@
     </div>
   </div>
   <div class="hero-stage" id="heroStage">
-    <div class="hero-slide active"><img src="images/image_01.jpg?v=2" alt="Bespoke chocolate cake"/><div class="slide-caption"><span class="slide-caption-text">Bespoke chocolate artistry — handcrafted with Lindt couverture</span></div></div>
-    <div class="hero-slide"><img src="images/image_03.jpg?v=2" alt="Handcrafted chocolate creation"/><div class="slide-caption"><span class="slide-caption-text">Every detail sculpted entirely by hand</span></div></div>
-    <div class="hero-slide"><img src="images/image_6.jpg?v=2" alt="Chocolate wedding cake"/><div class="slide-caption"><span class="slide-caption-text">Lindt couverture — designed to be unforgettable</span></div></div>
-    <div class="hero-slide"><img src="images/image_8.jpg?v=2" alt="Celebration chocolate cake"/><div class="slide-caption"><span class="slide-caption-text">Celebration cakes — crafted for your most important moments</span></div></div>
+    <div class="hero-slide active"><img src="images/hero_01.jpg" alt="Handcrafted chocolate floral wedding cake"/><div class="slide-caption"><span class="slide-caption-text">Handcrafted chocolate florals — every petal sculpted by hand</span></div></div>
+    <div class="hero-slide"><img src="images/hero_02.jpg" alt="Sculptural Lindt couverture wedding cake"/><div class="slide-caption"><span class="slide-caption-text">Sculptural Lindt couverture — where chocolate becomes art</span></div></div>
+    <div class="hero-slide"><img src="images/hero_03.jpg" alt="White chocolate textured celebration cake"/><div class="slide-caption"><span class="slide-caption-text">Texture, detail, and couverture — crafted for your day</span></div></div>
+    <div class="hero-slide"><img src="images/hero_04.jpg" alt="Elegant pearl cluster wedding cake"/><div class="slide-caption"><span class="slide-caption-text">Elegant simplicity — designed to be unforgettable</span></div></div>
   </div>
 </section>
 
