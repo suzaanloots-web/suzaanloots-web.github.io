@@ -350,10 +350,29 @@
     #insta { background:var(--linen); padding:2.5rem 3.5rem; text-align:center; border-top:1px solid var(--border); }
     .insta-handle { font-family:var(--font-d); font-size:2rem; font-style:italic; color:var(--ink); margin-bottom:0.3rem; }
     .insta-sub { font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-light); margin-bottom:2rem; }
-    .insta-row { display:flex; gap:4px; justify-content:center; margin-bottom:2rem; }
-    .insta-thumb { overflow:hidden; cursor:pointer; transition:opacity 0.2s, transform 0.2s; }
-    .insta-thumb img { width:85px; height:85px; object-fit:cover; display:block; }
-    .insta-thumb:hover { opacity:0.82; transform:scale(1.05); }
+    /* ── INSTAGRAM GRID ── */
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+    }
+    .insta-card {
+      overflow: hidden;
+      aspect-ratio: 1;
+      display: block;
+      transition: opacity 0.2s, transform 0.3s;
+    }
+    .insta-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+    .insta-card:hover { opacity: 0.9; }
+    .insta-card:hover img { transform: scale(1.05); }
 
     /* ── e) FOOTER — warm parchment, not dark ink ── */
     footer {
@@ -507,9 +526,7 @@
       #insta { padding:1rem 1.2rem; }
       .insta-handle { font-size:1.6rem; }
       .insta-sub { margin-bottom:0.6rem; font-size:0.68rem; }
-      .insta-row { margin-bottom:0.6rem; }
-      .insta-thumb img { width:65px; height:65px; }
-      .insta-thumb:nth-child(n+5) { width:65px !important; height:65px !important; }
+      .insta-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
 
       /* Footer */
       footer { padding:1rem 1.2rem; }
@@ -543,7 +560,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#about">The Work</a></li>
+    <li><a href="#offerings">Creations</a></li>
     <li><a href="#order">How It Works</a></li>
     <li><a href="#offerings">Creations</a></li>
     <li><a href="#reviews">Reviews</a></li>
@@ -827,15 +844,13 @@
 <div id="insta">
   <p class="insta-handle reveal">@kanyahunt</p>
   <p class="insta-sub reveal">Follow the chocolate journey · Cape Town</p>
-  <div class="insta-row">
-    <div class="insta-thumb"><img src="images/image_16.jpg?v=2" alt=""/></div>
-    <div class="insta-thumb"><img src="images/image_17.jpg?v=2" alt=""/></div>
-    <div class="insta-thumb"><img src="images/image_18.jpg?v=2" alt=""/></div>
-    <div class="insta-thumb"><img src="images/image_19.jpg?v=2" alt=""/></div>
-    <div class="insta-thumb"><img src="images/image_20.jpg?v=2" alt=""/></div>
-    <div class="insta-thumb"><img src="images/image_21.jpg?v=2" alt=""/></div>
+  <div class="insta-grid">
+    <a href="https://www.instagram.com/kanyahunt/" target="_blank" class="insta-card"><img src="images/image_16.jpg?v=2" alt="Handcrafted chocolate wedding cake with floral detail" loading="lazy"/></a>
+    <a href="https://www.instagram.com/kanyahunt/" target="_blank" class="insta-card"><img src="images/image_17.jpg?v=2" alt="White chocolate ruffle tier cake" loading="lazy"/></a>
+    <a href="https://www.instagram.com/kanyahunt/" target="_blank" class="insta-card"><img src="images/image_18.jpg?v=2" alt="Dark chocolate protea centrepiece cake" loading="lazy"/></a>
+    <a href="https://www.instagram.com/kanyahunt/" target="_blank" class="insta-card"><img src="images/image_19.jpg?v=2" alt="Lindt couverture celebration cake" loading="lazy"/></a>
   </div>
-  <a href="https://www.instagram.com/kanyahunt/" target="_blank" class="btn-secondary">Follow on Instagram</a>
+  <a href="https://www.instagram.com/kanyahunt/" target="_blank" class="btn-secondary" style="margin-top:2rem;">Follow on Instagram</a>
 </div>
 
 <!-- e) FOOTER — warm parchment palette -->
