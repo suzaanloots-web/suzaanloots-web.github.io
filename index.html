@@ -529,8 +529,18 @@
       .insta-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
 
       /* Footer */
-      footer { padding:1rem 1.2rem; }
-      .footer-top { grid-template-columns:1fr; gap:0.8rem; padding-bottom:0.8rem; margin-bottom:0.6rem; }
+      footer { padding:1.2rem 1.2rem; }
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem 1rem;
+        padding-bottom:1rem;
+        margin-bottom:0.8rem;
+      }
+      .footer-brand-col {
+        grid-column: 1 / -1;
+        text-align: center;
+      }
+      .footer-brand-col p { max-width:100% !important; margin-left:auto; margin-right:auto; }
       .footer-bottom { flex-direction:column; text-align:center; gap:0.3rem; }
       .footer-col-title { margin-bottom:0.4rem; }
       .footer-links { gap:0.3rem; }
