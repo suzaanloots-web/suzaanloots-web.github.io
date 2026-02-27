@@ -179,13 +179,13 @@
     .reviews-note { margin-top:2rem; font-size:0.85rem; color:var(--text-light); font-style:italic; font-family:var(--font-d); text-align:center; }
 
     /* ── g) CONTACT — form left, info+reviews right ── */
-    #contact { background:var(--white); padding:3rem 3.5rem 0.5rem; display:grid; grid-template-columns:1.4fr 1fr; gap:6rem; align-items:start; border-top:1px solid var(--border); }
+    #contact { background:var(--white); padding:3rem 3.5rem 0; display:grid; grid-template-columns:1.4fr 1fr; gap:6rem; align-items:start; border-top:1px solid var(--border); }
     .contact-lbl { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--rose); margin-bottom:0.2rem; }
     .contact-val { font-family:var(--font-d); font-size:1.12rem; color:var(--ink); }
     .contact-val a { color:var(--ink); text-decoration:none; transition:color 0.2s; }
     .contact-val a:hover { color:var(--mocha); }
     .contact-items { display:flex; flex-direction:column; gap:1.4rem; margin-top:2.5rem; }
-    .contact-note { margin-top:2rem; font-size:0.95rem; color:var(--text-mid); line-height:1.9; }
+    .contact-note { margin-top:0.5rem; font-size:0.95rem; color:var(--text-mid); line-height:1.9; }
     .contact-note strong { color:var(--ink); font-weight:500; }
     .contact-form { display:flex; flex-direction:column; gap:1.3rem; }
     .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.3rem; }
@@ -200,9 +200,9 @@
     /* ── IMAGE FRAME — image_31 overlay ── */
     .frame-overlay {
       position:relative;
-      display:inline-block;
+      display:block;
       margin-top:1.5rem;
-      max-width:320px;
+      width:100%;
     }
     .frame-overlay .frame-photo {
       display:block;
@@ -353,7 +353,7 @@
       .form-row { gap:0.8rem; }
 
       /* Frame */
-      .frame-overlay { margin-top:1rem; max-width:260px; }
+      .frame-overlay { margin-top:1rem; }
 
       /* Instagram */
       #insta { padding:1rem 1.2rem; }
