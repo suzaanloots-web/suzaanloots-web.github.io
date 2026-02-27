@@ -66,8 +66,8 @@
     .slide-caption-text { font-family:var(--font-d); font-style:italic; font-size:1rem; color:rgba(255,255,255,0.85); }
 
     /* ── BUTTONS ── */
-    .btn-primary { display:inline-flex; align-items:center; background:var(--ink); color:var(--linen); padding:0.85rem 2rem; font-family:var(--font-b); font-size:0.79rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer; transition:all 0.25s; }
-    .btn-primary:hover { background:var(--mocha); transform:translateY(-1px); }
+    .btn-primary { display:inline-flex; align-items:center; background:var(--mocha); color:var(--linen); padding:0.85rem 2rem; font-family:var(--font-b); font-size:0.79rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer; transition:all 0.25s; }
+    .btn-primary:hover { background:var(--ink); transform:translateY(-1px); }
     .btn-secondary { display:inline-flex; align-items:center; border:1px solid var(--ink); color:var(--ink); padding:0.85rem 2rem; font-family:var(--font-b); font-size:0.79rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; transition:all 0.25s; }
     .btn-secondary:hover { background:var(--ink); color:var(--linen); }
     .btn-ghost { display:inline-flex; align-items:center; border:1px solid rgba(155,96,53,0.35); color:var(--caramel); padding:0.75rem 1.8rem; font-family:var(--font-b); font-size:0.77rem; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; transition:all 0.25s; }
@@ -299,8 +299,9 @@
       .hero-bottom { order:3; background:var(--linen); padding:0.6rem 1.2rem 1rem; border-bottom:1px solid var(--border); }
       .hero-divider { margin-bottom:0.5rem; }
       .hero-body { margin-bottom:0.6rem; line-height:1.6; font-size:0.9rem; }
-      .hero-ctas { margin-bottom:0.6rem; }
-      .hero-ctas .btn-primary { padding:0.7rem 1.5rem; font-size:0.72rem; }
+      .hero-ctas { margin-bottom:0.6rem; flex-direction:row; align-items:center; }
+      .hero-ctas .btn-primary,
+      .hero-ctas .btn-secondary { padding:0.7rem 1.5rem; font-size:0.72rem; }
       .d-label { font-size:0.6rem; margin-bottom:0.1rem; }
       .d-value { font-size:0.9rem; }
 
