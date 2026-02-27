@@ -149,7 +149,7 @@
     .hero-slide:nth-child(3) img { object-position: 45% 25%; }
     .hero-slide:nth-child(4) img { object-position: center 20%; }
     .slide-caption { position:absolute; bottom:0; left:50%; right:0; background:linear-gradient(to top, rgba(30,15,6,0.42) 0%, transparent 100%); padding:3rem 2rem 1.8rem; }
-    .slide-caption-text { font-family:var(--font-d); font-style:italic; font-size:1rem; color:rgba(255,255,255,0.85); }
+    .slide-caption-text { font-family:var(--font-d); font-style:italic; font-size:1.15rem; color:#1E0F06; }
 
     /* ── MOBILE HERO TITLE OVERLAY — hidden on desktop ── */
     .hero-stage-title { display: none; }
@@ -200,7 +200,7 @@
     }
     .qs-trans {
       display: block;
-      font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+      font-size: clamp(1.2rem, 1.8vw, 1.45rem);
       font-weight: 300;
       color: var(--ink);
       font-family: var(--font-d);
@@ -375,6 +375,9 @@
     /* ── MOBILE ── */
     @media (max-width:900px) {
       nav { padding: 0 1.2rem; padding-top: max(env(safe-area-inset-top, 0px), 1rem); height: calc(60px + max(env(safe-area-inset-top, 0px), 1rem)); position: fixed; }
+      .nav-brand { flex-direction: row; align-items: baseline; gap: 0.5rem; }
+      .nav-brand-main { font-size: 1.05rem; letter-spacing: 0.08em; }
+      .nav-brand-sub { font-size: 0.7rem; }
       .nav-links, .nav-cta { display:none; }
 
       /* Mobile nav */
@@ -422,7 +425,7 @@
       #quote-strip { grid-template-columns: 1fr; }
       .qs-left { padding: 1.5rem 1.2rem; border-right: none; border-bottom: 1px solid var(--border); }
       .qs-quote { font-size: clamp(1.2rem, 4vw, 1.6rem); margin-bottom: 0.8rem; }
-      .qs-trans { font-size: clamp(0.9rem, 3vw, 1.1rem); }
+      .qs-trans { font-size: clamp(1rem, 3.5vw, 1.2rem); }
       .qs-right { padding: 1rem 1.2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem 1.5rem; }
 
       /* About */
