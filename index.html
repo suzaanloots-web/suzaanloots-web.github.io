@@ -230,13 +230,23 @@
     /* ── ABOUT — Left: gallery grid, Right: text ── */
     #about { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--border); }
     .about-gallery { background:var(--parchment); display:grid; grid-template-columns:1fr 1fr; }
-    .ag-item { overflow:hidden; position:relative; padding:6px; }
+    .ag-item {
+      overflow:hidden; position:relative;
+      border-radius:8px;
+      box-shadow:0 6px 24px rgba(30,15,6,0.09), 0 2px 6px rgba(30,15,6,0.05);
+      margin:6px;
+      transition:transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .ag-item:hover {
+      transform:translateY(-2px);
+      box-shadow:0 12px 32px rgba(30,15,6,0.13), 0 3px 10px rgba(30,15,6,0.07);
+    }
     .ag-item:nth-child(1) { grid-row:1/3; }
     .ag-item:nth-child(2) { grid-row:1/2; }
     .ag-item:nth-child(3) { grid-row:2/3; }
-    .ag-item img { width:100%; height:100%; min-height:220px; object-fit:cover; object-position:center top; display:block; transition:transform 0.5s; border-radius:40% 40% 6px 6px / 20% 20% 2% 2%; }
-    .ag-item:hover img { transform:scale(1.04); }
-    .ag-cap { position:absolute; inset:6px; border-radius:40% 40% 6px 6px / 20% 20% 2% 2%; background:rgba(30,15,6,0); transition:background 0.3s; display:flex; align-items:flex-end; padding:0.8rem; }
+    .ag-item img { width:100%; height:100%; min-height:220px; object-fit:cover; object-position:center top; display:block; border-radius:8px; transition:transform 0.5s ease; }
+    .ag-item:hover img { transform:scale(1.03); }
+    .ag-cap { position:absolute; inset:0; border-radius:8px; background:rgba(30,15,6,0); transition:background 0.3s; display:flex; align-items:flex-end; padding:0.8rem; }
     .ag-item:hover .ag-cap { background:rgba(30,15,6,0.25); }
     .ag-cap span { font-family:var(--font-d); font-style:italic; font-size:0.9rem; color:white; opacity:0; transition:opacity 0.3s; }
     .ag-item:hover .ag-cap span { opacity:1; }
@@ -320,6 +330,8 @@
       flex:1;
       min-height:0;
       overflow:hidden;
+      border-radius:8px;
+      box-shadow:0 6px 24px rgba(30,15,6,0.09), 0 2px 6px rgba(30,15,6,0.05);
     }
     .frame-overlay .frame-photo {
       position:absolute;
@@ -371,21 +383,25 @@
     }
     .insta-card {
       overflow: hidden;
-      aspect-ratio: 3/4;
+      aspect-ratio: 1;
       display: block;
-      border-radius: 40% 40% 6px 6px / 20% 20% 2% 2%;
-      box-shadow: 0 6px 24px rgba(30,15,6,0.08);
-      transition: opacity 0.2s, transform 0.3s;
+      border-radius: 8px;
+      box-shadow: 0 6px 24px rgba(30,15,6,0.09), 0 2px 6px rgba(30,15,6,0.05);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .insta-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(30,15,6,0.13), 0 3px 10px rgba(30,15,6,0.07);
     }
     .insta-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      border-radius: 8px;
       transition: transform 0.5s;
     }
-    .insta-card:hover { opacity: 0.9; }
-    .insta-card:hover img { transform: scale(1.05); }
+    .insta-card:hover img { transform: scale(1.03); }
 
     /* ── e) FOOTER — warm parchment, not dark ink ── */
     footer {
@@ -475,7 +491,8 @@
       .about-content { padding:1rem 1.2rem; }
       .about-intro-pair { flex-direction:row; gap:1rem; margin-bottom:1rem; align-items:center; }
       .about-portrait { width:120px; min-width:120px; border-radius:40% 40% 6px 6px / 20% 20% 2% 2%; }
-      .ag-item { padding:3px; }
+      .ag-item { margin:3px; border-radius:8px; }
+      .ag-item img { border-radius:8px; }
       .about-origin { font-size:1.1rem; margin-bottom:0; padding-left:0.8rem; }
       .about-body { margin-bottom:0.3rem; font-size:0.9rem; line-height:1.7; }
       .about-quote { margin:0.6rem 0; padding:0.8rem 1rem; font-size:1rem; }
@@ -532,7 +549,8 @@
       #insta { padding:1rem 1.2rem; }
       .insta-handle { font-size:1.6rem; }
       .insta-sub { margin-bottom:0.6rem; font-size:0.68rem; }
-      .insta-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
+      .insta-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+      .insta-card { border-radius:8px; }
 
       /* Footer */
       footer { padding:1.2rem 1.2rem; }
