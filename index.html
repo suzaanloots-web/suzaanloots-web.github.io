@@ -203,12 +203,15 @@
       display:block;
       margin-top:1.5rem;
       width:100%;
+      max-height:480px;
+      overflow:hidden;
     }
     .frame-overlay .frame-photo {
       display:block;
       width:100%;
-      height:auto;
+      height:100%;
       object-fit:cover;
+      object-position:center top;
     }
     .frame-overlay .frame-border {
       position:absolute;
@@ -353,7 +356,7 @@
       .form-row { gap:0.8rem; }
 
       /* Frame */
-      .frame-overlay { margin-top:1rem; }
+      .frame-overlay { margin-top:1rem; max-height:none; }
 
       /* Instagram */
       #insta { padding:1rem 1.2rem; }
