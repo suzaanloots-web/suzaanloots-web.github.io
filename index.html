@@ -197,127 +197,28 @@
     .btn-submit { align-self:flex-start; background:var(--ink); color:var(--linen); padding:0.95rem 3rem; font-family:var(--font-b); font-size:0.79rem; letter-spacing:0.14em; text-transform:uppercase; border:none; cursor:pointer; transition:all 0.25s; }
     .btn-submit:hover { background:var(--mocha); transform:translateY(-1px); }
 
-    /* ── PARISIAN FRAME — Rococo-inspired ── */
-    .frame-parisian {
+    /* ── IMAGE FRAME — image_31 overlay ── */
+    .frame-overlay {
       position:relative;
-      padding:22px;
-      background:linear-gradient(135deg, #F7F0E3 0%, #FAF7F2 40%, #F0E6D3 100%);
+      display:inline-block;
       margin-top:1.5rem;
-      box-shadow:
-        0 0 0 1px rgba(212,170,96,0.3),
-        0 0 0 3px var(--linen),
-        0 0 0 4px var(--light-gold),
-        0 0 0 7px var(--linen),
-        0 0 0 8px rgba(212,170,96,0.25),
-        0 4px 20px rgba(30,15,6,0.08);
+      max-width:320px;
     }
-    /* Outer decorative border */
-    .frame-parisian::before {
-      content:'';
-      position:absolute;
-      inset:10px;
-      border:1px solid var(--light-gold);
-      border-image:repeating-linear-gradient(
-        90deg,
-        var(--light-gold) 0px, var(--light-gold) 8px,
-        transparent 8px, transparent 14px,
-        rgba(212,170,96,0.4) 14px, rgba(212,170,96,0.4) 16px,
-        transparent 16px, transparent 22px
-      ) 1;
-      pointer-events:none;
-    }
-    /* Inner fine border */
-    .frame-parisian::after {
-      content:'';
-      position:absolute;
-      inset:14px;
-      border:1px solid rgba(212,170,96,0.35);
-      pointer-events:none;
-    }
-    .frame-parisian-inner {
-      position:relative;
+    .frame-overlay .frame-photo {
+      display:block;
       width:100%;
-      overflow:hidden;
-      box-shadow:inset 0 0 12px rgba(30,15,6,0.1);
+      height:auto;
+      object-fit:cover;
     }
-    .frame-parisian-inner img {
+    .frame-overlay .frame-border {
+      position:absolute;
+      inset:0;
       width:100%;
       height:100%;
-      object-fit:cover;
-      display:block;
-    }
-
-    /* Corner ornaments — Rococo scrollwork */
-    .frame-corner {
-      position:absolute;
-      width:28px;
-      height:28px;
+      object-fit:fill;
       pointer-events:none;
-      z-index:2;
+      z-index:1;
     }
-    .frame-corner::before,
-    .frame-corner::after {
-      content:'';
-      position:absolute;
-      background:var(--light-gold);
-      border-radius:50%;
-    }
-    /* Ornamental dot */
-    .frame-corner::before {
-      width:6px; height:6px;
-    }
-    /* Scrollwork arc */
-    .frame-corner::after {
-      width:22px; height:22px;
-      background:transparent;
-      border:1.5px solid var(--light-gold);
-    }
-    .fc-tl { top:4px; left:4px; }
-    .fc-tl::before { top:0; left:0; }
-    .fc-tl::after  { top:2px; left:2px; border-radius:0 0 100% 0; border-top:none; border-left:none; }
-    .fc-tr { top:4px; right:4px; }
-    .fc-tr::before { top:0; right:0; }
-    .fc-tr::after  { top:2px; right:2px; border-radius:0 0 0 100%; border-top:none; border-right:none; }
-    .fc-bl { bottom:4px; left:4px; }
-    .fc-bl::before { bottom:0; left:0; }
-    .fc-bl::after  { bottom:2px; left:2px; border-radius:0 100% 0 0; border-bottom:none; border-left:none; }
-    .fc-br { bottom:4px; right:4px; }
-    .fc-br::before { bottom:0; right:0; }
-    .fc-br::after  { bottom:2px; right:2px; border-radius:100% 0 0 0; border-bottom:none; border-right:none; }
-
-    /* Edge mid-point flourishes */
-    .frame-edge {
-      position:absolute;
-      pointer-events:none;
-      z-index:2;
-    }
-    .frame-edge::before {
-      content:'';
-      position:absolute;
-      background:var(--light-gold);
-      border-radius:50%;
-    }
-    .frame-edge::after {
-      content:'';
-      position:absolute;
-      width:30px;
-      height:1px;
-      background:linear-gradient(90deg, transparent, var(--light-gold), transparent);
-    }
-    .fe-top, .fe-bottom { left:50%; transform:translateX(-50%); }
-    .fe-top { top:5px; }
-    .fe-top::before { width:5px; height:5px; top:0; left:50%; transform:translateX(-50%); }
-    .fe-top::after { top:6px; left:50%; transform:translateX(-50%); }
-    .fe-bottom { bottom:5px; }
-    .fe-bottom::before { width:5px; height:5px; bottom:0; left:50%; transform:translateX(-50%); }
-    .fe-bottom::after { bottom:6px; left:50%; transform:translateX(-50%); }
-    .fe-left, .fe-right { top:50%; transform:translateY(-50%); }
-    .fe-left { left:5px; }
-    .fe-left::before { width:5px; height:5px; left:0; top:50%; transform:translateY(-50%); }
-    .fe-left::after { width:1px; height:30px; left:2px; top:50%; transform:translateY(-50%); background:linear-gradient(180deg, transparent, var(--light-gold), transparent); }
-    .fe-right { right:5px; }
-    .fe-right::before { width:5px; height:5px; right:0; top:50%; transform:translateY(-50%); }
-    .fe-right::after { width:1px; height:30px; right:2px; top:50%; transform:translateY(-50%); background:linear-gradient(180deg, transparent, var(--light-gold), transparent); }
 
     /* ── INSTAGRAM — now AFTER contact ── */
     #insta { background:var(--linen); padding:2.5rem 3.5rem; text-align:center; border-top:1px solid var(--border); }
@@ -452,14 +353,7 @@
       .form-row { gap:0.8rem; }
 
       /* Frame */
-      .frame-parisian { margin-top:1rem; padding:14px; }
-      .frame-parisian::before { inset:6px; }
-      .frame-parisian::after { inset:9px; }
-      .frame-corner { width:18px; height:18px; }
-      .frame-corner::before { width:4px; height:4px; }
-      .frame-corner::after { width:14px; height:14px; }
-      .frame-edge::after { width:20px; }
-      .fe-left::after, .fe-right::after { height:20px; }
+      .frame-overlay { margin-top:1rem; max-width:260px; }
 
       /* Instagram */
       #insta { padding:1rem 1.2rem; }
@@ -513,7 +407,6 @@
 <section id="hero">
   <div class="hero-panel">
     <div class="hero-top">
-      <p class="hero-overline">Chocolatier Extraordinaire · Cape Town</p>
       <h1 class="hero-title">Where<br><em>chocolate</em><br>becomes<br>unforgettable</h1>
     </div>
     <div class="hero-bottom">
@@ -674,18 +567,9 @@
   <div class="reveal d1">
     <p class="eyebrow">Say Hello</p>
     <h2 class="display-title">Let's create something<br><em>extraordinary</em></h2>
-    <div class="frame-parisian">
-      <span class="frame-corner fc-tl"></span>
-      <span class="frame-corner fc-tr"></span>
-      <span class="frame-corner fc-bl"></span>
-      <span class="frame-corner fc-br"></span>
-      <span class="frame-edge fe-top"></span>
-      <span class="frame-edge fe-bottom"></span>
-      <span class="frame-edge fe-left"></span>
-      <span class="frame-edge fe-right"></span>
-      <div class="frame-parisian-inner">
-        <img src="images/image_29.jpg" alt="Chocolate artistry by Kanya Hunt"/>
-      </div>
+    <div class="frame-overlay">
+      <img class="frame-photo" src="images/image_29.jpg" alt="Chocolate artistry by Kanya Hunt"/>
+      <img class="frame-border" src="images/image_31.jpg" alt=""/>
     </div>
   </div>
 
