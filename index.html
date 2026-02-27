@@ -281,7 +281,7 @@
     .reviews-note { margin-top:2rem; font-size:1rem; color:var(--text-light); font-style:italic; font-family:var(--font-d); text-align:center; }
 
     /* ── g) CONTACT — form left, info+reviews right ── */
-    #contact { background:var(--white); padding:3rem 3.5rem 0; display:grid; grid-template-columns:1.4fr 1fr; column-gap:6rem; row-gap:1.5rem; align-items:stretch; border-top:1px solid var(--border); }
+    #contact { background:var(--white); padding:3rem 3.5rem 2.5rem; display:grid; grid-template-columns:1.4fr 1fr; column-gap:6rem; row-gap:1.5rem; align-items:stretch; border-top:1px solid var(--border); }
     #contact > .reveal.d1 { display:flex; flex-direction:column; min-height:0; overflow:hidden; }
     .contact-lbl { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--rose); margin-bottom:0.2rem; }
     .contact-val { font-family:var(--font-d); font-size:1.12rem; color:var(--ink); }
@@ -329,17 +329,19 @@
       z-index:1;
     }
 
-    /* Contact details grid — mirrors credentials strip layout */
+    /* Contact details grid — pushed to bottom of right column */
     .contact-details-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.6rem 2rem;
-      margin-top: 1.8rem;
+      margin-top: auto;
+      padding-top: 1.8rem;
     }
 
-    /* Constrain frame image to strip height */
+    /* Frame image fills available space between heading and details */
     .frame-strip {
-      max-height: 220px;
+      flex: 1;
+      min-height: 180px;
       margin-top: 1.5rem;
     }
 
@@ -497,8 +499,8 @@
       /* Frame */
       .frame-overlay { margin-top:1rem; max-height:none; height:auto; flex:none; }
       .frame-overlay .frame-photo { position:relative; inset:auto; }
-      .contact-details-grid { gap: 0.8rem 1.5rem; margin-top: 1rem; }
-      .frame-strip { max-height: 160px; }
+      .contact-details-grid { gap: 0.8rem 1.5rem; margin-top: 1rem; padding-top: 0; }
+      .frame-strip { flex: none; min-height: auto; max-height: 220px; }
 
       /* Instagram */
       #insta { padding:1rem 1.2rem; }
