@@ -180,7 +180,7 @@
 
     /* ── g) CONTACT — form left, info+reviews right ── */
     #contact { background:var(--white); padding:3rem 3.5rem 0; display:grid; grid-template-columns:1.4fr 1fr; column-gap:6rem; row-gap:1.5rem; align-items:stretch; border-top:1px solid var(--border); }
-    #contact > .reveal.d1 { display:flex; flex-direction:column; }
+    #contact > .reveal.d1 { display:flex; flex-direction:column; min-height:0; overflow:hidden; }
     .contact-lbl { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--rose); margin-bottom:0.2rem; }
     .contact-val { font-family:var(--font-d); font-size:1.12rem; color:var(--ink); }
     .contact-val a { color:var(--ink); text-decoration:none; transition:color 0.2s; }
@@ -209,6 +209,8 @@
       overflow:hidden;
     }
     .frame-overlay .frame-photo {
+      position:absolute;
+      inset:0;
       display:block;
       width:100%;
       height:100%;
@@ -342,7 +344,7 @@
       /* Contact & Reviews */
       #contact { grid-template-columns:1fr; padding:1rem 1.2rem; gap:1rem; align-items:start; }
       #contact .contact-form { order:2; }
-      #contact > .reveal.d1 { order:1; }
+      #contact > .reveal.d1 { order:1; overflow:visible; min-height:auto; }
       #contact .reviews-inline { order:3; }
       .contact-items { margin-top:0.8rem; gap:0.5rem; }
       .contact-note { margin-top:0.6rem; font-size:0.88rem; }
@@ -358,7 +360,8 @@
       .form-row { gap:0.8rem; }
 
       /* Frame */
-      .frame-overlay { margin-top:1rem; max-height:none; }
+      .frame-overlay { margin-top:1rem; max-height:none; height:auto; flex:none; }
+      .frame-overlay .frame-photo { position:relative; inset:auto; }
 
       /* Instagram */
       #insta { padding:1rem 1.2rem; }
