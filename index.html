@@ -143,6 +143,9 @@
     .slide-caption { position:absolute; bottom:0; left:50%; right:0; background:linear-gradient(to top, rgba(30,15,6,0.42) 0%, transparent 100%); padding:3rem 2rem 1.8rem; }
     .slide-caption-text { font-family:var(--font-d); font-style:italic; font-size:1rem; color:rgba(255,255,255,0.85); }
 
+    /* ── MOBILE HERO TITLE OVERLAY — hidden on desktop ── */
+    .hero-stage-title { display: none; }
+
     /* ── BUTTONS ── */
     .btn-primary { display:inline-flex; align-items:center; background:var(--mocha); color:var(--linen); padding:0.85rem 2rem; font-family:var(--font-b); font-size:0.79rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer; transition:all 0.25s; }
     .btn-primary:hover { background:var(--ink); transform:translateY(-1px); }
@@ -373,9 +376,27 @@
       /* Hero */
       #hero { display:grid; grid-template-columns:1fr; min-height:auto; padding-top:60px; position:static; }
       .hero-panel { position:relative; top:auto; width:100%; background:var(--linen); display:contents; }
-      .hero-top { order:1; background:var(--linen); padding:1rem 1.2rem 0.5rem; }
+      .hero-top { display: none; }
       .hero-title { margin-bottom:0.3rem; font-size:clamp(2.2rem,7vw,3rem); }
-      .hero-stage { order:2; height:80vh; position:relative; inset:auto; top:auto; }
+      .hero-stage { order:2; height:85vh; position:relative; inset:auto; top:auto; }
+
+      /* Hero title overlay on image */
+      .hero-stage-title {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        padding: 1.5rem 1.2rem 3rem;
+        background: linear-gradient(to bottom, var(--linen) 20%, rgba(250,247,242,0.85) 50%, rgba(250,247,242,0) 100%);
+      }
+      .hero-stage-title .hero-title {
+        opacity: 1;
+        animation: none;
+        font-size: clamp(2.2rem, 7vw, 3rem);
+        margin-bottom: 0;
+      }
       .slide-caption { left:0; }
       .hero-bottom { order:3; background:var(--linen); padding:0.6rem 1.2rem 1rem; border-bottom:1px solid var(--border); }
       .hero-divider { margin-bottom:0.5rem; }
@@ -531,6 +552,9 @@
     </div>
   </div>
   <div class="hero-stage" id="heroStage">
+    <div class="hero-stage-title">
+      <h1 class="hero-title">Where<br><em>chocolate</em><br>becomes<br>unforgettable</h1>
+    </div>
     <div class="hero-slide active"><img src="images/hero_01.jpg" alt="Handcrafted chocolate floral wedding cake"/><div class="slide-caption"><span class="slide-caption-text">Handcrafted chocolate florals — every petal sculpted by hand</span></div></div>
     <div class="hero-slide"><img src="images/hero_02.jpg" alt="Sculptural Lindt couverture wedding cake"/><div class="slide-caption"><span class="slide-caption-text">Sculptural Lindt couverture — where chocolate becomes art</span></div></div>
     <div class="hero-slide"><img src="images/hero_03.jpg" alt="White chocolate textured celebration cake"/><div class="slide-caption"><span class="slide-caption-text">Texture, detail, and couverture — crafted for your day</span></div></div>
