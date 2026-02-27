@@ -329,6 +329,20 @@
       z-index:1;
     }
 
+    /* Contact details grid — mirrors credentials strip layout */
+    .contact-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem 2rem;
+      margin-top: 1.8rem;
+    }
+
+    /* Constrain frame image to strip height */
+    .frame-strip {
+      max-height: 220px;
+      margin-top: 1.5rem;
+    }
+
     /* ── INSTAGRAM — now AFTER contact ── */
     #insta { background:var(--linen); padding:2.5rem 3.5rem; text-align:center; border-top:1px solid var(--border); }
     .insta-handle { font-family:var(--font-d); font-size:2rem; font-style:italic; color:var(--ink); margin-bottom:0.3rem; }
@@ -483,6 +497,8 @@
       /* Frame */
       .frame-overlay { margin-top:1rem; max-height:none; height:auto; flex:none; }
       .frame-overlay .frame-photo { position:relative; inset:auto; }
+      .contact-details-grid { gap: 0.8rem 1.5rem; margin-top: 1rem; }
+      .frame-strip { max-height: 160px; }
 
       /* Instagram */
       #insta { padding:1rem 1.2rem; }
@@ -737,9 +753,27 @@
   <div class="reveal d1">
     <p class="eyebrow">Say Hello</p>
     <h2 class="display-title">Let's create something<br><em>extraordinary</em></h2>
-    <div class="frame-overlay">
+    <div class="frame-overlay frame-strip">
       <img class="frame-photo" src="images/image_29.jpg?v=2" alt="Chocolate artistry by Kanya Hunt"/>
       <img class="frame-border" src="images/image_31.jpg?v=2" alt=""/>
+    </div>
+    <div class="contact-details-grid">
+      <div>
+        <div class="d-label">WhatsApp</div>
+        <div class="d-value"><a href="https://wa.me/27000000000">+27 (0)00 000 0000</a></div>
+      </div>
+      <div>
+        <div class="d-label">Email</div>
+        <div class="d-value"><a href="mailto:kanya@hunthousekitchen.co.za">kanya@hunthousekitchen.co.za</a></div>
+      </div>
+      <div>
+        <div class="d-label">Instagram</div>
+        <div class="d-value"><a href="https://www.instagram.com/kanyahunt/" target="_blank">@kanyahunt</a></div>
+      </div>
+      <div>
+        <div class="d-label">Location</div>
+        <div class="d-value">Melkbosstrand, Cape Town</div>
+      </div>
     </div>
   </div>
 
