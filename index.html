@@ -89,6 +89,47 @@
     .d-value { font-family:var(--font-d); font-size:1.08rem; color:var(--ink); line-height:1.3; }
     .d-value a { color:var(--ink); text-decoration:none; }
 
+    /* ── AFRIKAANS QUOTE + CREDENTIALS STRIP ── */
+    #quote-strip {
+      background: var(--linen);
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .qs-left {
+      padding: 3rem 3.5rem;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .qs-quote {
+      font-family: var(--font-d);
+      font-style: italic;
+      font-size: clamp(1.6rem, 2.4vw, 2.5rem);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.45;
+      margin-bottom: 1.2rem;
+    }
+    .qs-trans {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-family: var(--font-d);
+      font-style: italic;
+      padding-left: 1rem;
+      border-left: 1px solid var(--border);
+    }
+    .qs-right {
+      padding: 3rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.6rem;
+    }
+    .qs-detail { }
+
     /* ── ABOUT — Left: gallery grid, Right: text ── */
     #about { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--border); }
     .about-gallery { background:var(--parchment); display:grid; grid-template-columns:1fr 1fr; }
@@ -260,9 +301,15 @@
       .hero-body { margin-bottom:0.6rem; line-height:1.6; font-size:0.9rem; }
       .hero-ctas { margin-bottom:0.6rem; }
       .hero-ctas .btn-primary { padding:0.7rem 1.5rem; font-size:0.72rem; }
-      .hero-bottom > div:last-child { padding-top:0.8rem; gap:0.6rem 1rem; }
       .d-label { font-size:0.6rem; margin-bottom:0.1rem; }
       .d-value { font-size:0.9rem; }
+
+      /* Quote strip */
+      #quote-strip { grid-template-columns: 1fr; }
+      .qs-left { padding: 1.5rem 1.2rem; border-right: none; border-bottom: 1px solid var(--border); }
+      .qs-quote { font-size: clamp(1.2rem, 4vw, 1.6rem); margin-bottom: 0.8rem; }
+      .qs-trans { font-size: 0.78rem; }
+      .qs-right { padding: 1rem 1.2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem 1.5rem; }
 
       /* About */
       #about { grid-template-columns:1fr; }
@@ -382,12 +429,6 @@
       <div class="hero-ctas">
         <a href="#contact" class="btn-primary">Commission a Cake</a>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem 1.5rem; border-top:1px solid var(--border); padding-top:1.8rem;">
-        <div><div class="d-label">Craft</div><div class="d-value">Lindt Couverture Chocolatier</div></div>
-        <div><div class="d-label">Credentials</div><div class="d-value">Qualified Dietician · Galliova 2003</div></div>
-        <div><div class="d-label">Location</div><div class="d-value">Melkbosstrand, Cape Town</div></div>
-        <div><div class="d-label">Enquiries</div><div class="d-value"><a href="https://wa.me/27000000000" style="color:var(--ink); text-decoration:none;">WhatsApp Welcome</a></div></div>
-      </div>
     </div>
   </div>
   <div class="hero-stage" id="heroStage">
@@ -398,7 +439,31 @@
   </div>
 </section>
 
-
+<!-- AFRIKAANS QUOTE + CREDENTIALS STRIP -->
+<section id="quote-strip">
+  <div class="qs-left reveal">
+    <blockquote class="qs-quote">"Dit is in my wese: ek droom oor koek en obsesseer oor mooi koekgoed. Dis my manier om kuns tot 'n mate uit te beeld."</blockquote>
+    <span class="qs-trans">It is in my nature: I dream about cake and obsess over beautiful bakes — my way of expressing art. · Kanya Hunt</span>
+  </div>
+  <div class="qs-right reveal d1">
+    <div class="qs-detail">
+      <div class="d-label">Craft</div>
+      <div class="d-value">Lindt Couverture Chocolatier</div>
+    </div>
+    <div class="qs-detail">
+      <div class="d-label">Credentials</div>
+      <div class="d-value">Qualified Dietician · Galliova 2003</div>
+    </div>
+    <div class="qs-detail">
+      <div class="d-label">Location</div>
+      <div class="d-value">Melkbosstrand, Cape Town</div>
+    </div>
+    <div class="qs-detail">
+      <div class="d-label">Enquiries</div>
+      <div class="d-value"><a href="https://wa.me/27000000000" style="color:var(--ink); text-decoration:none;">WhatsApp Welcome</a></div>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT — Left: The Work gallery, Right: story -->
 <section id="about">
