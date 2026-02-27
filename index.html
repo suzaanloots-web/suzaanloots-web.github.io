@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>The Hunt House Kitchen — Where Chocolate Becomes Art · Kanya Hunt · Cape Town</title>
   <meta name="description" content="Bespoke chocolate wedding and celebration cakes by Kanya Hunt — chocolatier extraordinaire and qualified dietician. Cape Town & Winelands."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -374,7 +374,7 @@
 
     /* ── MOBILE ── */
     @media (max-width:900px) {
-      nav { padding:0 1.2rem; height:60px; }
+      nav { padding:0 1.2rem; height:60px; padding-top: max(env(safe-area-inset-top, 0px), 0.5rem); }
       .nav-links, .nav-cta { display:none; }
 
       /* Mobile nav */
@@ -382,7 +382,7 @@
       .mobile-menu { display: flex; }
 
       /* Hero */
-      #hero { display:grid; grid-template-columns:1fr; min-height:auto; padding-top:60px; position:static; }
+      #hero { display:grid; grid-template-columns:1fr; min-height:auto; padding-top:calc(60px + env(safe-area-inset-top, 0px)); position:static; }
       .hero-panel { position:relative; top:auto; width:100%; background:var(--linen); display:contents; }
       .hero-top { display: none; }
       .hero-title { margin-bottom:0.3rem; font-size:clamp(2.2rem,7vw,3rem); }
