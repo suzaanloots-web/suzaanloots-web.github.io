@@ -374,7 +374,7 @@
 
     /* ── MOBILE ── */
     @media (max-width:900px) {
-      nav { padding:0 1.2rem; height:60px; padding-top: max(env(safe-area-inset-top, 0px), 0.5rem); }
+      nav { padding: 0 1.2rem; padding-top: max(env(safe-area-inset-top, 0px), 1rem); height: calc(60px + max(env(safe-area-inset-top, 0px), 1rem)); position: fixed; }
       .nav-links, .nav-cta { display:none; }
 
       /* Mobile nav */
@@ -382,7 +382,7 @@
       .mobile-menu { display: flex; }
 
       /* Hero */
-      #hero { display:grid; grid-template-columns:1fr; min-height:auto; padding-top:calc(60px + env(safe-area-inset-top, 0px)); position:static; }
+      #hero { display:grid; grid-template-columns:1fr; min-height:auto; padding-top:calc(60px + max(env(safe-area-inset-top, 0px), 1rem)); position:static; }
       .hero-panel { position:relative; top:auto; width:100%; background:var(--linen); display:contents; }
       .hero-top { display: none; }
       .hero-title { margin-bottom:0.3rem; font-size:clamp(2.2rem,7vw,3rem); }
