@@ -447,6 +447,45 @@
 
     @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
 
+    /* Hero video strip — between buttons and thumbnails */
+    .hero-video-strip {
+      position: relative;
+      width: 100%;
+      height: 130px;
+      overflow: hidden;
+      margin-bottom: 1.8rem;
+      border-radius: 2px;
+    }
+    .hero-video-strip video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      filter: brightness(1.2) saturate(0.85);
+    }
+    .hero-video-strip .strip-fade {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background:
+        linear-gradient(to bottom,
+          var(--linen) 0%,
+          rgba(250,247,242,0) 20%,
+          rgba(250,247,242,0) 80%,
+          var(--linen) 100%
+        ),
+        linear-gradient(to right,
+          var(--linen) 0%,
+          rgba(250,247,242,0) 10%,
+          rgba(250,247,242,0) 90%,
+          var(--linen) 100%
+        );
+    }
+
     /* ── MOBILE ── */
     @media (max-width:900px) {
       nav { padding: 0 1.2rem; padding-top: max(env(safe-area-inset-top, 0px), 1rem); height: calc(60px + max(env(safe-area-inset-top, 0px), 1rem)); position: fixed; }
@@ -494,6 +533,7 @@
       .hero-ctas { margin-bottom:0.6rem; flex-direction:row; align-items:center; }
       .hero-ctas .btn-primary,
       .hero-ctas .btn-secondary { padding:0.7rem 1.5rem; font-size:0.72rem; }
+      .hero-video-strip { height: 90px; margin-bottom: 1.4rem; }
       .d-label { font-size:0.72rem; margin-bottom:0.1rem; }
       .d-value { font-size:0.9rem; }
 
@@ -659,6 +699,13 @@
       <div class="hero-ctas">
         <a href="#contact" class="btn-primary">Commission a Cake</a>
         <a href="https://wa.me/27000000000" target="_blank" class="btn-secondary">WhatsApp Kanya</a>
+      </div>
+
+      <div class="hero-video-strip">
+        <video autoplay muted loop playsinline>
+          <source src="images/chocolate-pour-web.mp4" type="video/mp4"/>
+        </video>
+        <div class="strip-fade"></div>
       </div>
     </div>
   </div>
