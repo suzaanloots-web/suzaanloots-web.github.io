@@ -532,11 +532,27 @@
       .hero-bottom { order:3; background:var(--linen); padding:0.6rem 1.2rem 1rem; border-bottom:1px solid var(--border); }
       .hero-divider { margin-bottom:0.5rem; }
       .hero-body { margin-bottom:0.6rem; line-height:1.6; font-size:0.9rem; }
-      .hero-ctas { margin-bottom:0.6rem; flex-direction:row; align-items:center; }
+      .hero-ctas { margin-bottom:0; flex-direction:column; align-items:flex-start; }
       .hero-ctas .btn-primary,
       .hero-ctas .btn-secondary { padding:0.7rem 1.5rem; font-size:0.72rem; }
-      .hero-video-strip { width: 100%; height: 200px; margin-top: -1.2rem; margin-bottom: 1.4rem; }
-      .hero-video-strip video { object-position: center 20%; }
+      .hero-video-strip { width: 100%; height: 200px; margin-top: -4.5rem; margin-bottom: 1.4rem; }
+      .hero-video-strip video { object-position: 70% 20%; }
+      .hero-video-strip .strip-fade {
+        background:
+          linear-gradient(to bottom,
+            var(--linen) 0%,
+            rgba(250,247,242,0) 40%,
+            rgba(250,247,242,0) 85%,
+            var(--linen) 100%
+          ),
+          linear-gradient(to right,
+            var(--linen) 0%,
+            rgba(250,247,242,0.4) 35%,
+            rgba(250,247,242,0) 55%,
+            rgba(250,247,242,0) 80%,
+            var(--linen) 100%
+          );
+      }
       .d-label { font-size:0.72rem; margin-bottom:0.1rem; }
       .d-value { font-size:0.9rem; }
 
