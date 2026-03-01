@@ -149,7 +149,7 @@
     .hero-divider { width:40px; height:1px; background:var(--light-gold); margin-bottom:1.8rem; opacity:0; animation:fadeUp 0.8s 0.35s forwards; }
     .hero-body { font-size:1rem; color:var(--text-mid); line-height:2; max-width:420px; margin-bottom:2.5rem; opacity:0; animation:fadeUp 0.8s 0.5s forwards; }
     .hero-body strong { color:var(--ink); font-weight:500; }
-    .hero-ctas { display:flex; gap:0.9rem; flex-wrap:wrap; margin-bottom:3rem; opacity:0; animation:fadeUp 0.8s 0.65s forwards; }
+    .hero-ctas { display:flex; gap:0.9rem; flex-wrap:wrap; margin-bottom:3rem; opacity:0; animation:fadeUp 0.8s 0.65s forwards; position:relative; z-index:2; }
     .hero-stage { position:absolute; inset:0; top:74px; overflow:hidden; background:var(--parchment); }
     .hero-slide { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; }
     .hero-slide.active { opacity:1; }
@@ -453,6 +453,7 @@
       width: 80%;
       height: 180px;
       overflow: hidden;
+      margin-top: -2.2rem;
       margin-bottom: 1.8rem;
       border-radius: 0;
     }
@@ -475,7 +476,7 @@
       background:
         linear-gradient(to bottom,
           var(--linen) 0%,
-          rgba(250,247,242,0) 15%,
+          rgba(250,247,242,0) 30%,
           rgba(250,247,242,0) 85%,
           var(--linen) 100%
         ),
@@ -534,7 +535,7 @@
       .hero-ctas { margin-bottom:0.6rem; flex-direction:row; align-items:center; }
       .hero-ctas .btn-primary,
       .hero-ctas .btn-secondary { padding:0.7rem 1.5rem; font-size:0.72rem; }
-      .hero-video-strip { width: 100%; height: 200px; margin-bottom: 1.4rem; }
+      .hero-video-strip { width: 100%; height: 200px; margin-top: -1.2rem; margin-bottom: 1.4rem; }
       .hero-video-strip video { object-position: center 20%; }
       .d-label { font-size:0.72rem; margin-bottom:0.1rem; }
       .d-value { font-size:0.9rem; }
