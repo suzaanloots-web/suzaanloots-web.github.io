@@ -450,8 +450,8 @@
     /* Hero video strip — between buttons and thumbnails */
     .hero-video-strip {
       position: relative;
-      width: 80%;
-      height: 180px;
+      width: 60%;
+      height: 140px;
       overflow: hidden;
       margin-top: -2.2rem;
       margin-bottom: 1.8rem;
@@ -466,7 +466,8 @@
       min-height: 100%;
       object-fit: cover;
       object-position: center 30%;
-      filter: brightness(1.2) saturate(0.85);
+      filter: brightness(1.15) saturate(0.8);
+      opacity: 0.75;
     }
     .hero-video-strip .strip-fade {
       position: absolute;
@@ -476,14 +477,14 @@
       background:
         linear-gradient(to bottom,
           var(--linen) 0%,
-          rgba(250,247,242,0) 30%,
-          rgba(250,247,242,0) 85%,
+          rgba(250,247,242,0) 35%,
+          rgba(250,247,242,0) 70%,
           var(--linen) 100%
         ),
         linear-gradient(to right,
           var(--linen) 0%,
-          rgba(250,247,242,0) 8%,
-          rgba(250,247,242,0) 60%,
+          rgba(250,247,242,0) 25%,
+          rgba(250,247,242,0) 75%,
           var(--linen) 100%
         );
     }
