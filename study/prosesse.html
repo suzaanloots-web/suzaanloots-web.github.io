@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="af">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stap-vir-Stap Prosesse — Geskiedenis</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5efe6;
+    font-family: 'Nunito', sans-serif;
+    color: #3a2a1a;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  header {
+    background: linear-gradient(135deg, #5a3a1a, #7a5a2a);
+    color: #faf0e0;
+    padding: 1rem 1.2rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+    border-bottom: 3px solid #c8860a;
+  }
+  header h1 { font-size: 1.4rem; font-weight: 800; }
+  header p { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; }
+
+  /* TABS */
+  .tab-bar {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.6rem 0.8rem;
+    background: #efe5d5;
+    border-bottom: 2px solid #e0d0b0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .tab-btn {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.45rem 0.9rem;
+    border-radius: 20px;
+    border: 2px solid #b09060;
+    background: #fff;
+    color: #5a3a1a;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: all 0.25s;
+  }
+  .tab-btn:hover { background: #f5edd5; }
+  .tab-btn.active {
+    background: #c8860a;
+    color: #fff;
+    border-color: #c8860a;
+    box-shadow: 0 2px 8px rgba(200,134,10,0.3);
+  }
+
+  /* MAIN */
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 1.2rem;
+  }
+
+  .process-title {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 0.3rem;
+    color: #5a3a1a;
+  }
+  .process-subtitle {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #8a7a5a;
+    margin-bottom: 1rem;
+  }
+
+  /* PROGRESS BAR */
+  .progress-wrap {
+    background: #e0d5c0;
+    border-radius: 10px;
+    height: 10px;
+    margin-bottom: 1.2rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #c8860a, #e8b040);
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-fill.done {
+    background: linear-gradient(90deg, #5a9a3a, #7aba5a);
+  }
+
+  /* STEPS */
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .step-card {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #fff;
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border-left: 4px solid #d0c0a0;
+    opacity: 0;
+    transform: translateX(-25px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+  }
+  .step-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+  .step-card.placeholder {
+    opacity: 0.3;
+    transform: translateX(0);
+    pointer-events: none;
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c8860a, #e8b040);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-card.visible .step-num {
+    animation: numPulse 0.5s ease;
+  }
+  @keyframes numPulse {
+    0% { transform: scale(0.6); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  .step-emoji {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+  .step-card.visible .step-emoji {
+    animation: emojiBounce 0.5s ease;
+  }
+  @keyframes emojiBounce {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+
+  .step-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  /* COMPLETION */
+  .done-msg {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #5a9a3a;
+    padding: 1rem;
+    display: none;
+  }
+  .done-msg.show {
+    display: block;
+    animation: doneIn 0.5s ease;
+  }
+  @keyframes doneIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* SPARKLE */
+  .sparkle-container {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 200;
+    overflow: hidden;
+  }
+  .sparkle {
+    position: absolute;
+    font-size: 1.2rem;
+    animation: sparkleFloat 1.5s ease-out forwards;
+    pointer-events: none;
+  }
+  @keyframes sparkleFloat {
+    0% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-80px) scale(0.5); }
+  }
+
+  /* BUTTONS */
+  .btn-row {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .action-btn {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.7rem 1.5rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-next {
+    background: linear-gradient(135deg, #c8860a, #e8b040);
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(200,134,10,0.3);
+  }
+  .btn-next:hover { transform: translateY(-1px); box-shadow: 0 5px 15px rgba(200,134,10,0.4); }
+  .btn-next:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  .btn-all {
+    background: #fff;
+    color: #5a3a1a;
+    border: 2px solid #c8860a;
+  }
+  .btn-all:hover { background: #f5edd5; }
+  .btn-all:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .btn-reset {
+    background: #fff;
+    color: #8a6a3a;
+    border: 2px solid #b09060;
+    display: none;
+  }
+  .btn-reset.show { display: inline-block; }
+  .btn-reset:hover { background: #f5edd5; }
+
+  /* BACK LINK */
+  .back-link {
+    text-align: center;
+    padding: 1rem 1rem 2rem;
+  }
+  .back-link a {
+    color: #8a6a2a;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.5rem 1.2rem;
+    border: 2px solid #c8860a;
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+  .back-link a:hover { background: #c8860a; color: #fff; }
+
+  /* STEP BORDER COLORS */
+  .step-c0 { border-left-color: #c8860a; }
+  .step-c1 { border-left-color: #b8780a; }
+  .step-c2 { border-left-color: #a86a0a; }
+  .step-c3 { border-left-color: #985c0a; }
+  .step-c4 { border-left-color: #884e0a; }
+  .step-c5 { border-left-color: #78400a; }
+  .step-c6 { border-left-color: #683208; }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.1rem; }
+    .tab-bar { justify-content: flex-start; padding: 0.4rem 0.5rem; gap: 0.3rem; }
+    .tab-btn { font-size: 0.65rem; padding: 0.35rem 0.6rem; }
+    main { padding: 0.8rem; }
+    .process-title { font-size: 1.1rem; }
+    .step-card { padding: 0.7rem 0.8rem; gap: 0.6rem; }
+    .step-num { width: 30px; height: 30px; font-size: 0.8rem; }
+    .step-emoji { font-size: 1.3rem; }
+    .step-text { font-size: 0.82rem; }
+    .btn-row { flex-direction: column; }
+    .action-btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📋 Stap-vir-Stap Prosesse</h1>
+  <p>Graad 5 Geskiedenis · Die San</p>
+</header>
+
+<div class="tab-bar" id="tab-bar"></div>
+
+<main>
+  <div class="process-title" id="proc-title"></div>
+  <div class="process-subtitle" id="proc-subtitle"></div>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="steps-list" id="steps-list"></div>
+  <div class="done-msg" id="done-msg">✅ Klaar! Goed gedoen!</div>
+  <div class="btn-row">
+    <button class="action-btn btn-next" id="btn-next" onclick="nextStep()">Volgende ▶</button>
+    <button class="action-btn btn-all" id="btn-all" onclick="showAll()">Wys Alles ▶▶</button>
+    <button class="action-btn btn-reset" id="btn-reset" onclick="resetSteps()">Herstel 🔄</button>
+  </div>
+</main>
+
+<div class="back-link">
+  <a href="flitskaarte.html">← Terug na Flitskaarte</a>
+</div>
+
+<div class="sparkle-container" id="sparkles"></div>
+
+<script>
+const processes = [
+  {
+    id: "jag",
+    emoji: "🏹",
+    title: "Hoe die San Gejag Het",
+    subtitle: "Die jagproses van begin tot end",
+    steps: [
+      { emoji: "👣", text: "Volg die dier se spore deur die veld" },
+      { emoji: "🤫", text: "Bekruip die dier baie stilletjies" },
+      { emoji: "💨", text: "Bly wind-af sodat die dier jou nie kan ruik nie" },
+      { emoji: "🏹", text: "Skiet die dier met 'n gifpyl van ver af" },
+      { emoji: "🏃", text: "Agtervolg die verswakte dier totdat die gif werk" },
+      { emoji: "🦌", text: "Dra die dooie dier terug huis toe" },
+      { emoji: "🤝", text: "Deel die vleis met die hele groep — almal kry 'n deel" }
+    ]
+  },
+  {
+    id: "verf",
+    emoji: "🎨",
+    title: "Hoe Rotskuns Verf Gemaak Is",
+    subtitle: "Van oker en bloed tot skilderye op rotse",
+    steps: [
+      { emoji: "⛏️", text: "Versamel oker (rooibruin), klei (grys) en houtskool (swart)" },
+      { emoji: "🌿", text: "Maal plante fyn vir groen en geel kleure" },
+      { emoji: "🩸", text: "Meng alles met elandbloed en diervet as binder" },
+      { emoji: "🖌️", text: "Maak kwaste van vere of dierhare" },
+      { emoji: "🖐️", text: "Verf op rotswande en in grotte — soms ook met vingers!" }
+    ]
+  },
+  {
+    id: "klere",
+    emoji: "👕",
+    title: "Hoe Klere van Dierevelle Gemaak Is",
+    subtitle: "Van rou vel tot drabare klere",
+    steps: [
+      { emoji: "☀️", text: "Droog die vel uit in die son" },
+      { emoji: "🔨", text: "Slaan die droë vel sag deur dit te klop" },
+      { emoji: "🔪", text: "Sny die vel in stukke met 'n skerp klip" },
+      { emoji: "🪡", text: "Werk die stukke aanmekaar met 'n beennaald en dun velrepies as gare" }
+    ]
+  },
+  {
+    id: "water",
+    emoji: "💧",
+    title: "Hoe die San Water Gekry en Gestoor Het",
+    subtitle: "Water was kosbaar in die droë veld",
+    steps: [
+      { emoji: "🔍", text: "Soek fonteine en klein stroompies in die veld" },
+      { emoji: "🕳️", text: "Grawe diep in die sand vir ondergrondse water" },
+      { emoji: "🌿", text: "Suig water met 'n dun riet op in droë gebiede" },
+      { emoji: "🥚", text: "Skep die water op in volstruisdoppe" },
+      { emoji: "📦", text: "Begrawe die doppe onder die grond om dit koel en vars te hou" }
+    ]
+  }
+];
+
+let currentProc = 0;
+let revealedCount = 0;
+
+function buildTabs() {
+  const bar = document.getElementById("tab-bar");
+  processes.forEach((p, i) => {
+    const btn = document.createElement("button");
+    btn.className = "tab-btn" + (i === 0 ? " active" : "");
+    btn.textContent = p.emoji + " " + p.title.split(" ").slice(0, 3).join(" ");
+    btn.onclick = () => selectProcess(i);
+    bar.appendChild(btn);
+  });
+}
+
+function selectProcess(idx) {
+  currentProc = idx;
+  revealedCount = 0;
+
+  document.querySelectorAll(".tab-btn").forEach((b, i) => b.classList.toggle("active", i === idx));
+
+  const p = processes[idx];
+  document.getElementById("proc-title").textContent = p.emoji + " " + p.title;
+  document.getElementById("proc-subtitle").textContent = p.subtitle;
+
+  const list = document.getElementById("steps-list");
+  list.innerHTML = "";
+  p.steps.forEach((step, i) => {
+    const card = document.createElement("div");
+    card.className = "step-card placeholder step-c" + i;
+    card.id = "step-" + i;
+    card.innerHTML =
+      '<div class="step-num">' + (i + 1) + '</div>' +
+      '<div class="step-emoji">' + step.emoji + '</div>' +
+      '<div class="step-text">' + step.text + '</div>';
+    list.appendChild(card);
+  });
+
+  updateProgress();
+  document.getElementById("done-msg").classList.remove("show");
+  document.getElementById("btn-reset").classList.remove("show");
+  document.getElementById("btn-next").disabled = false;
+  document.getElementById("btn-all").disabled = false;
+}
+
+function nextStep() {
+  const p = processes[currentProc];
+  if (revealedCount >= p.steps.length) return;
+
+  const card = document.getElementById("step-" + revealedCount);
+  card.classList.remove("placeholder");
+  card.classList.add("visible");
+  revealedCount++;
+  updateProgress();
+
+  card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+  if (revealedCount >= p.steps.length) {
+    onComplete();
+  }
+}
+
+function showAll() {
+  const p = processes[currentProc];
+  let delay = 0;
+  for (let i = revealedCount; i < p.steps.length; i++) {
+    setTimeout(() => {
+      const card = document.getElementById("step-" + i);
+      card.classList.remove("placeholder");
+      card.classList.add("visible");
+      revealedCount = i + 1;
+      updateProgress();
+      if (i === p.steps.length - 1) onComplete();
+    }, delay);
+    delay += 150;
+  }
+}
+
+function onComplete() {
+  document.getElementById("btn-next").disabled = true;
+  document.getElementById("btn-all").disabled = true;
+  document.getElementById("btn-reset").classList.add("show");
+  document.getElementById("done-msg").classList.add("show");
+  document.getElementById("progress-fill").classList.add("done");
+  launchSparkles();
+}
+
+function resetSteps() {
+  selectProcess(currentProc);
+}
+
+function updateProgress() {
+  const total = processes[currentProc].steps.length;
+  const pct = total > 0 ? (revealedCount / total) * 100 : 0;
+  const fill = document.getElementById("progress-fill");
+  fill.style.width = pct + "%";
+  fill.classList.remove("done");
+}
+
+function launchSparkles() {
+  const container = document.getElementById("sparkles");
+  const sparkleEmojis = ["✨", "⭐", "🌟", "💫", "🎉"];
+  for (let i = 0; i < 20; i++) {
+    setTimeout(() => {
+      const s = document.createElement("div");
+      s.className = "sparkle";
+      s.textContent = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
+      s.style.left = (10 + Math.random() * 80) + "%";
+      s.style.top = (40 + Math.random() * 40) + "%";
+      s.style.fontSize = (0.8 + Math.random() * 1) + "rem";
+      container.appendChild(s);
+      setTimeout(() => s.remove(), 1500);
+    }, i * 80);
+  }
+}
+
+buildTabs();
+selectProcess(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="af">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breinkaart — Geskiedenis</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5efe6;
+    font-family: 'Nunito', sans-serif;
+    color: #3a2a1a;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  header {
+    background: linear-gradient(135deg, #5a3a1a, #7a5a2a);
+    color: #faf0e0;
+    padding: 1rem 1.2rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+    border-bottom: 3px solid #c8860a;
+  }
+  header h1 { font-size: 1.4rem; font-weight: 800; }
+  header p { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; }
+
+  /* TABS */
+  .tab-bar {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.6rem 0.8rem;
+    background: #efe5d5;
+    border-bottom: 2px solid #e0d0b0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 2px solid #b09060;
+    background: #fff;
+    color: #5a3a1a;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .tab-btn:hover { background: #f5edd5; }
+  .tab-btn.active {
+    background: #c8860a;
+    color: #fff;
+    border-color: #c8860a;
+    box-shadow: 0 2px 8px rgba(200,134,10,0.3);
+  }
+
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  /* CENTRAL BUBBLE */
+  .centre-bubble {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 0 auto 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-weight: 800;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+    animation: bubblePulse 3s ease-in-out infinite;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.5s, transform 0.5s;
+    position: relative;
+    z-index: 2;
+  }
+  .centre-bubble.show {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .centre-bubble .bubble-emoji { font-size: 2rem; margin-bottom: 0.2rem; }
+  .centre-bubble .bubble-title { font-size: 0.85rem; line-height: 1.2; padding: 0 0.5rem; }
+  .centre-bubble .bubble-sub { font-size: 0.6rem; opacity: 0.8; margin-top: 0.15rem; }
+
+  @keyframes bubblePulse {
+    0%, 100% { box-shadow: 0 6px 25px rgba(0,0,0,0.2); }
+    50% { box-shadow: 0 6px 35px rgba(200,134,10,0.35); }
+  }
+
+  /* Eenheid colours */
+  .theme-e1 .centre-bubble { background: linear-gradient(135deg, #c8860a, #e8a030); }
+  .theme-e2 .centre-bubble { background: linear-gradient(135deg, #3a7a2a, #5a9a4a); }
+  .theme-e3 .centre-bubble { background: linear-gradient(135deg, #2a5a8a, #4a7aaa); }
+
+  /* CONNECTOR LINE */
+  .connector {
+    width: 3px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.4s 0.3s;
+  }
+  .connector.show { opacity: 1; }
+  .theme-e1 .connector { background: #c8860a; }
+  .theme-e2 .connector { background: #3a7a2a; }
+  .theme-e3 .connector { background: #2a5a8a; }
+
+  /* BRANCH GRID */
+  .branch-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    margin-top: 0.8rem;
+  }
+
+  .branch-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border-left: 4px solid #d0c0a0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.15s;
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  .branch-card.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.2s;
+  }
+  .branch-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+  .branch-card.expanded { transform: translateY(0) !important; }
+
+  .branch-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1rem;
+    user-select: none;
+  }
+  .branch-emoji { font-size: 1.5rem; flex-shrink: 0; }
+  .branch-title { font-size: 0.85rem; font-weight: 700; flex: 1; }
+  .branch-arrow {
+    font-size: 0.7rem;
+    color: #a09080;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+  .branch-card.expanded .branch-arrow { transform: rotate(180deg); }
+
+  .branch-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 1rem;
+  }
+  .branch-card.expanded .branch-body {
+    max-height: 500px;
+    padding: 0 1rem 0.8rem;
+  }
+
+  .branch-body hr {
+    border: none;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+    margin-bottom: 0.6rem;
+  }
+
+  .leaf-list {
+    list-style: none;
+    padding: 0;
+  }
+  .leaf-list li {
+    padding: 0.25rem 0 0.25rem 1.2rem;
+    position: relative;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .branch-card.expanded .leaf-list li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .leaf-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+
+  /* STAGGERED LEAF ANIMATION */
+  .branch-card.expanded .leaf-list li:nth-child(1) { transition-delay: 0.05s; }
+  .branch-card.expanded .leaf-list li:nth-child(2) { transition-delay: 0.1s; }
+  .branch-card.expanded .leaf-list li:nth-child(3) { transition-delay: 0.15s; }
+  .branch-card.expanded .leaf-list li:nth-child(4) { transition-delay: 0.2s; }
+  .branch-card.expanded .leaf-list li:nth-child(5) { transition-delay: 0.25s; }
+
+  /* HINT */
+  .hint-text {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #a09080;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+
+  /* BACK LINK */
+  .back-link {
+    text-align: center;
+    padding: 1rem 1rem 2rem;
+  }
+  .back-link a {
+    color: #8a6a2a;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.5rem 1.2rem;
+    border: 2px solid #c8860a;
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+  .back-link a:hover { background: #c8860a; color: #fff; }
+
+  /* E1 BRANCH COLORS */
+  .theme-e1 .branch-card:nth-child(1) { border-left-color: #c8860a; }
+  .theme-e1 .branch-card:nth-child(2) { border-left-color: #b07808; }
+  .theme-e1 .branch-card:nth-child(3) { border-left-color: #987020; }
+  .theme-e1 .branch-card:nth-child(4) { border-left-color: #806018; }
+  .theme-e1 .leaf-list li::before { color: #c8860a; }
+
+  /* E2 BRANCH COLORS */
+  .theme-e2 .branch-card:nth-child(1) { border-left-color: #5a8a3a; }
+  .theme-e2 .branch-card:nth-child(2) { border-left-color: #4a7a2a; }
+  .theme-e2 .branch-card:nth-child(3) { border-left-color: #6a9a4a; }
+  .theme-e2 .branch-card:nth-child(4) { border-left-color: #3a6a1a; }
+  .theme-e2 .branch-card:nth-child(5) { border-left-color: #7aaa5a; }
+  .theme-e2 .branch-card:nth-child(6) { border-left-color: #2a5a0a; }
+  .theme-e2 .branch-card:nth-child(7) { border-left-color: #8aba6a; }
+  .theme-e2 .branch-card:nth-child(8) { border-left-color: #4a7030; }
+  .theme-e2 .leaf-list li::before { color: #3a7a2a; }
+
+  /* E3 BRANCH COLORS */
+  .theme-e3 .branch-card:nth-child(1) { border-left-color: #3a6a9a; }
+  .theme-e3 .branch-card:nth-child(2) { border-left-color: #2a5a8a; }
+  .theme-e3 .branch-card:nth-child(3) { border-left-color: #4a7aaa; }
+  .theme-e3 .branch-card:nth-child(4) { border-left-color: #1a4a7a; }
+  .theme-e3 .leaf-list li::before { color: #2a5a8a; }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.1rem; }
+    .tab-bar { gap: 0.3rem; }
+    .tab-btn { font-size: 0.7rem; padding: 0.4rem 0.8rem; }
+    main { padding: 1rem 0.6rem; }
+    .centre-bubble { width: 140px; height: 140px; }
+    .centre-bubble .bubble-emoji { font-size: 1.6rem; }
+    .centre-bubble .bubble-title { font-size: 0.75rem; }
+    .branch-grid { grid-template-columns: 1fr; gap: 0.5rem; }
+    .branch-header { padding: 0.7rem 0.8rem; }
+    .branch-emoji { font-size: 1.3rem; }
+    .branch-title { font-size: 0.8rem; }
+    .leaf-list li { font-size: 0.78rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🧠 Breinkaart — Geskiedenis</h1>
+  <p>Graad 5 · Kwartaal 1 · Tik op 'n tak om dit oop te maak</p>
+</header>
+
+<div class="tab-bar" id="tab-bar"></div>
+
+<main id="main-area">
+  <div class="centre-bubble" id="centre-bubble">
+    <div class="bubble-emoji" id="bubble-emoji"></div>
+    <div class="bubble-title" id="bubble-title"></div>
+    <div class="bubble-sub" id="bubble-sub"></div>
+  </div>
+  <div class="connector" id="connector"></div>
+  <div class="branch-grid" id="branch-grid"></div>
+  <div class="hint-text" id="hint-text">👆 Tik op 'n tak om die feite te sien</div>
+</main>
+
+<div class="back-link">
+  <a href="flitskaarte.html">← Terug na Flitskaarte</a>
+</div>
+
+<script>
+const eenhede = [
+  {
+    id: "e1",
+    tab: "Eenheid 1",
+    theme: "theme-e1",
+    centre: { emoji: "🔍", title: "Bronne & Bewyse", sub: "Hoe leer ons oor die verlede?" },
+    branches: [
+      {
+        emoji: "📖", title: "Stories (Mondelinge Oorlewering)",
+        facts: [
+          "Die San het stories by die vuur vertel",
+          "Stories is van geslag tot geslag oorgedra",
+          "Wilhelm Bleek & Lucy Lloyd het in 1870 die /Xam-taal neergeskryf",
+          "Geskiedkundiges gebruik stories omdat die San nie geskryf het nie"
+        ]
+      },
+      {
+        emoji: "⛏️", title: "Voorwerpe (Artefakte)",
+        facts: [
+          "Argeoloë grawe in grotte en kampplekke",
+          "Vind: klipgereedskap, pottebakkery, juwele, bene",
+          "Vertel ons hoe mense geleef, geëet en geglo het",
+          "Tande en bene wys ouderdom, dieet en gesondheid"
+        ]
+      },
+      {
+        emoji: "🎨", title: "Rotskuns",
+        facts: [
+          "Skilderye op rotswande, kranse en grotswande",
+          "Die eland is die heiligste dier in San-kuns",
+          "Onderwerpe: jagters, diere, dansers, seremonies",
+          "San glo skilderye verbind hulle met die geestewêreld"
+        ]
+      },
+      {
+        emoji: "📚", title: "Boeke & Etnografie",
+        facts: [
+          "Historici bestudeer boeke oor die verlede",
+          "Etnograwe besoek lewende gemeenskappe",
+          "Min San jagter-versamelaar families bestaan nog",
+          "5 bronne: stories, voorwerpe, rotskuns, boeke, etnografie"
+        ]
+      }
+    ]
+  },
+  {
+    id: "e2",
+    tab: "Eenheid 2",
+    theme: "theme-e2",
+    centre: { emoji: "🏹", title: "Die San", sub: "Jagter-versamelaars" },
+    branches: [
+      {
+        emoji: "🍖", title: "Kos",
+        facts: [
+          "Mans het gejag; vroue het plante versamel",
+          "Kos: wortels, bolle, bessies, eiers, heuning, wildsvleis",
+          "Veldwaatlemoene = goeie bron van kos én sap",
+          "Elke vrou het haar eie spit-stok (graafstok) gehad"
+        ]
+      },
+      {
+        emoji: "💧", title: "Water",
+        facts: [
+          "Water was kosbaar — somers warm en droog",
+          "Gekry by fonteine, stroompies en in grotte",
+          "Droë gebiede: suig water op met 'n dun riet",
+          "Gestoor in volstruisdoppe, begrawe ondergrond om koel te hou"
+        ]
+      },
+      {
+        emoji: "👕", title: "Klere",
+        facts: [
+          "Gemaak van dierevelle",
+          "Proses: son-droog → sag slaan → sny met klip",
+          "Aanmekaar gewerk met beennaald en velgare",
+          "Vel ook gebruik vir dra-sakke"
+        ]
+      },
+      {
+        emoji: "🏠", title: "Skuiling",
+        facts: [
+          "Somer: oop veld of grasskuilings",
+          "Winter: grotte",
+          "Grashutte: houtraamwerk + gras + dierevelle"
+        ]
+      },
+      {
+        emoji: "🏹", title: "Jag",
+        facts: [
+          "Voor pyl & boog: spiese en vangstrikke (gevaarlik!)",
+          "Na uitvinding: kon van ver af skiet — veiliger",
+          "Gif op pylpunte om diere te verswak",
+          "Jagproses: spoorvolg → bekruip → skiet → agtervolg → deel vleis"
+        ]
+      },
+      {
+        emoji: "🌿", title: "Medisyne",
+        facts: [
+          "Ken baie medisinale plante en hul gebruike",
+          "Gif vir pylpunte van plante gemaak",
+          "Behandeling: rook inadem, poeier smeer, plant kook & drink",
+          "Protea (hoes), aalwyn (brandwonde), Hoodia (honger onderdruk)"
+        ]
+      },
+      {
+        emoji: "✨", title: "Geloof",
+        facts: [
+          "Eland = heiligste dier (4 rituele)",
+          "/Kaggen = skeppergod (word eland, haas, slang, arend)",
+          "Sjamaans = genesers én geestelike leiers",
+          "Transdans: dans om vuur, vroue klap & sing, sjamaan gaan in trans"
+        ]
+      },
+      {
+        emoji: "🖌️", title: "Rotskuns",
+        facts: [
+          "Sjamaans het in trans geskilder",
+          "Verf: oker + bloed + diervet + plantsappe",
+          "Kwaste van vere of dierhare; ook vingers",
+          "Rotskuns = 'n lewende geskiedenisboek"
+        ]
+      }
+    ]
+  },
+  {
+    id: "e3",
+    tab: "Eenheid 3",
+    theme: "theme-e3",
+    centre: { emoji: "🐄", title: "Die Khoi-Khoi", sub: "Veewagters" },
+    branches: [
+      {
+        emoji: "🐄", title: "Pastorale Lewe",
+        facts: [
+          "Veewagters: skape, bokke, beeste met horings",
+          "Vee behoort aan mans — meer beeste = ryker",
+          "Stamhoof = leier; senior mans neem besluite",
+          "50–200 mense per groep",
+          "Hutte in sirkel, vee in die middel vir beskerming"
+        ]
+      },
+      {
+        emoji: "⚔️", title: "Konflik met die San",
+        facts: [
+          "Khoi-Khoi se vee het water en weigrond nodig gehad",
+          "Minder water en wilde diere vir die San",
+          "Kompetisie vir grond, water en diere",
+          "San het soms vee gesteel → konflik"
+        ]
+      },
+      {
+        emoji: "🤝", title: "Saamleef",
+        facts: [
+          "Nie altyd konflik — baie het vreedsaam saamgeleef",
+          "Handel: San gee wildsvleis; Khoi-Khoi gee melk",
+          "San mans werk soms vir Khoi-Khoi as jagters of herders",
+          "Ondertrou tussen groepe",
+          "In droogtes: Khoi-Khoi verloor vee en word jagter-versamelaars"
+        ]
+      },
+      {
+        emoji: "⚖️", title: "Vergelyking",
+        facts: [
+          "San: jag & versamel | Khoi-Khoi: vee oppas",
+          "San: 12-40, almal gelyk | Khoi-Khoi: 50-200, stamhoof",
+          "San: geen besittings | Khoi-Khoi: vee = rykdom",
+          "Albei: dierevelle, pyl & boog, dieselfde landskap"
+        ]
+      }
+    ]
+  }
+];
+
+let currentEenheid = 0;
+
+function buildTabs() {
+  const bar = document.getElementById("tab-bar");
+  eenhede.forEach((e, i) => {
+    const btn = document.createElement("button");
+    btn.className = "tab-btn" + (i === 0 ? " active" : "");
+    btn.textContent = e.tab;
+    btn.onclick = () => selectEenheid(i);
+    bar.appendChild(btn);
+  });
+}
+
+function selectEenheid(idx) {
+  currentEenheid = idx;
+  const e = eenhede[idx];
+
+  // Update tabs
+  document.querySelectorAll(".tab-btn").forEach((b, i) => b.classList.toggle("active", i === idx));
+
+  // Set theme
+  const mainArea = document.getElementById("main-area");
+  mainArea.className = e.theme;
+
+  // Centre bubble
+  const bubble = document.getElementById("centre-bubble");
+  bubble.classList.remove("show");
+  document.getElementById("connector").classList.remove("show");
+
+  setTimeout(() => {
+    document.getElementById("bubble-emoji").textContent = e.centre.emoji;
+    document.getElementById("bubble-title").textContent = e.centre.title;
+    document.getElementById("bubble-sub").textContent = e.centre.sub;
+    bubble.classList.add("show");
+  }, 150);
+
+  setTimeout(() => {
+    document.getElementById("connector").classList.add("show");
+  }, 400);
+
+  // Build branches
+  const grid = document.getElementById("branch-grid");
+  grid.innerHTML = "";
+  e.branches.forEach((b, i) => {
+    const card = document.createElement("div");
+    card.className = "branch-card";
+    card.onclick = () => toggleBranch(card);
+
+    let factsHTML = '<ul class="leaf-list">';
+    b.facts.forEach(f => { factsHTML += "<li>" + f + "</li>"; });
+    factsHTML += "</ul>";
+
+    card.innerHTML =
+      '<div class="branch-header">' +
+        '<span class="branch-emoji">' + b.emoji + '</span>' +
+        '<span class="branch-title">' + b.title + '</span>' +
+        '<span class="branch-arrow">▼</span>' +
+      '</div>' +
+      '<div class="branch-body"><hr>' + factsHTML + '</div>';
+
+    grid.appendChild(card);
+
+    // Staggered entrance
+    setTimeout(() => card.classList.add("show"), 500 + i * 100);
+  });
+
+  document.getElementById("hint-text").style.display = "block";
+}
+
+function toggleBranch(card) {
+  const wasExpanded = card.classList.contains("expanded");
+  // Collapse all
+  document.querySelectorAll(".branch-card.expanded").forEach(c => c.classList.remove("expanded"));
+  // Expand clicked (if not already open)
+  if (!wasExpanded) {
+    card.classList.add("expanded");
+    setTimeout(() => {
+      card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }, 100);
+  }
+  document.getElementById("hint-text").style.display = "none";
+}
+
+buildTabs();
+selectEenheid(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="af">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San vs Khoi-Khoi — Vergelyking</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5efe6;
+    font-family: 'Nunito', sans-serif;
+    color: #3a2a1a;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  header {
+    background: linear-gradient(135deg, #5a3a1a, #7a5a2a);
+    color: #faf0e0;
+    padding: 1rem 1.2rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+    border-bottom: 3px solid #c8860a;
+  }
+  header h1 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  header p {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 0.2rem;
+  }
+
+  /* CATEGORY BUTTONS */
+  .cat-bar {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.6rem 0.8rem;
+    background: #efe5d5;
+    border-bottom: 2px solid #e0d0b0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .cat-btn {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.45rem 0.8rem;
+    border-radius: 20px;
+    border: 2px solid #b09060;
+    background: #fff;
+    color: #5a3a1a;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: all 0.25s;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  .cat-btn.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .cat-btn:hover { background: #f5edd5; }
+  .cat-btn.active {
+    background: #c8860a;
+    color: #fff;
+    border-color: #c8860a;
+    box-shadow: 0 2px 8px rgba(200,134,10,0.3);
+  }
+
+  /* COMPARISON AREA */
+  .compare-area {
+    display: flex;
+    gap: 1rem;
+    padding: 1.2rem;
+    max-width: 960px;
+    margin: 0 auto;
+    min-height: 300px;
+    align-items: stretch;
+  }
+
+  .side {
+    flex: 1;
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  .side-san {
+    background: linear-gradient(145deg, #f0f5e8, #e8f0e0);
+    border-color: #8aaa5a;
+  }
+  .side-khoi {
+    background: linear-gradient(145deg, #e8f0f5, #e0e8f0);
+    border-color: #5a8aaa;
+  }
+
+  .side-header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .side-emoji {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.3rem;
+    transition: transform 0.4s;
+  }
+  .side-emoji.bounce {
+    animation: emojiBounce 0.5s ease;
+  }
+  @keyframes emojiBounce {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+
+  .side-name {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+  }
+  .side-san .side-name { color: #4a7a2a; }
+  .side-khoi .side-name { color: #2a5a8a; }
+
+  .side-subtitle {
+    font-size: 0.7rem;
+    font-weight: 600;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .side-content {
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .side-content.visible { opacity: 1; }
+
+  .side-content.slide-left {
+    animation: slideLeft 0.4s ease-out forwards;
+  }
+  .side-content.slide-right {
+    animation: slideRight 0.4s ease-out forwards;
+  }
+
+  @keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .cat-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px dashed rgba(0,0,0,0.1);
+  }
+
+  .fact-list {
+    list-style: none;
+    padding: 0;
+  }
+  .fact-list li {
+    padding: 0.4rem 0 0.4rem 1.5rem;
+    position: relative;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+  .fact-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0.3rem;
+    font-weight: 800;
+    font-size: 1.1rem;
+  }
+  .side-san .fact-list li::before { color: #6a9a3a; }
+  .side-khoi .fact-list li::before { color: #3a7aaa; }
+
+  /* SHARED FACT (bottom) */
+  .shared-row {
+    max-width: 960px;
+    margin: 0 auto 1.5rem;
+    padding: 0 1.2rem;
+  }
+  .shared-card {
+    background: linear-gradient(135deg, #fff8e0, #f5edd5);
+    border: 2px solid #c8860a;
+    border-radius: 12px;
+    padding: 0.8rem 1.2rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #5a3a1a;
+    opacity: 0;
+    transition: opacity 0.4s 0.3s;
+  }
+  .shared-card.visible { opacity: 1; }
+  .shared-card .shared-emoji { font-size: 1.2rem; margin-right: 0.3rem; }
+
+  /* BACK LINK */
+  .back-link {
+    text-align: center;
+    padding: 1.5rem;
+  }
+  .back-link a {
+    color: #8a6a2a;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.5rem 1.2rem;
+    border: 2px solid #c8860a;
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+  .back-link a:hover {
+    background: #c8860a;
+    color: #fff;
+  }
+
+  /* MOBILE */
+  @media (max-width: 650px) {
+    header h1 { font-size: 1.15rem; }
+    .cat-bar { justify-content: flex-start; padding: 0.4rem 0.5rem; gap: 0.3rem; }
+    .cat-btn { font-size: 0.65rem; padding: 0.35rem 0.6rem; }
+    .compare-area {
+      flex-direction: column;
+      gap: 0.8rem;
+      padding: 0.8rem;
+    }
+    .side { padding: 1rem; }
+    .side-emoji { font-size: 2rem; }
+    .side-name { font-size: 1rem; }
+    .fact-list li { font-size: 0.82rem; }
+
+    .side-content.slide-left { animation-name: slideUp; }
+    .side-content.slide-right { animation-name: slideUp; }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🆚 San vs Khoi-Khoi</h1>
+  <p>Interaktiewe Vergelyking · Graad 5 Geskiedenis</p>
+</header>
+
+<div class="cat-bar" id="cat-bar"></div>
+
+<div class="compare-area">
+  <div class="side side-san">
+    <div class="side-header">
+      <span class="side-emoji" id="san-emoji">🏹</span>
+      <div class="side-name">Die San</div>
+      <div class="side-subtitle">Jagter-versamelaars</div>
+    </div>
+    <div class="side-content" id="san-content"></div>
+  </div>
+  <div class="side side-khoi">
+    <div class="side-header">
+      <span class="side-emoji" id="khoi-emoji">🐄</span>
+      <div class="side-name">Die Khoi-Khoi</div>
+      <div class="side-subtitle">Veewagters</div>
+    </div>
+    <div class="side-content" id="khoi-content"></div>
+  </div>
+</div>
+
+<div class="shared-row">
+  <div class="shared-card" id="shared-card"></div>
+</div>
+
+<div class="back-link">
+  <a href="flitskaarte.html">← Terug na Flitskaarte</a>
+</div>
+
+<script>
+const categories = [
+  {
+    id: "kos", emoji: "🍖", label: "Kos",
+    san: ["Spanspek, bolle, wortels en eiers", "Wildsvleis van gejagde diere", "Bessies, heuning en wilde plante"],
+    khoi: ["Melk van hul beeste (baie melk gedrink!)", "Heuning, spanspek, bolle, wortels en eiers", "Vleis — maar beeste net geslag vir spesiale geleenthede"],
+    shared: "Albei het plante, bessies, heuning en vleis geëet"
+  },
+  {
+    id: "kos-gekry", emoji: "🔍", label: "Hoe Kos Gekry",
+    san: ["Mans het diere gejag met pyl en boog", "Vroue het plante en wortels versamel met 'n spit-stok", "Het rondgetrek om kos te volg (nomades)"],
+    khoi: ["Vee opgepas en aangehou (skape, bokke, beeste)", "Óók gejag en versamel soos die San", "Het rondgetrek na nuwe weivelde vir hul vee"],
+    shared: "Albei moes rondtrek — die San vir kos, die Khoi-Khoi vir weivelde"
+  },
+  {
+    id: "groep", emoji: "👥", label: "Groepgrootte",
+    san: ["12–40 mense per groep", "Geen hoofman of leier", "ALLE volwassenes het saam besluite geneem", "Almal was ewe belangrik"],
+    khoi: ["50–200 mense per groep", "'n Stamhoof was die leier", "Die stamhoof en senior mans het besluite geneem", "Stamhoof moes groep se veiligheid en rykdom verseker"],
+    shared: "San = almal besluit saam · Khoi-Khoi = stamhoof besluit"
+  },
+  {
+    id: "skuiling", emoji: "🏠", label: "Skuiling",
+    san: ["Somer: oop veld of grasskuilings", "Winter: grotte", "Eenvoudige grashutte met houtraamwerk"],
+    khoi: ["Grashutte met 'n raamwerk van pale", "Bedek met graslae", "Hutte in 'n SIRKEL uitgelê", "Vee in die middel vir beskerming teen diefstal en wilde diere"],
+    shared: null
+  },
+  {
+    id: "tegnologie", emoji: "🛠️", label: "Tegnologie",
+    san: ["Pyl en boog (groot uitvinding!)", "Gifpylpunte van plante", "Vishoeke en visvalle", "Skerp klippe as gereedskap"],
+    khoi: ["Pyl en boog (ook gebruik)", "Pottebakkery — kleipotte om kos te kook en water te stoor", "Metaalwerk — kon metaal bewerk"],
+    shared: "Albei het pyl en boog gebruik, maar die Khoi-Khoi het ook pottebakkery en metaalwerk geken"
+  },
+  {
+    id: "klere", emoji: "👔", label: "Klere",
+    san: ["Klere van dierevelle gemaak", "Proses: droog → sag slaan → sny → naald & velgare", "Vel ook gebruik vir dra-sakke"],
+    khoi: ["Ook dierevelle vir klere gebruik", "Vel gebruik vir sakke en tasse", "Het soms met die San geruil vir velle"],
+    shared: "Albei het dierevelle gedra"
+  },
+  {
+    id: "rykdom", emoji: "💰", label: "Rykdom & Leierskap",
+    san: ["ALMAL was ewe belangrik", "Geen besittings — moes alles rondra", "Geen hoofman — almal besluit saam", "Kos is altyd gelyk gedeel"],
+    khoi: ["Hoe meer BEESTE jy besit, hoe ryker was jy", "Die rykste man was die belangrikste", "Stamhoof = leier met die meeste vee", "Vee is geruil, gehandel en as betaling gebruik"],
+    shared: "San = gelykheid, geen besittings · Khoi-Khoi = vee = rykdom en mag"
+  },
+  {
+    id: "handel", emoji: "🤝", label: "Handel & Saamleef",
+    san: ["Het gegee: wildsvleis en wilde plante", "San mans het soms vir Khoi-Khoi gewerk", "As jagters, gidse of herders"],
+    khoi: ["Het gegee: melk en makgemaakte diere", "Het San-werkers soms diere gegee", "Soms het werkers deel van groep geword"],
+    shared: "Hulle het gehandel, saamgewerk en soms ondertrou — nie altyd konflik nie!"
+  }
+];
+
+let currentCat = -1;
+
+function buildCatBar() {
+  const bar = document.getElementById("cat-bar");
+  categories.forEach((cat, i) => {
+    const btn = document.createElement("button");
+    btn.className = "cat-btn";
+    btn.textContent = cat.emoji + " " + cat.label;
+    btn.onclick = () => selectCategory(i);
+    bar.appendChild(btn);
+    setTimeout(() => btn.classList.add("loaded"), 80 + i * 60);
+  });
+}
+
+function buildList(items) {
+  let html = '<ul class="fact-list">';
+  items.forEach(item => { html += "<li>" + item + "</li>"; });
+  html += "</ul>";
+  return html;
+}
+
+function selectCategory(idx) {
+  if (idx === currentCat) return;
+  currentCat = idx;
+  const cat = categories[idx];
+
+  // Update buttons
+  document.querySelectorAll(".cat-btn").forEach((b, i) => {
+    b.classList.toggle("active", i === idx);
+  });
+
+  // Animate content
+  const sanEl = document.getElementById("san-content");
+  const khoiEl = document.getElementById("khoi-content");
+  const sharedEl = document.getElementById("shared-card");
+
+  // Fade out
+  sanEl.className = "side-content";
+  khoiEl.className = "side-content";
+  sharedEl.classList.remove("visible");
+
+  // Bounce emojis
+  const sanEmoji = document.getElementById("san-emoji");
+  const khoiEmoji = document.getElementById("khoi-emoji");
+  sanEmoji.classList.remove("bounce");
+  khoiEmoji.classList.remove("bounce");
+  void sanEmoji.offsetWidth;
+  sanEmoji.classList.add("bounce");
+  khoiEmoji.classList.add("bounce");
+
+  setTimeout(() => {
+    sanEl.innerHTML = '<div class="cat-title">' + cat.emoji + " " + cat.label + '</div>' + buildList(cat.san);
+    khoiEl.innerHTML = '<div class="cat-title">' + cat.emoji + " " + cat.label + '</div>' + buildList(cat.khoi);
+
+    sanEl.className = "side-content slide-left";
+    khoiEl.className = "side-content slide-right";
+
+    if (cat.shared) {
+      sharedEl.innerHTML = '<span class="shared-emoji">🤝</span> ' + cat.shared;
+      sharedEl.classList.add("visible");
+    } else {
+      sharedEl.innerHTML = "";
+      sharedEl.classList.remove("visible");
+    }
+  }, 200);
+}
+
+buildCatBar();
+setTimeout(() => selectCategory(0), 600);
+</script>
+</body>
+</html>
