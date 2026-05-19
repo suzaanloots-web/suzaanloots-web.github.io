@@ -197,6 +197,7 @@ nav {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense; /* fill gaps when feature items don't align with column flow */
   gap: 1.5rem;
   max-width: 1300px;
   margin: 0 auto;
@@ -259,10 +260,22 @@ nav {
 .gallery-item:hover .gallery-caption { opacity: 1; }
 .gallery-item.placeholder .gallery-caption { display: none; }
 
-/* Featured items can span 2 columns for visual variety */
+/* Featured items: PORTRAIT version (default) - span 2 cols AND 2 rows for portrait photos */
+/* This makes the hero photo display in its natural portrait shape, aligned with 2 stacked normal items */
 .gallery-item.feature {
   grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: 3 / 4;
+}
+/* Featured items: WIDE/LANDSCAPE version - for genuinely-landscape photos */
+.gallery-item.feature-wide {
+  grid-column: span 2;
   aspect-ratio: 3 / 2;
+}
+/* Featured items: FULL-WIDTH version - for dramatic page closers */
+.gallery-item.feature-full {
+  grid-column: 1 / -1;
+  aspect-ratio: 3 / 1.2;
 }
 
 /* ── SECTION DIVIDER ────────────────────────────────── */
@@ -448,7 +461,8 @@ footer {
 
   .portfolio-gallery { padding: 2rem 1.2rem; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
-  .gallery-item.feature { grid-column: span 2; aspect-ratio: 3 / 2; }
+  .gallery-item.feature { grid-column: span 2; grid-row: auto; aspect-ratio: 3 / 4; }
+  .gallery-item.feature-wide { grid-column: span 2; aspect-ratio: 3 / 2; }
 
   .section-divider { padding: 1.5rem 0; }
   .section-divider::before, .section-divider::after { margin: 0 1rem; max-width: 80px; }
