@@ -1,7 +1,7 @@
 # Kanya Hunt website — agent handover notes
 
-> Last updated by Opus 4.7 (1M context), 2026-05-19.
-> The strategic and architectural work is done. From here it's executing the established pattern — slotting Kanya's photo selections into portfolio pages, verifying against the 6 criteria, and previewing.
+> Last updated by Opus 4.7 (1M context), 2026-05-19 (evening session).
+> Four portfolio pages are now fully photographed. Three pages remain: Celebration Cakes, Croquembouche & Minis, and Real Weddings. Awaiting Suzaan's photo picks for each.
 
 ## The brand in one paragraph
 
@@ -155,6 +155,8 @@ Treat each of these as a placeholder you'll find scattered across pages:
 
 When Suzaan provides any of these, do a single find-and-replace across all 8 HTML pages.
 
+**WhatsApp number appears in these files:** `chocolate-weddings.html`, `white-chocolate-weddings.html`, `celebration-cakes.html`, `croquembouche-minis.html`, `buttercream-sugar-art.html`, `weekend-cakes.html`, `gallery.html`, `index.html` — replace `27XXXXXXXXX` and `+27 XX XXX XXXX` in all of them at once.
+
 ## Workflow when Suzaan sends photo picks
 
 1. Suzaan will say something like *"For §1.2 white chocolate: definitely 1234, 5678, eve&tom2; maybe 002, 3947, 1743, etc."* Sometimes she'll paste a table screenshot.
@@ -170,18 +172,34 @@ When Suzaan provides any of these, do a single find-and-replace across all 8 HTM
 
 ## Per-page image slot counts (from the placeholders)
 
-| Page | Slots |
-|------|-------|
-| `chocolate-weddings.html` | 14 ✅ DONE |
-| `white-chocolate-weddings.html` | 14 |
-| `celebration-cakes.html` | 10 |
-| `croquembouche-minis.html` | 8 |
-| `buttercream-sugar-art.html` | 10 |
-| `weekend-cakes.html` | 16 |
-| `gallery.html` *(Real Weddings)* | 15 |
-| Homepage slots (hero ×4, about ×1, gallery ×3, offering cards ×6, contact frame ×2, Instagram ×4) | ~20 |
+| Page | Slots | Status |
+|------|-------|--------|
+| `chocolate-weddings.html` | 14 | ✅ DONE |
+| `white-chocolate-weddings.html` | 14 | ✅ DONE |
+| `celebration-cakes.html` | 10 | ⏳ Awaiting photo picks from Suzaan |
+| `croquembouche-minis.html` | 8 | ⏳ Awaiting photo picks from Suzaan |
+| `buttercream-sugar-art.html` | 11 | ✅ DONE |
+| `weekend-cakes.html` | 16 | ✅ DONE |
+| `gallery.html` *(Real Weddings)* | 15 | ⏳ Awaiting photo picks from Suzaan |
+| Homepage slots (hero ×4, about ×1, gallery ×3, offering cards ×6, contact frame ×2, Instagram ×4) | ~20 | ⏳ Awaiting photo picks from Suzaan |
 
-**Total: ~107 photo slots across the site.**
+**Total: ~107 photo slots across the site. ~55 done, ~52 remaining.**
+
+### Source folders for remaining pages
+
+| Page | Source folder | Photo count |
+|------|--------------|-------------|
+| Celebration Cakes | `D:\Website with Suzaan smaller order or single tiered buttercream cake\` | 67 photos |
+| Croquembouche & Minis | `D:\Website with Suzaan Cupcakes and individual units\` | 66 photos |
+| Real Weddings gallery | `D:\Website with Suzaan cake cutting\` | 114 photos |
+| Homepage hero/about | `D:\Website with Suzaan profile pics\` + `D:\Website with Suzaan generics\` | 26 + 50 photos |
+
+### Orphaned image files (no longer referenced in HTML — safe to delete later)
+These are in `images/` but not used on any page:
+- `wc-06.jpg`, `wc-11-chiffon.jpg`, `wc-13-chiffon.jpg`, `wc-14-ivory-roses.jpg`
+- `bs-04-white-tower.jpg`
+
+**Total: ~107 photo slots across the site. ~55 done, ~52 remaining.**
 
 ## Strategic don'ts
 
@@ -195,7 +213,10 @@ When Suzaan provides any of these, do a single find-and-replace across all 8 HTM
 
 We commit periodically as save-points. Suzaan hasn't been pushing to GitHub yet — that happens when the photos and content are finalized. **Don't push to origin without explicit permission.**
 
+The local branch is ahead of origin/main by several commits — this is intentional. All work is safe locally.
+
 Recent commits *(via `git log --oneline`)*:
+- Session commits from 2026-05-19 covering all 4 completed portfolio pages
 - `22219fb Restructure site into multi-page architecture`
 - `7d428c5 Remove study folder - moved to Gesk-kw1 repo`
 
