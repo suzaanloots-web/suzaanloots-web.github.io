@@ -127,56 +127,114 @@
     }
     .mobile-menu-overlay.open { display: block; }
 
-    /* ── HERO — clean side-by-side, no per-slide hacks ── */
+    /* ── HERO — single full-bleed image with Ken Burns zoom ── */
     #hero {
-      padding-top: 74px;
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      background: var(--linen);
-    }
-    .hero-panel {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 4.5rem 3rem;
-      background: var(--linen);
-    }
-    .hero-title { font-family:var(--font-d); font-size:clamp(3rem,4vw,5.2rem); font-weight:300; line-height:1.0; color:var(--ink); margin-bottom:1.6rem; opacity:0; animation:fadeUp 0.8s 0.2s forwards; }
-    .hero-title em { font-style:italic; color:var(--rose); }
-    .hero-divider { width:40px; height:1px; background:var(--light-gold); margin-bottom:1.8rem; opacity:0; animation:fadeUp 0.8s 0.35s forwards; }
-    .hero-body { font-size:1rem; color:var(--text-mid); line-height:2; max-width:440px; margin-bottom:2.5rem; opacity:0; animation:fadeUp 0.8s 0.5s forwards; }
-    .hero-body strong { color:var(--ink); font-weight:500; }
-    .hero-ctas { display:flex; gap:0.9rem; flex-wrap:wrap; opacity:0; animation:fadeUp 0.8s 0.65s forwards; }
-
-    .hero-stage {
       position: relative;
+      min-height: 100vh;
       overflow: hidden;
-      background: var(--linen);
+      background: #1E0F06;
     }
-    .hero-slide { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; }
-    .hero-slide.active { opacity:1; }
-    .hero-slide img {
-      width: 100%; height: 100%;
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       object-position: center center;
-      display: block;
+      animation: kenBurns 24s ease-in-out infinite alternate;
+      transform-origin: 65% 50%;
     }
+    @keyframes kenBurns {
+      0%   { transform: scale(1.0); }
+      100% { transform: scale(1.14); }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(15,8,4,0.72) 0%, rgba(15,8,4,0.35) 38%, rgba(15,8,4,0) 62%),
+        linear-gradient(to top,   rgba(15,8,4,0.55) 0%, rgba(15,8,4,0) 38%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-content {
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 55%;
+      padding: 0 4.5rem 7rem;
+      z-index: 2;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-b);
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.4s forwards;
+    }
+    .hero-title {
+      font-family: var(--font-d);
+      font-size: clamp(3rem, 4.6vw, 5.6rem);
+      font-weight: 300;
+      line-height: 1.02;
+      color: var(--linen);
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.6s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--blush); }
+    .hero-divider {
+      width: 48px; height: 1px;
+      background: var(--light-gold);
+      margin-bottom: 1.9rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.8s forwards;
+    }
+    .hero-body {
+      font-size: 1rem;
+      color: var(--linen);
+      line-height: 1.9;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 1.0s forwards;
+    }
+    .hero-body strong { color: var(--linen); font-weight: 500; }
+    .hero-ctas {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.9s 1.2s forwards;
+    }
+    /* CTA styles on dark hero */
+    .hero-ctas .btn-primary { background: var(--linen); color: var(--ink); }
+    .hero-ctas .btn-primary:hover { background: var(--white); }
+    .hero-ctas .btn-secondary { border-color: var(--linen); color: var(--linen); background: transparent; }
+    .hero-ctas .btn-secondary:hover { background: var(--linen); color: var(--ink); }
 
-    /* Slide indicator dots */
-    .hero-thumbs {
-      position: absolute; left: 50%; bottom: 1.6rem;
+    /* Scroll cue */
+    .hero-scroll-cue {
+      position: absolute;
+      left: 50%; bottom: 2rem;
       transform: translateX(-50%);
-      display: flex; gap: 0.55rem; z-index: 5;
+      color: var(--linen);
+      font-family: var(--font-b);
+      font-size: 0.68rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: bob 3s ease-in-out 1.6s infinite;
+      z-index: 2;
     }
-    .hero-thumb {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: rgba(255,255,255,0.45);
-      border: 1px solid rgba(255,255,255,0.85);
-      cursor: pointer;
-      transition: background 0.3s;
+    @keyframes bob {
+      0%   { transform: translateX(-50%) translateY(0); opacity: 0.6; }
+      50%  { transform: translateX(-50%) translateY(8px); opacity: 0.9; }
+      100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
     }
-    .hero-thumb.active { background: rgba(255,255,255,1); }
 
     /* ── BUTTONS ── */
     .btn-primary { display:inline-flex; align-items:center; background:var(--mocha); color:var(--linen); padding:0.85rem 2rem; font-family:var(--font-b); font-size:0.79rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer; transition:all 0.25s; }
@@ -485,28 +543,27 @@
       .nav-hamburger { display: flex; }
       .mobile-menu { display: flex; }
 
-      /* Hero — stacked: image first, text below */
+      /* Hero — same full-bleed cinematic, smaller text + bottom-anchored overlay */
       #hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        padding-top: calc(60px + max(env(safe-area-inset-top, 0px), 1rem));
+        min-height: 90vh;
+        padding-top: 0;
       }
-      .hero-stage {
-        order: 1;
-        aspect-ratio: 4 / 5;
-        height: auto;
+      .hero-content {
+        width: 100%;
+        padding: 0 1.2rem 3.5rem;
       }
-      .hero-panel {
-        order: 2;
-        padding: 1.5rem 1.2rem 2rem;
+      .hero-overlay {
+        background:
+          linear-gradient(to top, rgba(15,8,4,0.85) 0%, rgba(15,8,4,0.4) 38%, rgba(15,8,4,0) 70%);
       }
-      .hero-title { margin-bottom: 0.8rem; font-size: clamp(2.2rem, 7vw, 3rem); }
-      .hero-divider { margin-bottom: 1rem; }
-      .hero-body { line-height: 1.7; font-size: 0.95rem; margin-bottom: 1.4rem; }
-      .hero-ctas { flex-direction: column; align-items: flex-start; margin-bottom: 0; }
+      .hero-eyebrow { font-size: 0.68rem; letter-spacing: 0.28em; margin-bottom: 1rem; }
+      .hero-title { font-size: clamp(2.4rem, 9vw, 3.4rem); margin-bottom: 1rem; }
+      .hero-divider { margin-bottom: 1.1rem; }
+      .hero-body { font-size: 0.9rem; line-height: 1.75; margin-bottom: 1.5rem; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
       .hero-ctas .btn-primary,
-      .hero-ctas .btn-secondary { padding: 0.8rem 1.5rem; font-size: 0.72rem; }
-      .hero-thumbs { bottom: 0.9rem; }
+      .hero-ctas .btn-secondary { padding: 0.78rem 1.6rem; font-size: 0.72rem; }
+      .hero-scroll-cue { display: none; }
       .d-label { font-size:0.72rem; margin-bottom:0.1rem; }
       .d-value { font-size:0.9rem; }
 
@@ -663,9 +720,12 @@
 </div>
 <div class="mobile-menu-overlay" id="mobileOverlay"></div>
 
-<!-- HERO -->
+<!-- HERO — single cinematic image with Ken Burns zoom -->
 <section id="hero">
-  <div class="hero-panel">
+  <img class="hero-image" src="images/home-hero-pb32.jpg?v=1" alt="Hand-sculpted tower of dark couverture chocolate flowers against a moody terracotta wall — fine chocolate artistry by Kanya Hunt"/>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Bespoke Couverture Chocolatier · Cape Town</p>
     <h1 class="hero-title">Where<br><em>chocolate</em><br>becomes <em>art</em></h1>
     <div class="hero-divider"></div>
     <p class="hero-body">
@@ -678,18 +738,7 @@
       <a href="https://wa.me/27XXXXXXXXX" target="_blank" class="btn-secondary">WhatsApp Kanya</a>
     </div>
   </div>
-  <div class="hero-stage" id="heroStage">
-    <div class="hero-slide active"><img src="images/home-hero-02-ruffle-bench.jpg?v=1" alt="Chocolate ruffle wedding cake on a cream tufted bench — handcrafted couverture artistry by Kanya Hunt"/></div>
-    <div class="hero-slide"><img src="images/home-hero-03-white-venue.jpg?v=1" alt="White chocolate ruffle wedding cake in a bright venue with overhead florals — handcrafted by Kanya Hunt"/></div>
-    <div class="hero-slide"><img src="images/home-hero-01-sculptural.jpg?v=1" alt="Sculptural dark chocolate flower wedding cake on a cream studio backdrop — hand-crafted couverture by Kanya Hunt"/></div>
-    <div class="hero-slide"><img src="images/home-hero-04-fairylight.jpg?v=1" alt="White chocolate flower wedding cake with warm fairy-light bokeh — handcrafted by Kanya Hunt"/></div>
-    <div class="hero-thumbs">
-      <div class="hero-thumb active" aria-label="Slide 1"></div>
-      <div class="hero-thumb" aria-label="Slide 2"></div>
-      <div class="hero-thumb" aria-label="Slide 3"></div>
-      <div class="hero-thumb" aria-label="Slide 4"></div>
-    </div>
-  </div>
+  <div class="hero-scroll-cue">Scroll</div>
 </section>
 
 <!-- AFRIKAANS QUOTE + CREDENTIALS STRIP -->
