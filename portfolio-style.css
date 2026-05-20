@@ -486,5 +486,6 @@ footer {
 
 @media (max-width: 560px) {
   .gallery-grid { grid-template-columns: 1fr; }
-  .gallery-item, .gallery-item.feature { aspect-ratio: 4 / 3; grid-column: auto; }
+  .gallery-item, .gallery-item.feature { aspect-ratio: 3 / 4; grid-column: auto; }
+  .gallery-item.feature-wide { grid-column: auto; aspect-ratio: 3 / 2; }
 }
