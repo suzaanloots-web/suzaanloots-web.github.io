@@ -1,107 +1,144 @@
 # Session Handoff — Kanya Hunt Website
-**Written:** 2026-05-20 (afternoon, by Sonnet 4.6)
-**Reason for handoff:** Suzaan wants Opus to look at the homepage slideshow and suggest a fix.
-**Project root:** `G:\My Drive\Kanya Hunt\Github\hunthouse-website\`
-
----
+**Last updated:** 2026-05-20 (evening, by Sonnet 4.6)
+**Live URL:** https://suzaanloots-web.github.io
 
 ## Read this first
 
-**Suzaan Loots** runs the project. She is **non-technical** — no code dumps, plain English always. She prefers natural conversation. Use `AskUserQuestion` sparingly.
+**Suzaan Loots** runs the project. She is **non-technical** — plain English always, no code dumps. She prefers natural conversation. Use `AskUserQuestion` sparingly.
 
-**Do NOT push to origin/GitHub Pages without Suzaan's explicit go-ahead.** (She approved the push today — but treat each session's push as a fresh decision.)
+She has explicitly authorised pushing to GitHub Pages — every commit can be pushed straight to `origin/main` without asking. But still confirm before destructive operations.
 
-Full agent context lives in `CLAUDE.md` in this folder — read that for brand positioning, photo curation criteria, the optimizer script usage, and the don'ts list.
-
----
-
-## Git status — fully clean
-
-All work from this session is committed and pushed. Branch `main` is up to date with `origin/main`. No uncommitted changes.
-
-Recent commits (most recent first):
-- `2894723` Add remaining orphaned images to repo
-- `de67aa3` Celebration Cakes: swap painted garden and pink ombre ruffles positions
-- `3d96fad` Hide hover captions on touchscreens — captions were sticking on tap
-- `7f38bfc` Fix mobile gallery aspect ratio — portrait cakes now show in full
-- `9f98d64` Homepage: about section team photos + all 6 offering card images
-- `752d976` Homepage hero: desktop cake positions + mobile text overlay
+Full context for the agent: `CLAUDE.md` in this folder (brand positioning, photo curation criteria, optimizer usage, the don'ts list).
 
 ---
 
-## What Suzaan wants Opus to look at — THE PRIMARY TASK
+## Git status
 
-### Homepage slideshow — needs a fix / fresh look
+Branch `main` is **fully up to date with `origin/main`**. Working tree is clean. All work committed and pushed.
 
-**File:** `index.html`
-**The slideshow** is the hero section at the top of the homepage. It cycles through 4 slides, each with a full-bleed portrait cake photo on the right and the hero title text on the left.
-
-**Known issues / what Suzaan is unhappy with:**
-- The mobile hero was worked on extensively this session and Suzaan eventually said *"I am giving up, this is not working, lets move on"* — so the mobile hero layout is imperfect but committed as-is
-- On desktop it works but Suzaan hasn't explicitly signed off on it as final
-- Suzaan wants Opus to look at the slideshow fresh and **suggest a possible fix** — this is an open brief, not a specific bug. She may want a redesign of the mobile layout, a simpler approach, or just tweaks
-
-**What to do:**
-1. Read `index.html` to understand the current slideshow structure
-2. Start the preview server (`kanya-hunt` on port 3458) and look at both desktop and mobile views
-3. Come back to Suzaan with a clear suggestion in plain English — what you'd change and why — before touching any code
-
-**Context on the mobile hero (from this session's work):**
-The mobile layout stacks: title text overlaid top-left via a radial gradient → cake image below/behind. The challenge is that the hero portrait images (3 slides, all tall portrait) are shifted `translateX(25%)` on slides 2/3/4 to show the cake to the right of the text, but this creates a gap on the left that needs to match the background colour. Slide 1 (`home-01`) fills the full width naturally. The radial gradient overlay (top-left corner, linen colour) fades out to the right to keep the cake visible.
-
-Hero images in `images/`:
-- `home-01-ruffle-ganache.jpg` (1200×1800 portrait)
-- `home-02-macro-texture.jpg` (portrait)
-- `home-03-berry-ganache.jpg` (portrait)
-- `home-04-[check HTML]` — check index.html for the 4th slide
+Most recent commits (high level):
+- Instagram row: 4 curated tiles (white peony, autumn roses, ribbon crown, chocolate embrace)
+- Contact section: single sharp chocolate ganache image (replaces broken two-image overlay)
+- 59 orphan files cleaned out of `images/` (~7.3 MB freed)
+- About gallery: redesigned as asymmetric 2x2 with signature chocolate-rose hands image
+- Homepage hero: single full-bleed cinematic with Ken Burns zoom (PB 32 sculptural chocolate cake)
+- Multiple iterations on white couverture offering card (settled on `ww-offering.jpg` — IMG_f8f5232a re-cropped to remove stand leg)
+- Mobile responsive fixes: portrait aspect ratio on gallery items, hover captions hidden on touchscreens
 
 ---
 
-## What else is pending (lower priority, for after the slideshow)
+## The site as it currently stands
 
-### Pages still needing photo content
-| Page | Slots remaining | Source folder |
-|------|----------------|---------------|
-| `index.html` contact frames ×2 | 2 slots | Awaiting Suzaan's picks |
-| `index.html` Instagram row ×4 | 4 slots | Awaiting Suzaan's picks |
+**Hero (homepage):** Single full-bleed dark sculptural cake (PB 32) with slow 24s Ken Burns zoom. Cream text overlay on the left, scroll cue at the bottom. Mobile stacks image with bottom-anchored text overlay.
 
-### Global placeholders still to fill
-- **WhatsApp number:** Replace `27XXXXXXXXX` and `+27 XX XXX XXXX` across all 8 HTML files when Kanya provides it
-- **Price anchor:** Replace `R[X] for up to [Y] guests` in `index.html` contact form
+**About section ("Hello, I'm Kanya"):** Asymmetric 2x2 gallery on the left (signature hands+chocolate-rose top-left, bundt-lady top-right, kitchen-lady bottom-left, laughing-lady bottom-right) with Kanya's story + mother portrait on the right.
 
-### Croquembouche & Minis — two open concerns (from prior session)
-1. `cm-02-choc-cylinders.jpg` is mis-captioned — image actually shows chocolate-dipped strawberries, not cylinders. Caption and alt text need updating (or image needs swapping).
-2. `cm-06-hands-cupcake.jpg` is a portrait photo in a `feature-wide` (landscape) slot — it's cropped. Could swap in a natively landscape photo instead.
+**Offering cards (Bespoke Occasions row):** 6 cards — Couverture Chocolate, White Couverture, Celebration Cakes, Petite Creations, Buttercream & Sugar Art, Weekend Cakes. All using on-brand images with consistent silhouettes/backgrounds. White couverture and buttercream cards have inline `object-position` tweaks.
+
+**Portfolio pages:** All 7 fully populated with real photos. Mobile gallery items render as portrait 3:4 (not the legacy landscape 4:3) — that fix is in `portfolio-style.css`.
+
+**Contact section ("Let's create something extraordinary"):** Single sharp image of chocolate ganache cake with sculpted sails on silver pedestal (IMG_9503 → `home-contact.jpg`).
+
+**Instagram row:** 4 curated 500x500 tiles. The previous broken two-image overlay setup was removed.
 
 ---
 
-## How the site is structured
+## What's still pending
 
-8 HTML pages + 1 shared CSS:
-- `index.html` — homepage
-- `chocolate-weddings.html`, `white-chocolate-weddings.html`, `celebration-cakes.html`, `croquembouche-minis.html`, `buttercream-sugar-art.html`, `weekend-cakes.html` — 6 portfolio sub-pages
-- `gallery.html` — Real Weddings
-- `portfolio-style.css` — shared CSS for all sub-pages (homepage has its own inline styles)
-- `scripts/optimize-image.ps1` — image pipeline
-- `images/` — all optimized photos
+### Real client content (waiting on Suzaan/Kanya)
+| Placeholder | Where to find it | Replace with |
+|-------------|------------------|--------------|
+| WhatsApp number | `+27 XX XXX XXXX` and `wa.me/27XXXXXXXXX` across all 8 HTML files | Real number when Kanya provides |
+| Price anchor | `R[X] for up to [Y] guests` in `index.html` contact form | Real minimum + guest count |
+| Testimonials | Section already removed; will re-add when 3-4 reviews collected | 3-4 short client reviews |
 
-## Preview server
+### Open concerns from prior sessions
+1. **Croquembouche & Minis page** — `cm-02-choc-cylinders.jpg` is mis-captioned (image actually shows chocolate-dipped strawberries, not cylinders). Worth a caption/alt rewrite or swap.
+2. **Croquembouche & Minis page** — `cm-06-hands-cupcake.jpg` is a portrait photo in a `feature-wide` (landscape) slot — it's cropped. Could swap for a natively landscape photo.
 
-Already configured. Start with:
+### Strategic next-step ideas (none urgent)
+- Add a Real Weddings testimonial block once reviews are collected
+- Consider adding meta-description and OG image to each portfolio page (currently uses generic hero_01 ref which was deleted — should be updated)
+
+---
+
+## Site structure quick map
+
+```
+G:\My Drive\Kanya Hunt\Github\hunthouse-website\
+├── index.html                        homepage
+├── chocolate-weddings.html           §1 dark couverture portfolio (14 images, done)
+├── white-chocolate-weddings.html     §1 white couverture portfolio (14 images, done)
+├── celebration-cakes.html            §2 celebrations (10 images, done)
+├── croquembouche-minis.html          §2 petite (12 images, done — 2 open concerns above)
+├── buttercream-sugar-art.html        §2 buttercream (11 images, done)
+├── weekend-cakes.html                §2 weekend (16 images, done)
+├── gallery.html                      Real Weddings (15 images, done)
+├── portfolio-style.css               shared CSS for all 7 sub-pages
+├── scripts/optimize-image.ps1        image optimizer
+├── images/                           108 referenced files, ~16.6 MB total
+└── chocolate-pour-web.mp4            unused; was considered for hero video — see note below
+```
+
+---
+
+## Image naming conventions
+
+- `home-XX-name` — homepage images (hero, about, contact)
+- `home-hero-pb32.jpg` — current single hero image
+- `home-ab-XX-name.jpg` — about section gallery (01-bundt, 02-laughing, 03-kitchen, 04-mother, 05-signature)
+- `home-contact.jpg` — contact section feature
+- `home-insta-XX-name.jpg` — Instagram preview row (4 tiles)
+- `cw-XX-name` — chocolate weddings
+- `ww-XX-name` — white chocolate weddings (plus `ww-offering.jpg` for homepage card)
+- `cc-XX-name` — celebration cakes
+- `cm-XX-name` — croquembouche & minis
+- `bs-XX-name` — buttercream & sugar art
+- `wc-XX-name` — weekend cakes (plus `wc-offering.jpg` for homepage card)
+- `rw-XX-name` — real weddings gallery
+
+**Cache-busting:** Always append `?v=N` to image src. Bump N when overwriting an image file in the same session.
+
+---
+
+## How to work with Suzaan
+
+- She sends photo picks as shortened codes (e.g. `2386` = `IMG_2386.JPG`, `PB32` = `PB (32).jpg`, `f8f5232a` = the UUID-named file). Use `Get-ChildItem -Filter "*pattern*"` to resolve.
+- She has "Definitely" and "Maybe" lists. For Definitelys: check against the 6 photo criteria honestly — flag anything that fails (she wants real feedback). For Maybes: pick the strongest up to the slot count.
+- For batch reviews of >5 photos, delegate to a general-purpose sub-agent — it conserves main-thread context.
+- She iterates a lot. Expect rotation requests, swaps, removals after seeing the rendered page. Hard refreshes (`Ctrl+Shift+R`) are sometimes needed for her to see CSS changes.
+- The preview server (`kanya-hunt`, port 3458) is configured. The preview pane in Claude Code can only show the page at its pane width (often <900px) so it renders the mobile layout. For desktop layouts, take screenshots via the preview tool at explicit widths (e.g. 1440x900) or have her check the live site.
+
+---
+
+## Preview server quick start
+
 ```
 preview_start name=kanya-hunt
 ```
-Port 3458. After file changes, just reload — no restart needed.
+Then in the browser: `http://localhost:3458/index.html`
+
+To force desktop dimensions when testing: `preview_resize width=1440 height=900`
+To check mobile: `preview_resize preset=mobile`
 
 ---
 
-## When to escalate / stay in Opus
+## When to escalate to Opus
 
-Stay in Opus for:
-- The slideshow suggestion and any redesign work that follows
-- Brand-voice copywriting
-- Pre-deploy final review
+- Brand-voice copywriting (real testimonials integration, new copy decisions)
+- Architectural changes (new pages, new offerings, restructure)
+- Pre-deploy final review before a major content addition
+- Anything where you're stuck on a strategy question and need fresh thinking
 
-Switch to Sonnet 4.6 for:
-- Image swaps, caption fixes, layout tweaks once decisions are made
-- Photo curation from source folders
+For everything else — image swaps, captions, layout iteration, photo curation, mobile bug fixes — Sonnet 4.6 is the right tool.
+
+---
+
+## Notable decisions logged from today's session
+
+- **Hero design:** Rejected the slideshow approach entirely. Single full-bleed image with subtle Ken Burns zoom is the final pattern. Mobile uses dark gradient overlay + bottom-anchored text. PB 32 (sculptural chocolate on terracotta) is the chosen image because — as a single hero, dark drama becomes the brand statement rather than an outlier.
+- **About gallery:** Switched from 3-image asymmetric (one tall left + 2 right) to 4-image asymmetric 2x2 with varied row heights. The signature image (Chocolate-245, hands cradling chocolate-rose) is the top-left feature.
+- **Mobile gallery aspect ratio:** Was `4/3` landscape (cropped portrait cakes badly), now `3/4` portrait. Critical fix in `portfolio-style.css`.
+- **Hover captions on touchscreens:** Hidden via `@media (hover: none)` — they were sticking after tap on mobile.
+- **`chocolate-pour-web.mp4`:** Considered for hero video but rejected by Suzaan. Don't propose it again.
+- **The "v2 contained-frame prototype" approach:** Was tried and rejected by Suzaan because it looked too sparse on her wide monitor. Don't propose this again either. Stick with full-bleed for hero.

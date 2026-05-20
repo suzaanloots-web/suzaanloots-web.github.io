@@ -176,30 +176,17 @@ When Suzaan provides any of these, do a single find-and-replace across all 8 HTM
 |------|-------|--------|
 | `chocolate-weddings.html` | 14 | ✅ DONE |
 | `white-chocolate-weddings.html` | 14 | ✅ DONE |
-| `celebration-cakes.html` | 10 | ⏳ Awaiting photo picks from Suzaan |
-| `croquembouche-minis.html` | 8 | ⏳ Awaiting photo picks from Suzaan |
+| `celebration-cakes.html` | 11 | ✅ DONE |
+| `croquembouche-minis.html` | 12 | ✅ DONE (two open concerns — see HANDOFF.md) |
 | `buttercream-sugar-art.html` | 11 | ✅ DONE |
 | `weekend-cakes.html` | 16 | ✅ DONE |
-| `gallery.html` *(Real Weddings)* | 15 | ⏳ Awaiting photo picks from Suzaan |
-| Homepage slots (hero ×4, about ×1, gallery ×3, offering cards ×6, contact frame ×2, Instagram ×4) | ~20 | ⏳ Awaiting photo picks from Suzaan |
+| `gallery.html` *(Real Weddings)* | 15 | ✅ DONE |
+| Homepage (hero, about×4, offerings×6, contact, Instagram×4) | ~16 | ✅ DONE |
 
-**Total: ~107 photo slots across the site. ~55 done, ~52 remaining.**
+**Total: ~109 photo slots all filled.** Remaining open items are content placeholders (WhatsApp number, price anchor, testimonials) — not photo work. See `HANDOFF.md` for the live punch-list.
 
-### Source folders for remaining pages
-
-| Page | Source folder | Photo count |
-|------|--------------|-------------|
-| Celebration Cakes | `D:\Website with Suzaan smaller order or single tiered buttercream cake\` | 67 photos |
-| Croquembouche & Minis | `D:\Website with Suzaan Cupcakes and individual units\` | 66 photos |
-| Real Weddings gallery | `D:\Website with Suzaan cake cutting\` | 114 photos |
-| Homepage hero/about | `D:\Website with Suzaan profile pics\` + `D:\Website with Suzaan generics\` | 26 + 50 photos |
-
-### Orphaned image files (no longer referenced in HTML — safe to delete later)
-These are in `images/` but not used on any page:
-- `wc-06.jpg`, `wc-11-chiffon.jpg`, `wc-13-chiffon.jpg`, `wc-14-ivory-roses.jpg`
-- `bs-04-white-tower.jpg`
-
-**Total: ~107 photo slots across the site. ~55 done, ~52 remaining.**
+### Orphan files in `images/`
+Cleaned up 2026-05-20. Folder currently contains only referenced files (108 files, ~16.6 MB). Don't expect orphans here unless something was just swapped.
 
 ## Strategic don'ts
 
@@ -211,14 +198,9 @@ These are in `images/` but not used on any page:
 
 ## Git workflow
 
-We commit periodically as save-points. Suzaan hasn't been pushing to GitHub yet — that happens when the photos and content are finalized. **Don't push to origin without explicit permission.**
+We commit + push to `origin/main` as save-points. **Suzaan has explicitly authorised pushing to GitHub Pages on every change** — the live URL is `https://suzaanloots-web.github.io`. You don't need to ask before each push; just do it after a sensible chunk of work.
 
-The local branch is ahead of origin/main by several commits — this is intentional. All work is safe locally.
-
-Recent commits *(via `git log --oneline`)*:
-- Session commits from 2026-05-19 covering all 4 completed portfolio pages
-- `22219fb Restructure site into multi-page architecture`
-- `7d428c5 Remove study folder - moved to Gesk-kw1 repo`
+Use `git log --oneline -10` to see the latest. The site has been live for many iterations since 2026-05-20.
 
 ## When to escalate back to Opus 4.7
 
