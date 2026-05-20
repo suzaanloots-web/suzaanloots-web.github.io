@@ -155,10 +155,28 @@
     .hero-slide.active { opacity:1; }
     .hero-slide img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
     /* Per-slide focal point — adjust after seeing live result */
-    .hero-slide:nth-child(1) img { object-position: 55% 20%; }
-    .hero-slide:nth-child(2) img { object-position: center 30%; }
-    .hero-slide:nth-child(3) img { object-position: 45% 25%; }
-    .hero-slide:nth-child(4) img { object-position: center 20%; }
+    .hero-slide:nth-child(2) img { object-position: 60% 24%; }
+    .hero-slide:nth-child(3) img { object-position: 62% 44%; }
+    .hero-slide:nth-child(4) img { object-position: 60% 30%; transform: translateX(10%); }
+    .hero-slide:nth-child(4)::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--linen) 28%, transparent 52%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-stage::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+      background:
+        linear-gradient(to top, var(--parchment) 0%, transparent 22%),
+        linear-gradient(to left, var(--parchment) 0%, transparent 18%),
+        linear-gradient(to right, var(--linen) 0%, transparent 20%);
+    }
     .slide-caption { position:absolute; bottom:0; left:50%; right:0; background:none; padding:3rem 2rem 1.8rem; }
     .slide-caption-text { font-family:var(--font-d); font-style:italic; font-size:1.15rem; color:#3B1F0B; }
 
@@ -459,47 +477,6 @@
 
     @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
 
-    /* Hero video strip — between buttons and thumbnails */
-    .hero-video-strip {
-      position: relative;
-      width: 60%;
-      height: 28vh;
-      overflow: hidden;
-      margin-top: -2.2rem;
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    .hero-video-strip video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      object-position: center 30%;
-      filter: brightness(1.15) saturate(0.8);
-      opacity: 0.75;
-    }
-    .hero-video-strip .strip-fade {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      background:
-        linear-gradient(to bottom,
-          var(--linen) 0%,
-          rgba(250,247,242,0) 35%,
-          rgba(250,247,242,0) 70%,
-          var(--linen) 100%
-        ),
-        linear-gradient(to right,
-          var(--linen) 0%,
-          rgba(250,247,242,0) 25%,
-          rgba(250,247,242,0) 75%,
-          var(--linen) 100%
-        );
-    }
 
     /* ── MOBILE ── */
     @media (max-width:900px) {
@@ -516,24 +493,12 @@
       /* Hero */
       #hero { display:grid; grid-template-columns:1fr; min-height:auto; padding-top:calc(60px + max(env(safe-area-inset-top, 0px), 1rem)); position:static; }
       .hero-panel { position:relative; top:auto; width:100%; background:var(--linen); display:contents; }
-      .hero-top { display: none; }
+      .hero-top { display: block; background: var(--linen); padding: 1.5rem 1.2rem 0.8rem; order: 1; }
       .hero-title { margin-bottom:0.3rem; font-size:clamp(2.2rem,7vw,3rem); }
       .hero-stage { order:2; height:85vh; position:relative; inset:auto; top:auto; }
 
-      /* Hero title overlay on image */
-      .hero-stage-title {
-        display: flex;
-        align-items: center;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 75%;
-        z-index: 10;
-        padding: 0 1.2rem;
-        padding-bottom: 8vh;
-        background: linear-gradient(to right, rgba(250,247,242,0.88) 30%, rgba(250,247,242,0.55) 65%, rgba(250,247,242,0) 100%);
-      }
+      /* Title overlay hidden on mobile — title shows above image instead */
+      .hero-stage-title { display: none; }
       .hero-stage-title .hero-title {
         opacity: 1;
         animation: none;
@@ -548,24 +513,6 @@
       .hero-ctas { margin-bottom:0; flex-direction:column; align-items:flex-start; }
       .hero-ctas .btn-primary,
       .hero-ctas .btn-secondary { padding:0.7rem 1.5rem; font-size:0.72rem; }
-      .hero-video-strip { width: 100%; flex: none; height: 200px; margin-top: -4.5rem; margin-bottom: 1.4rem; }
-      .hero-video-strip video { object-position: 70% 20%; }
-      .hero-video-strip .strip-fade {
-        background:
-          linear-gradient(to bottom,
-            var(--linen) 0%,
-            rgba(250,247,242,0) 40%,
-            rgba(250,247,242,0) 85%,
-            var(--linen) 100%
-          ),
-          linear-gradient(to right,
-            var(--linen) 0%,
-            rgba(250,247,242,0.4) 35%,
-            rgba(250,247,242,0) 55%,
-            rgba(250,247,242,0) 80%,
-            var(--linen) 100%
-          );
-      }
       .d-label { font-size:0.72rem; margin-bottom:0.1rem; }
       .d-value { font-size:0.9rem; }
 
@@ -740,22 +687,15 @@
         <a href="https://wa.me/27XXXXXXXXX" target="_blank" class="btn-secondary">WhatsApp Kanya</a>
       </div>
 
-      <div class="hero-video-strip">
-        <video autoplay muted loop playsinline>
-          <source src="chocolate-pour-web.mp4" type="video/mp4"/>
-        </video>
-        <div class="strip-fade"></div>
-      </div>
     </div>
   </div>
   <div class="hero-stage" id="heroStage">
     <div class="hero-stage-title">
       <h1 class="hero-title">Where<br><em>chocolate</em><br>becomes <em>art</em></h1>
     </div>
-    <div class="hero-slide active"><img src="images/hero_01.jpg?v=2" alt="Handcrafted chocolate floral wedding cake"/></div>
-    <div class="hero-slide"><img src="images/hero_06.jpg?v=2" alt="White chocolate textured celebration cake"/></div>
-    <div class="hero-slide"><img src="images/hero_02.jpg?v=2" alt="Sculptural couverture chocolate wedding cake"/></div>
-    <div class="hero-slide"><img src="images/hero_07.jpg?v=2" alt="Elegant pearl cluster wedding cake"/></div>
+    <div class="hero-slide active"><img src="images/home-01-ruffle-ganache.jpg?v=3" alt="Three-tier chocolate wedding cake with draped ganache panels and silver sugar detail — handcrafted couverture artistry by Kanya Hunt"/></div>
+    <div class="hero-slide"><img src="images/home-02-ganache-rose.jpg?v=2" alt="Dark chocolate ganache drip cake crowned with a white chocolate rose — handcrafted by Kanya Hunt"/></div>
+    <div class="hero-slide"><img src="images/home-03-peony-cascade.jpg?v=3" alt="Tall white chocolate peony cascade wedding cake — layers of hand-sculpted blooms by Kanya Hunt"/></div>
   </div>
 </section>
 
