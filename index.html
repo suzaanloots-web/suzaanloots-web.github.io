@@ -127,64 +127,56 @@
     }
     .mobile-menu-overlay.open { display: block; }
 
-    /* ── HERO ── */
-    #hero { padding-top:74px; min-height:100vh; position:relative; }
-
+    /* ── HERO — clean side-by-side, no per-slide hacks ── */
+    #hero {
+      padding-top: 74px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      background: var(--linen);
+    }
     .hero-panel {
-      position:absolute;
-      top:74px;
-      left:0;
-      bottom:0;
-      width:48%;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      padding:4rem 3.5rem 1rem;
-      background:linear-gradient(to right, var(--linen) 55%, rgba(250,247,242,0.85) 75%, rgba(250,247,242,0) 100%);
-      z-index:10;
-      border-right:none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 4.5rem 3rem;
+      background: var(--linen);
     }
     .hero-title { font-family:var(--font-d); font-size:clamp(3rem,4vw,5.2rem); font-weight:300; line-height:1.0; color:var(--ink); margin-bottom:1.6rem; opacity:0; animation:fadeUp 0.8s 0.2s forwards; }
     .hero-title em { font-style:italic; color:var(--rose); }
     .hero-divider { width:40px; height:1px; background:var(--light-gold); margin-bottom:1.8rem; opacity:0; animation:fadeUp 0.8s 0.35s forwards; }
-    .hero-body { font-size:1rem; color:var(--text-mid); line-height:2; max-width:420px; margin-bottom:2.5rem; opacity:0; animation:fadeUp 0.8s 0.5s forwards; }
+    .hero-body { font-size:1rem; color:var(--text-mid); line-height:2; max-width:440px; margin-bottom:2.5rem; opacity:0; animation:fadeUp 0.8s 0.5s forwards; }
     .hero-body strong { color:var(--ink); font-weight:500; }
-    .hero-ctas { display:flex; gap:0.9rem; flex-wrap:wrap; margin-bottom:3rem; opacity:0; animation:fadeUp 0.8s 0.65s forwards; position:relative; z-index:2; }
-    .hero-stage { position:absolute; inset:0; top:74px; overflow:hidden; background:var(--parchment); }
+    .hero-ctas { display:flex; gap:0.9rem; flex-wrap:wrap; opacity:0; animation:fadeUp 0.8s 0.65s forwards; }
+
+    .hero-stage {
+      position: relative;
+      overflow: hidden;
+      background: var(--linen);
+    }
     .hero-slide { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; }
     .hero-slide.active { opacity:1; }
-    .hero-slide img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
-    /* Per-slide focal point — shift all cakes right of the text panel */
-    .hero-slide:nth-child(2) img { object-position: 60% 24%; transform: translateX(12%); }
-    .hero-slide:nth-child(3) img { object-position: 62% 44%; transform: translateX(12%); }
-    .hero-slide:nth-child(4) img { object-position: 60% 30%; transform: translateX(10%); }
-    /* Left-edge blend overlay for each slide */
-    .hero-slide:nth-child(2)::before,
-    .hero-slide:nth-child(3)::before,
-    .hero-slide:nth-child(4)::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, var(--linen) 28%, transparent 52%);
-      pointer-events: none;
-      z-index: 1;
+    .hero-slide img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
     }
-    .hero-stage::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 5;
-      background:
-        linear-gradient(to top, var(--parchment) 0%, transparent 22%),
-        linear-gradient(to left, var(--parchment) 0%, transparent 18%),
-        linear-gradient(to right, var(--linen) 0%, transparent 20%);
-    }
-    .slide-caption { position:absolute; bottom:0; left:50%; right:0; background:none; padding:3rem 2rem 1.8rem; }
-    .slide-caption-text { font-family:var(--font-d); font-style:italic; font-size:1.15rem; color:#3B1F0B; }
 
-    /* ── MOBILE HERO TITLE OVERLAY — hidden on desktop ── */
-    .hero-stage-title { display: none; }
+    /* Slide indicator dots */
+    .hero-thumbs {
+      position: absolute; left: 50%; bottom: 1.6rem;
+      transform: translateX(-50%);
+      display: flex; gap: 0.55rem; z-index: 5;
+    }
+    .hero-thumb {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.45);
+      border: 1px solid rgba(255,255,255,0.85);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .hero-thumb.active { background: rgba(255,255,255,1); }
 
     /* ── BUTTONS ── */
     .btn-primary { display:inline-flex; align-items:center; background:var(--mocha); color:var(--linen); padding:0.85rem 2rem; font-family:var(--font-b); font-size:0.79rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer; transition:all 0.25s; }
@@ -493,51 +485,28 @@
       .nav-hamburger { display: flex; }
       .mobile-menu { display: flex; }
 
-      /* Hero */
-      #hero { display:grid; grid-template-columns:1fr; min-height:auto; padding-top:calc(60px + max(env(safe-area-inset-top, 0px), 1rem)); position:static; }
-      .hero-panel { position:relative; top:auto; width:100%; background:var(--linen); display:contents; }
-      .hero-top { display: none; }
-      .hero-title { margin-bottom:0.3rem; font-size:clamp(2.2rem,7vw,3rem); }
-      .hero-stage { order:2; height:85vh; position:relative; inset:auto; top:auto; background:var(--linen); }
-
-      /* Text overlay — large radial cloud, holds solid behind all text then fades */
-      .hero-stage-title {
-        display: flex;
-        align-items: flex-start;
-        position: absolute;
-        top: 0; bottom: 0; left: 0; right: 0;
-        z-index: 10;
-        padding: 3vh 0 0 1.2rem;
-        background: radial-gradient(ellipse 85% 85% at 0% 0%, rgba(250,247,242,0.97) 0%, rgba(250,247,242,0.95) 65%, rgba(250,247,242,0.7) 80%, rgba(250,247,242,0) 95%);
+      /* Hero — stacked: image first, text below */
+      #hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: calc(60px + max(env(safe-area-inset-top, 0px), 1rem));
       }
-      .hero-stage-title .hero-title {
-        opacity: 1;
-        animation: none;
-        font-size: clamp(2.2rem, 7vw, 3rem);
-        margin-bottom: 0;
+      .hero-stage {
+        order: 1;
+        aspect-ratio: 4 / 5;
+        height: auto;
       }
-      /* Shift all cakes right — gap matches linen stage background so it's invisible */
-      .hero-stage .hero-slide:nth-child(2) img,
-      .hero-stage .hero-slide:nth-child(3) img,
-      .hero-stage .hero-slide:nth-child(4) img { transform: translateX(25%); }
-      /* Remove desktop left-edge blend overlays on mobile */
-      .hero-slide:nth-child(2)::before,
-      .hero-slide:nth-child(3)::before,
-      .hero-slide:nth-child(4)::before { display: none; }
-      /* No left gradient needed on mobile — radial overlay handles text readability */
-      .hero-stage::after {
-        background:
-          linear-gradient(to top, var(--parchment) 0%, transparent 22%),
-          linear-gradient(to left, var(--parchment) 0%, transparent 18%);
+      .hero-panel {
+        order: 2;
+        padding: 1.5rem 1.2rem 2rem;
       }
-      .slide-caption { left:0; background:none; z-index:20; }
-      .slide-caption-text { text-shadow: 0 0 6px rgba(255,255,255,0.9), 0 0 12px rgba(255,255,255,0.7); }
-      .hero-bottom { order:3; background:var(--linen); padding:0.6rem 1.2rem 1rem; border-bottom:1px solid var(--border); }
-      .hero-divider { margin-bottom:0.5rem; }
-      .hero-body { margin-bottom:0.6rem; line-height:1.6; font-size:0.9rem; }
-      .hero-ctas { margin-bottom:0; flex-direction:column; align-items:flex-start; }
+      .hero-title { margin-bottom: 0.8rem; font-size: clamp(2.2rem, 7vw, 3rem); }
+      .hero-divider { margin-bottom: 1rem; }
+      .hero-body { line-height: 1.7; font-size: 0.95rem; margin-bottom: 1.4rem; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; margin-bottom: 0; }
       .hero-ctas .btn-primary,
-      .hero-ctas .btn-secondary { padding:0.7rem 1.5rem; font-size:0.72rem; }
+      .hero-ctas .btn-secondary { padding: 0.8rem 1.5rem; font-size: 0.72rem; }
+      .hero-thumbs { bottom: 0.9rem; }
       .d-label { font-size:0.72rem; margin-bottom:0.1rem; }
       .d-value { font-size:0.9rem; }
 
@@ -697,30 +666,29 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-panel">
-    <div class="hero-top">
-      <h1 class="hero-title">Where<br><em>chocolate</em><br>becomes <em>art</em></h1>
-    </div>
-    <div class="hero-bottom">
-      <div class="hero-divider"></div>
-      <p class="hero-body">
-        <strong>Every ruffle, petal, spiral, and drip is handcrafted chocolate.</strong>
-        Bespoke fine couverture artistry by one of Cape Town's most sought-after cake artists —
-        designed not just to be admired, but to be the best thing anyone eats that day.
-      </p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn-primary">Commission a Cake</a>
-        <a href="https://wa.me/27XXXXXXXXX" target="_blank" class="btn-secondary">WhatsApp Kanya</a>
-      </div>
-
+    <h1 class="hero-title">Where<br><em>chocolate</em><br>becomes <em>art</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-body">
+      <strong>Every ruffle, petal, spiral, and drip is handcrafted chocolate.</strong>
+      Bespoke fine couverture artistry by one of Cape Town's most sought-after cake artists —
+      designed not just to be admired, but to be the best thing anyone eats that day.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Commission a Cake</a>
+      <a href="https://wa.me/27XXXXXXXXX" target="_blank" class="btn-secondary">WhatsApp Kanya</a>
     </div>
   </div>
   <div class="hero-stage" id="heroStage">
-    <div class="hero-stage-title">
-      <h1 class="hero-title">Where<br><em>chocolate</em><br>becomes <em>art</em></h1>
+    <div class="hero-slide active"><img src="images/home-hero-02-ruffle-bench.jpg?v=1" alt="Chocolate ruffle wedding cake on a cream tufted bench — handcrafted couverture artistry by Kanya Hunt"/></div>
+    <div class="hero-slide"><img src="images/home-hero-03-white-venue.jpg?v=1" alt="White chocolate ruffle wedding cake in a bright venue with overhead florals — handcrafted by Kanya Hunt"/></div>
+    <div class="hero-slide"><img src="images/home-hero-01-sculptural.jpg?v=1" alt="Sculptural dark chocolate flower wedding cake on a cream studio backdrop — hand-crafted couverture by Kanya Hunt"/></div>
+    <div class="hero-slide"><img src="images/home-hero-04-fairylight.jpg?v=1" alt="White chocolate flower wedding cake with warm fairy-light bokeh — handcrafted by Kanya Hunt"/></div>
+    <div class="hero-thumbs">
+      <div class="hero-thumb active" aria-label="Slide 1"></div>
+      <div class="hero-thumb" aria-label="Slide 2"></div>
+      <div class="hero-thumb" aria-label="Slide 3"></div>
+      <div class="hero-thumb" aria-label="Slide 4"></div>
     </div>
-    <div class="hero-slide active"><img src="images/home-01-ruffle-ganache.jpg?v=3" alt="Three-tier chocolate wedding cake with draped ganache panels and silver sugar detail — handcrafted couverture artistry by Kanya Hunt"/></div>
-    <div class="hero-slide"><img src="images/home-02-ganache-rose.jpg?v=2" alt="Dark chocolate ganache drip cake crowned with a white chocolate rose — handcrafted by Kanya Hunt"/></div>
-    <div class="hero-slide"><img src="images/home-03-peony-cascade.jpg?v=3" alt="Tall white chocolate peony cascade wedding cake — layers of hand-sculpted blooms by Kanya Hunt"/></div>
   </div>
 </section>
 
