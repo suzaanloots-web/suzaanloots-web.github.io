@@ -489,3 +489,8 @@ footer {
   .gallery-item, .gallery-item.feature { aspect-ratio: 3 / 4; grid-column: auto; }
   .gallery-item.feature-wide { grid-column: auto; aspect-ratio: 3 / 2; }
 }
+
+/* Hide hover captions on touchscreens — no hover means captions stick on tap */
+@media (hover: none) {
+  .gallery-caption { display: none; }
+}
