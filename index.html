@@ -154,10 +154,13 @@
     .hero-slide { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; }
     .hero-slide.active { opacity:1; }
     .hero-slide img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
-    /* Per-slide focal point — adjust after seeing live result */
-    .hero-slide:nth-child(2) img { object-position: 60% 24%; }
-    .hero-slide:nth-child(3) img { object-position: 62% 44%; }
+    /* Per-slide focal point — shift all cakes right of the text panel */
+    .hero-slide:nth-child(2) img { object-position: 60% 24%; transform: translateX(12%); }
+    .hero-slide:nth-child(3) img { object-position: 62% 44%; transform: translateX(12%); }
     .hero-slide:nth-child(4) img { object-position: 60% 30%; transform: translateX(10%); }
+    /* Left-edge blend overlay for each slide */
+    .hero-slide:nth-child(2)::before,
+    .hero-slide:nth-child(3)::before,
     .hero-slide:nth-child(4)::before {
       content: '';
       position: absolute;
