@@ -1,155 +1,160 @@
 # Session Handoff — Kanya Hunt Website
-**Written:** 2026-05-20 (end of session)
+**Written:** 2026-05-20 (mid-day, by Opus 4.7)
+**Reason for handoff:** Suzaan is switching to **Sonnet 4.6** for cost reasons — the remaining work is image swapping, caption fixes, and HTML editing, which Sonnet handles cleanly.
 **Project root:** `G:\My Drive\Kanya Hunt\Github\hunthouse-website\`
 
 ---
 
-## Project overview
+## Read this first
 
-Kanya Hunt's luxury couverture chocolate portfolio website. Static HTML/CSS, multi-page. Hosted on GitHub Pages via `suzaanloots-web.github.io`. The site is a 90-day re-entry strategy for the Cape Town & Winelands luxury wedding cake market. Full strategy doc: `G:\My Drive\Kanya Hunt\KanyaHunt_Roadmap2026_SHORT DAILED PLANV2.docx`.
+**Suzaan Loots** runs the project. She is **non-technical** — no code dumps, plain English always. She prefers natural conversation over dropdown questionnaires. Use `AskUserQuestion` sparingly. She'll often want to see a screenshot of the result rather than read about it.
 
-**Run by:** Suzaan Loots (non-technical — no code dumping; plain English always).
-**Do NOT push to origin/GitHub Pages without Suzaan's explicit go-ahead.**
+**Do NOT push to origin/GitHub Pages without Suzaan's explicit go-ahead.** Local branch is 20+ commits ahead of `origin/main` — intentional, not a problem.
 
----
-
-## What happened this session
-
-### 1. Petite Creations page — full rewrite (`croquembouche-minis.html`)
-Page was previously titled "Croquembouche & Minis" with 8 placeholder divs.
-
-**Renamed throughout to "Petite Creations":**
-- `<title>` tag, meta description, OG tags
-- Eyebrow text → "Section 03 · Petite Creations"
-- H1 → "Petite *Creations*"
-- Hero intro copy rewritten
-- Craft section: heading changed to "Small in scale, *full in craft*", both body paragraphs rewritten, new quote
-- CTA: heading changed to "Something petite, *perfectly made*", body rewritten
-- Footer portfolio link updated on this page
-
-**8 placeholder slots replaced with real images:**
-
-| Slot | Class | File | Source image |
-|------|-------|------|--------------|
-| 1 | `feature` | `cm-01-mini-cake.jpg` | 20081002_570.jpg |
-| 2 | `feature-wide` | `cm-02-choc-cylinders.jpg` | IMG_5897.JPG |
-| 3 | standard | `cm-03-lemon-cupcake.jpg` | 20081002_602.jpg |
-| 4 | standard | `cm-04-choc-cupcakes.jpg` | IMG_1514.JPG |
-| 5 | standard | `cm-05-rose-cupcake.jpg` | KanyaHunt-024.jpg |
-| 6 | standard | `cm-06-hands-cupcake.jpg` | blush-emerald-466.jpg |
-| 7 | standard | `cm-07-croquembouche.jpg` | IMG_5716.jpeg |
-| 8 | standard | `cm-08-croquembouche-spun.jpg` | JPU0865.JPG |
-
-Grid cell count: 1 feature (4) + 1 feature-wide (2) + 6 standard (6) = **12 cells ✓**
-
-All 8 cm- image files were optimised and saved to `images/` in the previous session segment (before context summary). They are **untracked** — not yet committed.
-
-### 2. Footer link "Petite Creations" — updated across all 8 pages
-Changed `Croquembouche &amp; Minis` → `Petite Creations` (href `croquembouche-minis.html` unchanged) in:
-- `croquembouche-minis.html` (own footer)
-- `chocolate-weddings.html`
-- `white-chocolate-weddings.html`
-- `celebration-cakes.html`
-- `buttercream-sugar-art.html`
-- `weekend-cakes.html`
-- `gallery.html`
-- `index.html` — also updated the offering card title/body/alt, contact form dropdown option
-
-### 3. Earlier in session (before context compaction)
-- **Real Weddings gallery.html slot 3:** replaced dark Landman photo with `rw-03-thunder-bw.jpg` (B&W Thunder & Love editorial shot, 1200×800)
-- **Celebration Cakes** (`celebration-cakes.html`): all 10 placeholder slots filled with real photos, multiple swap/tweak rounds. Final structure: 1 feature + 1 feature-wide + 9 standard = 15 cells ✓. Images `cc-01` through `cc-12` (cc-09 not used).
+Full agent context lives in `CLAUDE.md` in this folder — read that for brand positioning, photo curation criteria, the optimizer script usage, and the don'ts list.
 
 ---
 
-## ⚠️ WHERE WE STOPPED — INCOMPLETE
+## What just got done (this Opus session, 2026-05-20)
 
-Suzaan gave these 4 instructions for the Petite Creations gallery and then ended the session **before they were implemented:**
+### Petite Creations gallery shuffle — DONE in HTML, NOT YET COMMITTED
 
-> a) Image 4 needs to be rotated and then make it the hero image  
-> b) Move the current hero nr1 to nr3  
-> c) Remove the current nr3  
-> d) Swap 2 and 6 around  
+Suzaan asked for 4 changes; all applied:
+- a) Rotated `cm-04-choc-cupcakes.jpg` from landscape 1200×791 to **portrait 791×1200** and made it the new **hero** (feature slot). Cache-busted to `?v=3`.
+- b) Demoted old hero `cm-01-mini-cake.jpg` down to **slot 3**.
+- c) Removed `cm-03-lemon-cupcake.jpg` from the page (file still in `images/` — orphan, safe to delete later).
+- d) Content-only swap of slots 2 ↔ 6 (cm-02 cylinders and cm-06 hands-cupcake swapped images; slot classes preserved).
 
-**None of these changes have been made to the HTML or images yet.**
+Also: **added a new 8th image** `cm-09-red-velvet-towers.jpg` (sourced from `IMG_7228.JPG`) to fix the grid math gap — without it the page would have had 11 cells (not divisible by 3, leaves a gap). It sits in slot 4 with d3 stagger.
 
-### ⚠️ Grid math warning for next session
+**Final gallery order (8 slots, 12 cells ✓):**
+| Pos | Class | Image | Notes |
+|-----|-------|-------|-------|
+| 1 | feature | cm-04 (rotated) | New hero — dark chocolate cupcakes w/ gold filigree |
+| 2 | feature-wide | cm-06 | Hands holding cream-swirl cupcake (portrait → wide crop) |
+| 3 | standard | cm-01 | Demoted ex-hero, mini cake on silver tray |
+| 4 | standard | cm-09 | NEW — red velvet mini towers w/ berries |
+| 5 | standard | cm-05 | White couverture rose cupcake |
+| 6 | standard | cm-02 | Chocolate + strawberries (was in feature-wide) |
+| 7 | standard | cm-07 | White croquembouche tower |
+| 8 | standard | cm-08 | Spun-sugar croquembouche |
 
-After applying instructions a–d, you will have 7 content slots (one removed). The proposed structure:
-- 1 feature (cm-04, rotated) = 4 cells
-- 1 feature-wide = 2 cells
-- 5 standard = 5 cells
-- **Total = 11 cells — NOT divisible by 3 → gap in the grid**
-
-**You must resolve this before committing.** Options:
-1. Find a replacement 8th image (best option — browse the cupcakes source folder for a good spare)
-2. Remove the feature-wide slot (drop to 1 feature + 6 standard = 10 — also not divisible by 3)
-3. Change to 2 feature-wide slots (complex, may look odd)
-4. **Simplest fix:** keep 8 total slots by substituting a different standard image instead of deleting cm-03 outright — ask Suzaan
-
-Also note: **instruction d ("swap 2 and 6")** swaps a feature-wide slot (slot 2) with a standard slot (slot 6). Clarify with Suzaan whether she means:
-- Content-only swap (images swap, slot classes stay) — landscape cm-02 in portrait standard slot may look awkward
-- Full swap including div class — changes grid structure
-
-### Image rotation needed (instruction a)
-`cm-04-choc-cupcakes.jpg` is currently **landscape (1200×791)**. To use as a portrait hero (feature slot), rotate 90° clockwise:
-```powershell
-Add-Type -AssemblyName System.Drawing
-$img = [System.Drawing.Image]::FromFile("G:\My Drive\Kanya Hunt\Github\hunthouse-website\images\cm-04-choc-cupcakes.jpg")
-$img.RotateFlip([System.Drawing.RotateFlipType]::Rotate90FlipNone)
-# then resize to max 1800px long edge and save — bump to ?v=3
-```
-If rotated result looks upside-down, use `Rotate270FlipNone` instead.
+Verified live in the preview server (`http://localhost:3458/croquembouche-minis.html`). All 8 images load. No console errors.
 
 ---
 
-## Next tasks — priority order
+## ⚠️ Two open concerns on Petite Creations — ASK SUZAAN
 
-1. **Apply the 4 pending Petite Creations gallery changes (a–d above)**
-   - Rotate cm-04, make it hero; demote cm-01 to standard; remove cm-03; swap 2 & 6
-   - Resolve the grid math gap (see warning above)
-   - Clarify swap-2-and-6 intent with Suzaan before touching slot classes
+These were flagged to Suzaan in the preview review but not yet resolved:
 
-2. **Homepage photo picks** — the biggest remaining job
-   - Slots: hero ×4, about portrait ×1, offering card images ×6, contact frames ×2, Instagram strip ×4 (~20 slots)
-   - Source folders: `D:\Website with Suzaan profile pics\` (26 photos), `D:\Website with Suzaan generics\` (50 photos)
-   - Awaiting Kanya/Suzaan's picks
+### Concern 1: cm-02 image is mis-captioned
+The image `cm-02-choc-cylinders.jpg` actually shows **chocolate-dipped strawberries with chocolate curls**, NOT chocolate cylinder cakes. The alt text and caption say "Dark couverture cylinders — individual by design" which is wrong. This mislabel was inherited from the prior session — not introduced by the shuffle.
 
-3. **White Chocolate Weddings** (`white-chocolate-weddings.html`) — 14 placeholder slots
-   - Source: `D:\Website with Suzaan white chocolate cakes\` (89 photos)
-   - Awaiting photo picks
+**Options to put to Suzaan:**
+- Rewrite the caption to match the actual photo (e.g. *"Strawberries draped in dark couverture — a fresh take"*)
+- Find an actual cylinder-cake photo from the source folder and swap the image in (keep filename, bump cache-bust)
+- Remove cm-02 entirely and substitute another photo
 
-4. **WhatsApp number** — replace `27XXXXXXXXX` and `+27 XX XXX XXXX` across all 8 HTML files when Kanya provides it
+Find the HTML at `croquembouche-minis.html` around lines 87–89 (current position is slot 6, classes `gallery-item reveal d1`).
 
-5. **Push to GitHub Pages** — only with Suzaan's explicit go-ahead (currently 20 commits ahead of origin/main)
+### Concern 2: cm-06 in feature-wide slot is portrait-source in landscape slot
+Because of the content-only swap, cm-06 (portrait photo of hands cradling a cupcake) now sits in slot 2 which is landscape-shaped. CSS `object-fit: cover` crops the top/bottom of the portrait image to fit the landscape frame. The result still reads as "hands cradling cupcake" but loses breathing room.
 
----
-
-## Current git status
-
-- **Branch:** main
-- **Ahead of origin/main by:** 20 commits (local only, not pushed)
-- **Modified (not staged):** all 8 HTML files (footer link changes + croquembouche-minis full rewrite)
-- **Untracked new images (not committed):**
-  - `cm-01-mini-cake.jpg` through `cm-08-croquembouche-spun.jpg` (8 Petite Creations images)
-  - `cc-09-purple-gold.jpg`, `cc-10-overhead-roses.jpg` — orphaned celebration cakes images (not used in HTML, safe to delete)
-  - `wc-06.jpg`, `wc-11-chiffon.jpg`, `wc-13-chiffon.jpg`, `wc-14-ivory-roses.jpg` — orphaned weekend cakes images (safe to delete later)
-  - `bs-04-white-tower.jpg` — orphaned buttercream image (safe to delete later)
+If Suzaan dislikes the crop:
+- Try `object-position: center top` or `center bottom` on that gallery-item to anchor the crop differently
+- Or revert: put cm-02 back in slot 2 (its native landscape works there) and find a different way to honor the "swap 2 and 6" intent
+- Or pick a different photo for slot 2 that is natively landscape
 
 ---
 
-## Patterns and decisions to carry forward
+## Git status
 
-- **Grid math rule:** Total grid cells must be divisible by 3. feature=4 cells, feature-wide=2 cells, standard=1 cell. Always verify before committing.
-- **Cache-busting:** Always append `?v=2` (or bump to ?v=3, ?v=4) on every img src. When overwriting an image file in the same session, bump the version.
-- **Content-only swaps:** When swapping two images, swap only `src`, `alt`, `style` attributes and the caption text — never touch the div class or stagger delays (d1/d2/d3). This preserves the reveal animation stagger.
-- **object-position tricks:** `center top` = anchors to top (use when cake head is cut off); `75% center` = slightly right of centre; default `center center`.
-- **Never upscale images** — cap at `Math.Min(1.0, maxPx/longEdge)` in the optimizer.
-- **No fondant/buttercream** in the chocolate wedding sections — brand positioning depends on it.
-- **Preview server:** already configured at port 3458, name `kanya-hunt`. Start with `preview_start name=kanya-hunt`. Navigate with `preview_eval` → `window.location.href`.
-- **Optimizer script:** `scripts\optimize-image.ps1` — slots: `hero` (1800px), `gallery` (1200px).
+- **Branch:** main (20 commits ahead of `origin/main`, intentional, do not push)
+- **Modified, NOT staged:**
+  - `croquembouche-minis.html` (gallery shuffle)
+- **Untracked, NOT staged:**
+  - `images/cm-09-red-velvet-towers.jpg` (new image, 164 KB)
+  - `images/cm-04-choc-cupcakes.jpg` was overwritten in place — counts as a modification of a tracked file (was added earlier this session)
+
+Earlier this session a commit landed for the full Petite Creations rewrite + footer updates + all 8 cm- images. Suzaan said "committed" so check `git log` if uncertain.
+
+**Do not commit the gallery shuffle until Concerns 1 & 2 are resolved.** Once resolved, suggested commit message:
+> Petite Creations gallery shuffle: rotated cm-04 to hero, demoted cm-01, removed cm-03, swapped 2/6, added cm-09 red velvet towers
 
 ---
 
-## Problems / errors this session
+## Pending work — priority order
 
-- None blocking. The grid math gap (11 cells after Suzaan's pending changes) is the main unresolved issue requiring attention at the start of the next session.
+### 1. Resolve the two open concerns above (Petite Creations) — FAST
+
+### 2. Homepage photo picks — BIG JOB
+- `index.html` slots: hero ×4, about portrait ×1, offering cards ×6, contact frames ×2, Instagram ×4 (~20 slots)
+- Source folders:
+  - `D:\Website with Suzaan profile pics\` (26 photos — for About-Kanya portrait)
+  - `D:\Website with Suzaan generics\` (50 photos — for hero, Instagram, supporting)
+- Awaiting Suzaan's picks. When she sends a list of codes, map → filenames → optimize → slot.
+
+### 3. White Chocolate Weddings (`white-chocolate-weddings.html`) — 14 placeholder slots
+- Source: `D:\Website with Suzaan white chocolate cakes\` (89 photos)
+- Awaiting picks
+
+### 4. Real Weddings (`gallery.html`) — 15 placeholder slots (slot 3 already done, see `rw-03-thunder-bw.jpg`)
+- Source: `D:\Website with Suzaan cake cutting\` (114 photos)
+- Awaiting picks
+
+### 5. WhatsApp number — global find-and-replace
+Replace `27XXXXXXXXX` and `+27 XX XXX XXXX` across all 8 HTML files when Kanya provides the real number.
+
+### 6. Price anchor in `index.html` contact form
+Replace `R[X] for up to [Y] guests` placeholder with real values once Suzaan provides.
+
+### 7. Push to GitHub Pages — only with Suzaan's explicit go-ahead
+
+---
+
+## Patterns to follow (don't deviate)
+
+- **Grid math:** Total grid cells must be divisible by 3. `feature` = 4 cells, `feature-wide` = 2 cells, `standard` = 1 cell. Always verify before committing.
+- **Cache-busting:** Append `?v=2` (or bump to `?v=3`, `?v=4`) on every `img src`. When overwriting an image file in the same session, **bump the version** or browsers serve the stale cached copy.
+- **Content-only swaps:** When swapping two images between slots, swap only `src`, `alt`, `style`, and the caption text — never touch the div class or the `d1/d2/d3` stagger classes (that preserves the reveal animation).
+- **object-position tricks:** `center top` anchors to top (use when cake heads are cut off); `75% center` for slightly-right-of-centre; default is `center center`.
+- **Never upscale images.** The optimizer caps at `Math.Min(1.0, maxPx / longEdge)`.
+- **No fondant or buttercream** in the §1 wedding cake sections (chocolate-weddings, white-chocolate-weddings) — brand positioning is built on "exclusively couverture chocolate".
+- **Preview server:** Already running on port 3458, name `kanya-hunt`. Use `preview_eval` to navigate: `window.location.href = '/croquembouche-minis.html?t=' + Date.now()`. The server cwd is `Github/hunthouse-website` — paths are relative to that, e.g. `/index.html`, NOT `/Github/hunthouse-website/index.html`.
+- **Optimizer:** `powershell -ExecutionPolicy Bypass -File "scripts\optimize-image.ps1" -Source "..." -Name "..." -Slot "gallery"` (slots: `hero` 1800px, `gallery` 1200px, `offering` 800px, `portrait` 1000px, `frame` 1200px, `instagram` 500×500).
+- **Image rotation:** `[System.Drawing.Image]::FromFile($src); $img.RotateFlip([System.Drawing.RotateFlipType]::Rotate90FlipNone)` — if result is upside-down use `Rotate270FlipNone`.
+- **Photo curation:** Use a general-purpose sub-agent when picking from >5 photos — it conserves context vs. viewing them all in main thread.
+
+---
+
+## Files in the repo you'll actually touch
+
+- `index.html` — homepage
+- `chocolate-weddings.html`, `white-chocolate-weddings.html`, `celebration-cakes.html`, `croquembouche-minis.html`, `buttercream-sugar-art.html`, `weekend-cakes.html` — 6 portfolio sub-pages
+- `gallery.html` — Real Weddings portfolio
+- `portfolio-style.css` — shared CSS (rarely needs changes)
+- `scripts/optimize-image.ps1` — image pipeline
+- `images/` — all optimized photos go here
+
+Orphaned images (in `images/`, not referenced in any HTML — safe to delete when convenient):
+`cm-03-lemon-cupcake.jpg`, `cc-09-purple-gold.jpg`, `cc-10-overhead-roses.jpg`, `wc-06.jpg`, `wc-11-chiffon.jpg`, `wc-13-chiffon.jpg`, `wc-14-ivory-roses.jpg`, `bs-04-white-tower.jpg`.
+
+---
+
+## How Suzaan likes to work
+
+- She sends photo picks as shortened codes (e.g. `2386` = `IMG_2386.JPG`, `PB32` = `PB (32).jpg`). Use `Get-ChildItem -Filter "*pattern*"` to resolve.
+- She has "Definitely" and "Maybe" lists. For Definitelys: check them against the 6 photo criteria honestly — flag any that fail (she wants real feedback). For Maybes: you pick the strongest up to the slot count.
+- After each slot is filled, reload the preview and screenshot the result.
+- She iterates — expect rotation requests, swaps, removals after seeing the rendered page. The optimizer handles re-processing cleanly.
+
+---
+
+## When to escalate back to Opus
+
+- Brand-voice copywriting decisions (real testimonials, price anchor wording, new copy)
+- Strategy/architecture changes (new pages, new offerings, restructure)
+- Pre-deploy final review before pushing to GitHub Pages
+- Anything where you're stuck and need a fresh angle
+
+For everything else — image swaps, captions, layout iteration, photo curation — Sonnet 4.6 is the right tool.
