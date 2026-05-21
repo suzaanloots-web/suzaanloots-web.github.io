@@ -1104,13 +1104,19 @@
   mobileOverlay.addEventListener('click', closeMenu);
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', function(e) {
-      e.preventDefault();
       var href = this.getAttribute('href');
-      closeMenu();
-      setTimeout(function() {
-        var target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      if (href && href.charAt(0) === '#') {
+        // In-page anchor — close menu, then smooth scroll
+        e.preventDefault();
+        closeMenu();
+        setTimeout(function() {
+          var target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        // External page link (gallery.html, weekend-cakes.html, etc.) — close menu, let browser navigate
+        closeMenu();
+      }
     });
   });
 
