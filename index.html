@@ -346,9 +346,9 @@
     .offerings-grid-3 { grid-template-columns:repeat(3,1fr); }
     .offerings-grid-4 { grid-template-columns:repeat(4,1fr); }
 
-    /* ── WEEKEND STRIP — quiet typographic aside between Offerings and How It Works ── */
-    #weekend-strip { background:var(--parchment); padding:1.5rem 3.5rem; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .weekend-strip-inner { max-width:780px; font-family:var(--font-d); font-size:1.05rem; color:var(--text-mid); line-height:1.7; }
+    /* ── WEEKEND STRIP — quiet framed noticeboard between Offerings and How It Works ── */
+    #weekend-strip { background:var(--linen); padding:3rem 3.5rem; }
+    .weekend-strip-inner { max-width:780px; margin:0 auto; padding:2.2rem 2.5rem; background:var(--parchment); border:1px solid var(--light-gold); font-family:var(--font-d); font-size:1.05rem; color:var(--text-mid); line-height:1.7; }
     .weekend-strip-inner .lead { display:block; font-style:italic; color:var(--ink); font-size:1.35rem; margin-bottom:0.7rem; line-height:1.4; }
     .weekend-strip-cta { display:flex; gap:2.5rem; margin-top:1rem; flex-wrap:wrap; }
     .weekend-strip-cta a { font-family:var(--font-d); font-style:italic; font-size:1rem; color:var(--caramel); text-decoration:underline; text-underline-offset:3px; transition:color 0.2s; }
@@ -612,9 +612,9 @@
       .offerings-grid-3 { grid-template-columns:1fr; }
       .offerings-grid-4 { grid-template-columns:1fr 1fr; }
 
-      /* Weekend Strip — mobile */
-      #weekend-strip { padding:1.2rem 1.2rem; border-top:1px solid var(--light-gold); }
-      .weekend-strip-inner { font-size:0.95rem; }
+      /* Weekend Strip — mobile (framed noticeboard) */
+      #weekend-strip { padding:1.8rem 1.2rem; }
+      .weekend-strip-inner { padding:1.5rem 1.4rem; font-size:0.95rem; }
       .weekend-strip-inner .lead { font-size:1.15rem; }
       .weekend-strip-cta { flex-direction:column; gap:0.6rem; margin-top:0.8rem; }
       .weekend-strip-cta a { font-size:0.92rem; }
