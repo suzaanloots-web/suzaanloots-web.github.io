@@ -343,7 +343,16 @@
 
     .offerings-grid { display:grid; gap:1.5rem; }
     .offerings-grid-2 { grid-template-columns:repeat(2,1fr); }
+    .offerings-grid-3 { grid-template-columns:repeat(3,1fr); }
     .offerings-grid-4 { grid-template-columns:repeat(4,1fr); }
+
+    /* ── WEEKEND STRIP — quiet typographic aside between Offerings and How It Works ── */
+    #weekend-strip { background:var(--parchment); padding:1.5rem 3.5rem; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .weekend-strip-inner { max-width:780px; font-family:var(--font-d); font-size:1.05rem; color:var(--text-mid); line-height:1.7; }
+    .weekend-strip-inner .lead { display:block; font-style:italic; color:var(--ink); font-size:1.35rem; margin-bottom:0.7rem; line-height:1.4; }
+    .weekend-strip-cta { display:flex; gap:2.5rem; margin-top:1rem; flex-wrap:wrap; }
+    .weekend-strip-cta a { font-family:var(--font-d); font-style:italic; font-size:1rem; color:var(--caramel); text-decoration:underline; text-underline-offset:3px; transition:color 0.2s; }
+    .weekend-strip-cta a:hover { color:var(--ink); }
     .offering { border-top:1px solid var(--border); padding-top:1.8rem; text-decoration:none; color:inherit; display:block; transition:opacity 0.2s; }
     .offering:hover { opacity:0.88; }
     .offering-num { font-family:var(--font-d); font-size:3.2rem; font-weight:300; color:rgba(30,15,6,0.07); line-height:1; margin-bottom:1.4rem; }
@@ -516,6 +525,8 @@
       margin-bottom:2rem;
     }
     .footer-col-title { font-size:0.75rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--rose); margin-bottom:1rem; }
+    .footer-subgroup-label { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--caramel); margin-top:1.1rem; margin-bottom:0.5rem; font-family:var(--font-b); }
+    .footer-subgroup-label:first-of-type { margin-top:0; }
     .footer-links { display:flex; flex-direction:column; gap:0.5rem; list-style:none; }
     .footer-links a { font-size:0.92rem; color:var(--text-mid); text-decoration:none; transition:color 0.2s; font-family:var(--font-d); }
     .footer-links a:hover { color:var(--mocha); }
@@ -598,7 +609,15 @@
       .offerings-section-sub { font-size:0.85rem; margin-bottom:1.2rem; }
       .offerings-grid { gap:0.8rem; }
       .offerings-grid-2 { grid-template-columns:1fr 1fr; }
+      .offerings-grid-3 { grid-template-columns:1fr; }
       .offerings-grid-4 { grid-template-columns:1fr 1fr; }
+
+      /* Weekend Strip — mobile */
+      #weekend-strip { padding:1.2rem 1.2rem; border-top:1px solid var(--light-gold); }
+      .weekend-strip-inner { font-size:0.95rem; }
+      .weekend-strip-inner .lead { font-size:1.15rem; }
+      .weekend-strip-cta { flex-direction:column; gap:0.6rem; margin-top:0.8rem; }
+      .weekend-strip-cta a { font-size:0.92rem; }
       .offering { border-right:none; border-bottom:1px solid var(--border); padding-top:0.6rem; padding-bottom:0.4rem; }
       .offering:nth-child(odd) { border-right:1px solid var(--border); }
       .offering-num { margin-bottom:0.3rem; font-size:2.4rem; }
@@ -831,7 +850,7 @@
       <h3 class="offerings-section-title">Bespoke Occasions</h3>
     </div>
     <p class="offerings-section-sub">Beyond the wedding day — every kind of celebration deserves its own cake.</p>
-    <div class="offerings-grid offerings-grid-4">
+    <div class="offerings-grid offerings-grid-3">
       <a href="celebration-cakes.html" class="offering reveal">
         <div class="offering-img"><img src="images/cc-01-curl-tower.jpg?v=2" alt="Bespoke celebration cake — dark chocolate curl tower with cape gooseberry accents by Kanya Hunt" loading="lazy"/></div>
         <h3 class="offering-title">Celebration Cakes</h3>
@@ -850,12 +869,18 @@
         <p class="offering-body">For the briefs that call for buttercream or sugar work — bespoke commissions on request.</p>
         <span class="offering-cta">View Portfolio &rarr;</span>
       </a>
-      <a href="weekend-cakes.html" class="offering reveal d3">
-        <div class="offering-img"><img src="images/wc-offering.jpg?v=2" alt="Weekend cake — red velvet with a hand-crafted dark couverture chocolate curl rose by Kanya Hunt" loading="lazy" style="object-position:center top"/></div>
-        <h3 class="offering-title">Weekend Cakes</h3>
-        <p class="offering-body">A weekly chef's-choice menu — chocolate, chiffons, seasonal flavours. Wednesday menu, Saturday delivery.</p>
-        <span class="offering-cta">View Portfolio &rarr;</span>
-      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WEEKEND STRIP — quiet typographic aside between Offerings and How It Works -->
+<section id="weekend-strip">
+  <div class="weekend-strip-inner reveal">
+    <span class="lead">The kitchen runs every week — commission or not.</span>
+    A small list of regulars, by WhatsApp only. A weekly menu of three or four cakes — drawn from fourteen recipes in rotation. Announced Wednesday. Delivered Friday. No customisation, no booking form. Just Kanya baking what she loves that week.
+    <div class="weekend-strip-cta">
+      <a href="weekend-cakes.html">View the rotation &rarr;</a>
+      <a href="https://wa.me/27XXXXXXXXX?text=Hi%20Kanya%2C%20I%27d%20like%20to%20join%20the%20Friday%20cake%20list" target="_blank">Join the WhatsApp list &rarr;</a>
     </div>
   </div>
 </section>
@@ -906,7 +931,6 @@
         <option>Celebration Cake (birthday, anniversary, milestone)</option>
         <option>Petite Creations (mini cakes, cupcakes, croquembouche)</option>
         <option>Buttercream or Sugar Art</option>
-        <option>Weekend Cakes — join the list</option>
         <option>Styled Shoot / Editorial Collaboration</option>
         <option>Other</option>
       </select>
@@ -995,14 +1019,18 @@
   <div class="footer-top">
     <div>
       <p class="footer-col-title">Portfolios</p>
+      <p class="footer-subgroup-label">Wedding &amp; Bespoke</p>
       <ul class="footer-links">
         <li><a href="chocolate-weddings.html">Couverture Chocolate Weddings</a></li>
         <li><a href="white-chocolate-weddings.html">White Couverture Weddings</a></li>
         <li><a href="celebration-cakes.html">Celebration Cakes</a></li>
         <li><a href="croquembouche-minis.html">Petite Creations</a></li>
         <li><a href="buttercream-sugar-art.html">Buttercream &amp; Sugar Art</a></li>
-        <li><a href="weekend-cakes.html">Weekend Cakes</a></li>
         <li><a href="gallery.html">Real Weddings</a></li>
+      </ul>
+      <p class="footer-subgroup-label">The Kitchen</p>
+      <ul class="footer-links">
+        <li><a href="weekend-cakes.html">Weekend Cakes</a></li>
       </ul>
     </div>
     <div>
