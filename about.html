@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>About Kanya Hunt · Couverture Cake Artist · Cape Town</title>
+  <meta name="description" content="The story behind the chocolate — Kanya Hunt, couverture cake artist and qualified dietician. Cape Town & Winelands."/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="About Kanya Hunt · Couverture Cake Artist"/>
+  <meta property="og:description" content="The story behind the chocolate — Kanya Hunt, couverture cake artist and qualified dietician. Cape Town & Winelands."/>
+  <meta property="og:url" content="https://suzaanloots-web.github.io/about.html"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="portfolio-style.css">
+
+  <style>
+    /* ── ABOUT PAGE — page-specific inline styles ── */
+
+    /* MAIN ABOUT — two column */
+    .about-main { padding: 4rem 3.5rem; background: var(--white); }
+    .about-main-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+
+    /* 2×2 image grid */
+    .about-image-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; height: 520px; }
+    .about-image-grid img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; border-radius: 2px; }
+
+    /* Biography column */
+    .about-bio { display: flex; flex-direction: column; }
+    .about-bio-portrait { width: 180px; min-width: 180px; height: auto; border: 2px solid var(--light-gold); padding: 4px; display: block; object-fit: cover; object-position: center top; border-radius: 40% 40% 6px 6px / 20% 20% 2% 2%; margin: 0 0 1.6rem; }
+    .about-bio-intro { font-family: var(--font-d); font-style: italic; font-size: 1.28rem; color: var(--mocha); line-height: 1.65; margin: 0 0 1.8rem; padding-left: 1.2rem; border-left: 2px solid var(--light-gold); }
+    .about-bio-body { font-size: 1rem; color: var(--text-mid); line-height: 1.95; margin-bottom: 1.2rem; }
+    .about-bio-quote { font-family: var(--font-d); font-style: italic; font-size: 1.2rem; color: var(--ink); line-height: 1.65; margin: 1.8rem 0; padding: 1.4rem 1.6rem; background: var(--linen); border-left: 3px solid var(--rose); }
+    .about-bio-wit { font-family: var(--font-d); font-style: italic; font-size: 1.12rem; color: var(--caramel); margin: 0.5rem 0 2.2rem; }
+    .about-bio-wit em { color: var(--rose); }
+    .about-bio .btn-primary { align-self: flex-start; }
+
+    /* CREDENTIAL STRIP (ported pattern from index.html #quote-strip credentials side) */
+    #credentials-strip { background: var(--linen); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 3rem 3.5rem; }
+    .cs-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .cs-detail { padding: 0 1.8rem; border-right: 1px solid var(--border); }
+    .cs-detail:first-child { padding-left: 0; }
+    .cs-detail:last-child { border-right: none; padding-right: 0; }
+    .cs-label { font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.55rem; font-family: var(--font-b); font-weight: 400; }
+    .cs-value { font-family: var(--font-d); font-size: 1.08rem; color: var(--ink); line-height: 1.35; }
+    .cs-value a { color: var(--ink); text-decoration: none; transition: color 0.2s; }
+    .cs-value a:hover { color: var(--mocha); }
+
+    /* POSITIONING — A Different Kind of Cake */
+    #position { background: var(--white); padding: 4rem 3.5rem; }
+    .position-inner { max-width: 1240px; margin: 0 auto; }
+    .position-header { margin-bottom: 2rem; }
+    .position-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .position-body { font-size: 1rem; color: var(--text-mid); line-height: 1.95; }
+    .position-blockquote { font-family: var(--font-d); font-style: italic; font-size: 1.4rem; color: var(--ink); line-height: 1.5; margin: 0 0 1.6rem; padding-left: 1.4rem; border-left: 3px solid var(--rose); }
+
+    /* MOBILE — 900px to match site-wide breakpoint */
+    @media (max-width: 900px) {
+      .about-main { padding: 2rem 1.2rem; }
+      .about-main-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .about-image-grid { height: 360px; }
+      .about-bio-portrait { width: 130px; min-width: 130px; margin-bottom: 1.2rem; }
+      .about-bio-intro { font-size: 1.12rem; }
+      .about-bio-body { font-size: 0.95rem; line-height: 1.85; }
+      .about-bio-quote { font-size: 1.05rem; padding: 1.1rem 1.2rem; }
+
+      #credentials-strip { padding: 1.6rem 1.2rem; }
+      .cs-inner { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .cs-detail { padding: 0.6rem 0.8rem; border-right: none; }
+      .cs-detail:nth-child(odd) { border-right: 1px solid var(--border); padding-left: 0; }
+      .cs-detail:nth-child(even) { padding-right: 0; }
+      .cs-label { font-size: 0.7rem; margin-bottom: 0.3rem; }
+      .cs-value { font-size: 0.95rem; }
+
+      #position { padding: 2.2rem 1.2rem; }
+      .position-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+      .position-blockquote { font-size: 1.15rem; }
+      .position-body { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="topnav">
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-main">Kanya Hunt</span>
+    <span class="nav-brand-sub">Couverture Cake Artist · Cape Town</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#offerings">Creations</a></li>
+    <li><a href="gallery.html">Real Weddings</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="weekend-cakes.html">The Kitchen</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Enquire Now</a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+  <ul class="mobile-menu-links">
+    <li><a href="index.html#offerings">Creations</a></li>
+    <li><a href="gallery.html">Real Weddings</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="weekend-cakes.html">The Kitchen</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="btn-primary" style="margin-top:1.5rem; align-self:flex-start;">Enquire Now</a>
+</div>
+<div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+<!-- PAGE HERO STRIP -->
+<section class="portfolio-hero">
+  <h1 class="display-title reveal">The Story Behind <em>the Chocolate</em></h1>
+  <div class="divider-line"></div>
+  <p class="portfolio-hero-intro reveal d1">
+    From a pink birthday cake at age four to couverture sculpted entirely by hand &mdash; <strong>this is how it started, and why it never stopped.</strong>
+  </p>
+</section>
+
+<!-- MAIN ABOUT — two column -->
+<section class="about-main">
+  <div class="about-main-inner">
+
+    <!-- LEFT — 2×2 image grid -->
+    <div class="about-image-grid reveal">
+      <img src="images/home-ab-05-signature.jpg?v=2" alt="Hands cradling a chocolate-dipped rose — Kanya Hunt's signature couverture work" loading="lazy"/>
+      <img src="images/home-ab-03-kitchen.jpg?v=2" alt="Kanya Hunt in her branded apron in the kitchen — where every commission begins" loading="lazy"/>
+      <img src="images/home-ab-02-laughing.jpg?v=2" alt="A team member laughing mid-bake in the kitchen — the joy behind every cake" loading="lazy"/>
+      <img src="images/home-ab-01-bundt.jpg?v=2" alt="One of Kanya's team — apron on, bundt cake in hand, warm kitchen light" loading="lazy"/>
+    </div>
+
+    <!-- RIGHT — biography -->
+    <div class="about-bio reveal d1">
+      <img class="about-bio-portrait" src="images/home-ab-04-mother.jpg?v=2" alt="Kanya Hunt with her mother — where the love of baking began" loading="lazy"/>
+      <p class="about-bio-intro">I was four years old when my mother first let me help in the kitchen. I still remember that first cake &mdash; pink, with pink icing.</p>
+      <p class="about-bio-body">Two decades later, I work exclusively with fine couverture chocolate &mdash; sculpting every decorative element entirely by hand. The protea petals. The delicate ruffles. The spirals. <strong>Everything you see is chocolate, and everything is made by me.</strong></p>
+      <p class="about-bio-body">My background in dietetics gives me a rare analytical understanding of what makes flavour work &mdash; how layers interact, how richness balances, how texture and temperature create a complete experience. I don't just bake. I design something you taste long after you've eaten it.</p>
+      <blockquote class="about-bio-quote">&ldquo;Chocolate is not just an ingredient. It is everything I want to say that words cannot.&rdquo;</blockquote>
+      <p class="about-bio-wit">&#10022; &ldquo;In my spare time I run and cycle &mdash; <em>because then I can eat more cake.</em>&rdquo;</p>
+      <a href="index.html#contact" class="btn-primary">Commission Your Cake</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CREDENTIAL STRIP -->
+<section id="credentials-strip">
+  <div class="cs-inner">
+    <div class="cs-detail reveal">
+      <div class="cs-label">Craft</div>
+      <div class="cs-value">Couverture Cake Artist</div>
+    </div>
+    <div class="cs-detail reveal d1">
+      <div class="cs-label">Credentials</div>
+      <div class="cs-value">Qualified Dietician · Galliova 2003</div>
+    </div>
+    <div class="cs-detail reveal d2">
+      <div class="cs-label">Location</div>
+      <div class="cs-value">Melkbosstrand, Cape Town</div>
+    </div>
+    <div class="cs-detail reveal d3">
+      <div class="cs-label">Enquiries</div>
+      <div class="cs-value"><a href="https://wa.me/27XXXXXXXXX">WhatsApp Welcome</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- A DIFFERENT KIND OF CAKE -->
+<section id="position">
+  <div class="position-inner">
+    <div class="position-header reveal">
+      <p class="eyebrow">A Different Kind of Cake</p>
+      <div class="divider-line"></div>
+    </div>
+    <div class="position-grid">
+      <p class="position-body reveal d1">
+        Cape Town's wedding cake market is dominated by fondant &mdash; flawless white tiers built for the photograph. <strong>Kanya Hunt works in an entirely different medium</strong>, producing cakes that are visually extraordinary and genuinely extraordinary to eat.
+      </p>
+      <div>
+        <blockquote class="position-blockquote reveal d2">&ldquo;Not just beautiful to look at &mdash; made to be the best thing anyone eats that day.&rdquo;</blockquote>
+        <p class="position-body reveal d3">
+          Chocolate is not Kanya's specialty &mdash; <strong>it is her language.</strong> Where other artists reach for fondant, she reaches for fine couverture, sculpting it into ruffles, proteas, spirals, and roses that look almost too beautiful to cut. Almost. Because these cakes are designed as dessert &mdash; deep, indulgent, layered &mdash; giving your guests something to remember long after the evening is over.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO CTA -->
+<section class="portfolio-cta">
+  <p class="eyebrow reveal">Let's begin</p>
+  <h2 class="display-title reveal d1">Let&rsquo;s create something <em>extraordinary</em></h2>
+  <p class="portfolio-cta-body reveal d2">
+    Every commission begins with a personal conversation.
+  </p>
+  <div class="portfolio-cta-buttons reveal d3">
+    <a href="index.html#contact" class="btn-primary">Commission a Cake</a>
+    <a href="https://wa.me/27XXXXXXXXX" target="_blank" class="btn-secondary">WhatsApp Kanya</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand-row">
+    <span class="footer-brand-name">Kanya Hunt</span>
+    <span class="footer-brand-tagline">Couverture Cake Artist &middot; Cape Town &amp; Winelands</span>
+  </div>
+  <div class="footer-top">
+    <div>
+      <p class="footer-col-title">Portfolios</p>
+      <p class="footer-subgroup-label">Wedding &amp; Bespoke</p>
+      <ul class="footer-links">
+        <li><a href="chocolate-weddings.html">Couverture Chocolate Weddings</a></li>
+        <li><a href="white-chocolate-weddings.html">White Couverture Weddings</a></li>
+        <li><a href="celebration-cakes.html">Celebration Cakes</a></li>
+        <li><a href="croquembouche-minis.html">Petite Creations</a></li>
+        <li><a href="buttercream-sugar-art.html">Buttercream &amp; Sugar Art</a></li>
+        <li><a href="gallery.html">Real Weddings</a></li>
+      </ul>
+      <p class="footer-subgroup-label">The Kitchen</p>
+      <ul class="footer-links">
+        <li><a href="weekend-cakes.html">Weekend Cakes</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Find Kanya</p>
+      <ul class="footer-links">
+        <li><a href="about.html">About Kanya</a></li>
+        <li><a href="https://www.instagram.com/kanyahunt/" target="_blank">@kanyahunt on Instagram</a></li>
+        <li><a href="https://web.facebook.com/kanya.hunt.wedding.cakes" target="_blank">Facebook</a></li>
+        <li><a href="https://web.facebook.com/kanyahuntkoekedoor2/" target="_blank">Koekedoor Season 2</a></li>
+        <li><a href="https://www.kanyahunt.co.za" target="_blank">kanyahunt.co.za</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Contact</p>
+      <div class="footer-contact-items">
+        <div><div class="fc-label">WhatsApp</div><div class="fc-val"><a href="https://wa.me/27XXXXXXXXX">+27 XX XXX XXXX</a></div></div>
+        <div><div class="fc-label">Email</div><div class="fc-val"><a href="mailto:kanya@kanyahunt.co.za">kanya@kanyahunt.co.za</a></div></div>
+        <div><div class="fc-label">Location</div><div class="fc-val">Melkbosstrand &middot; Cape Town</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Kanya Hunt t/a The Hunt House Kitchen &middot; All rights reserved.</span>
+    <span class="footer-copy">Bespoke couverture chocolate &middot; Cape Town &amp; Winelands</span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll shadow
+  window.addEventListener('scroll', () => {
+    document.getElementById('topnav').style.boxShadow = window.scrollY > 40 ? '0 2px 30px rgba(30,15,6,0.07)' : 'none';
+  });
+  // Reveal-on-scroll
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  // Mobile menu
+  const ham = document.getElementById('navHamburger');
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('mobileOverlay');
+  const close = document.getElementById('mobileMenuClose');
+  function openMenu() { menu.classList.add('open'); overlay.classList.add('open'); }
+  function closeMenu() { menu.classList.remove('open'); overlay.classList.remove('open'); }
+  if (ham) ham.addEventListener('click', openMenu);
+  if (close) close.addEventListener('click', closeMenu);
+  if (overlay) overlay.addEventListener('click', closeMenu);
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+</script>
+
+</body>
+</html>
