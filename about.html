@@ -20,6 +20,12 @@
   <style>
     /* ── ABOUT PAGE — page-specific inline styles ── */
 
+    /* AFRIKAANS QUOTE BAND — moved from homepage, sits below page hero */
+    .about-quote-band { background: var(--linen); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2.5rem 3.5rem; }
+    .about-quote-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .about-quote-afrikaans { font-family: var(--font-d); font-style: italic; font-size: clamp(1.5rem, 2.2vw, 2.3rem); font-weight: 300; color: var(--rose); line-height: 1.45; margin: 0 0 1.1rem; }
+    .about-quote-trans { display: block; font-family: var(--font-d); font-style: italic; font-size: clamp(1.05rem, 1.5vw, 1.3rem); font-weight: 300; color: var(--ink); line-height: 1.5; }
+
     /* MAIN ABOUT — two column */
     .about-main { padding: 4rem 3.5rem; background: var(--white); }
     .about-main-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
@@ -59,6 +65,10 @@
 
     /* MOBILE — 900px to match site-wide breakpoint */
     @media (max-width: 900px) {
+      .about-quote-band { padding: 1.6rem 1.2rem; }
+      .about-quote-afrikaans { font-size: clamp(1.15rem, 4vw, 1.5rem); margin-bottom: 0.7rem; }
+      .about-quote-trans { font-size: clamp(0.95rem, 3.2vw, 1.1rem); }
+
       .about-main { padding: 2rem 1.2rem; }
       .about-main-inner { grid-template-columns: 1fr; gap: 2rem; }
       .about-image-grid { height: 360px; }
@@ -122,6 +132,14 @@
   <p class="portfolio-hero-intro reveal d1">
     From a pink birthday cake at age four to couverture sculpted entirely by hand &mdash; <strong>this is how it started, and why it never stopped.</strong>
   </p>
+</section>
+
+<!-- AFRIKAANS QUOTE BAND — Kanya in her own words -->
+<section class="about-quote-band">
+  <div class="about-quote-inner reveal">
+    <blockquote class="about-quote-afrikaans">&ldquo;Dit is in my wese: ek droom oor koek en obsesseer oor mooi koekgoed. Dis my manier om kuns tot 'n mate uit te beeld.&rdquo;</blockquote>
+    <span class="about-quote-trans">It is in my nature: I dream about cake and obsess over beautiful bakes &mdash; my way of expressing art. &middot; Kanya Hunt</span>
+  </div>
 </section>
 
 <!-- MAIN ABOUT — two column -->
