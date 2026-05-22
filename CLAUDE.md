@@ -180,13 +180,21 @@ When Suzaan provides any of these, do a single find-and-replace across all 8 HTM
 | `croquembouche-minis.html` | 12 | ✅ DONE (two open concerns — see HANDOFF.md) |
 | `buttercream-sugar-art.html` | 11 | ✅ DONE |
 | `weekend-cakes.html` | 16 | ✅ DONE |
-| `gallery.html` *(Real Weddings)* | 15 | ✅ DONE |
-| Homepage (hero, about×4, offerings×6, contact, Instagram×4) | ~16 | ✅ DONE |
+| `gallery.html` *(nav label "Weddings")* | 15 | ✅ DONE |
+| `about.html` *(added 2026-05-22)* | 5+1 portrait | ✅ DONE — Afrikaans quote band + 2×2 grid + mother arched portrait |
+| Homepage (hero, condensed-about×1, offerings×6, contact, Instagram×4) | ~13 | ✅ DONE |
 
-**Total: ~109 photo slots all filled.** Remaining open items are content placeholders (WhatsApp number, price anchor, testimonials) — not photo work. See `HANDOFF.md` for the live punch-list.
+**Total: ~110 photo slots all filled.** Remaining open items are content placeholders (WhatsApp number, price anchor, testimonials) — not photo work. See `HANDOFF.md` for the live punch-list.
+
+### Important structural facts (as of 2026-05-22)
+- Site now has **9 pages** (added `about.html` on 2026-05-22).
+- Homepage about section is **condensed**: bio + chocolate quote + single Kanya portrait. Full bio lives on `about.html`.
+- Hero has **one CTA** (Commission a Cake). WhatsApp Kanya CTA is in the contact section now.
+- Nav across all 9 pages: **Creations · Weddings · About · The Kitchen · Contact** (Real Weddings was renamed to Weddings in nav only — gallery.html H1 stays "Real Weddings").
+- Footer Portfolios column has **two sub-groups** ("Wedding & Bespoke" + "The Kitchen"); separate **"Find Kanya"** column has About Kanya as first link.
 
 ### Orphan files in `images/`
-Cleaned up 2026-05-20. Folder currently contains only referenced files (108 files, ~16.6 MB). Don't expect orphans here unless something was just swapped.
+Cleaned up 2026-05-20. Folder currently contains only referenced files. Don't expect orphans here unless something was just swapped.
 
 ## Strategic don'ts
 
