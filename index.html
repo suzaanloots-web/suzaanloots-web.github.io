@@ -273,16 +273,15 @@
     }
     .qs-detail { }
 
-    /* ── ABOUT CONDENSED (homepage) — two-sentence bio + auto-rotating carousel ── */
-    .about-condensed { background: var(--linen); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2rem 3.5rem; }
+    /* ── ABOUT CONDENSED (homepage) — bio + Kanya quote + single portrait ── */
+    .about-condensed { background: var(--linen); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2.5rem 3.5rem; }
     .about-condensed-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .about-condensed-bio { font-family: var(--font-d); font-size: clamp(1.1rem, 1.5vw, 1.4rem); font-weight: 300; font-style: italic; color: var(--ink); line-height: 1.65; margin: 0 0 1.2rem; }
+    .about-condensed-bio { font-family: var(--font-d); font-size: clamp(1.05rem, 1.4vw, 1.3rem); font-weight: 300; font-style: italic; color: var(--ink); line-height: 1.7; margin: 0 0 1.4rem; }
+    .about-condensed-quote { font-family: var(--font-d); font-style: italic; font-size: clamp(1rem, 1.3vw, 1.2rem); color: var(--mocha); line-height: 1.6; margin: 0 0 1.5rem; padding-left: 1.2rem; border-left: 2px solid var(--rose); }
     .about-condensed-link { font-family: var(--font-b); font-size: 0.65rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--caramel); text-decoration: none; border-bottom: 1px solid var(--caramel); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
     .about-condensed-link:hover { color: var(--ink); border-color: var(--ink); }
-    .about-carousel { position: relative; height: 180px; overflow: hidden; border-radius: 8px; box-shadow: 0 6px 24px rgba(30,15,6,0.09), 0 2px 6px rgba(30,15,6,0.05); }
-    .about-carousel-item { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
-    .about-carousel-item.active { opacity: 1; }
-    .about-carousel-item img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .about-condensed-photo { width: 100%; height: 280px; overflow: hidden; border-radius: 8px; box-shadow: 0 6px 24px rgba(30,15,6,0.09), 0 2px 6px rgba(30,15,6,0.05); }
+    .about-condensed-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block; }
 
     /* ── ABOUT — Left: gallery grid, Right: text ── */
     #about { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--border); }
@@ -576,7 +575,7 @@
       /* Condensed about — mobile */
       .about-condensed { padding: 2rem 1.5rem; }
       .about-condensed-inner { grid-template-columns: 1fr; gap: 1.6rem; }
-      .about-carousel { height: 240px; }
+      .about-condensed-photo { height: 300px; }
       .about-content { padding:1rem 1.2rem; }
       .about-intro-pair { flex-direction:row; gap:1rem; margin-bottom:1rem; align-items:center; }
       .about-portrait { width:120px; min-width:120px; border-radius:40% 40% 6px 6px / 20% 20% 2% 2%; }
@@ -778,22 +777,20 @@
   <div class="about-condensed-inner">
     <div class="about-condensed-text reveal">
       <p class="about-condensed-bio">
-        I work exclusively in fine couverture chocolate &mdash; every petal,
-        ruffle, and spiral sculpted entirely by hand.
-        Dietician by training, cake artist by obsession.
+        Cake, for me, begins with a question &mdash; what do you want people to feel when they taste it?
+        The answer usually leads to couverture chocolate, sculpted by hand into petals, ruffles, and spirals.
+        Sometimes it leads somewhere else entirely. Either way, the craft is the same:
+        a dietician's understanding of flavour, and a cake artist's eye for what makes something truly extraordinary.
       </p>
+      <blockquote class="about-condensed-quote">
+        &ldquo;Chocolate is not just an ingredient. It is everything I want to say that words cannot.&rdquo;
+      </blockquote>
       <a href="about.html" class="about-condensed-link">
         More about Kanya &rarr;
       </a>
     </div>
-    <div class="about-condensed-carousel reveal d2">
-      <div class="about-carousel" aria-hidden="true">
-        <div class="about-carousel-item active"><img src="images/home-ab-03-kitchen.jpg?v=2" alt="" loading="lazy"/></div>
-        <div class="about-carousel-item"><img src="images/home-ab-01-bundt.jpg?v=2" alt="" loading="lazy"/></div>
-        <div class="about-carousel-item"><img src="images/home-ab-02-laughing.jpg?v=2" alt="" loading="lazy"/></div>
-        <div class="about-carousel-item"><img src="images/home-ab-05-signature.jpg?v=2" alt="" loading="lazy"/></div>
-        <div class="about-carousel-item"><img src="images/home-ab-04-mother.jpg?v=2" alt="" loading="lazy"/></div>
-      </div>
+    <div class="about-condensed-photo reveal d2">
+      <img src="images/home-ab-kanya-portrait.jpg?v=1" alt="Kanya Hunt at work in her kitchen — couverture cake artist, Cape Town" loading="lazy"/>
     </div>
   </div>
 </section>
@@ -1068,18 +1065,6 @@
   function startTimer() { timer = setInterval(() => goTo(current + 1), 4500); }
   thumbs.forEach((t, i) => { t.addEventListener('click', () => { clearInterval(timer); goTo(i); startTimer(); }); });
   if (slides.length > 1) startTimer();
-
-  // ── About carousel (homepage) — luxury editorial pace ──
-  (function () {
-    const items = document.querySelectorAll('.about-carousel-item');
-    if (!items.length) return;
-    let current = 0;
-    setInterval(function () {
-      items[current].classList.remove('active');
-      current = (current + 1) % items.length;
-      items[current].classList.add('active');
-    }, 6000);
-  }());
 
   // Mobile menu
   const hamburger = document.getElementById('navHamburger');
