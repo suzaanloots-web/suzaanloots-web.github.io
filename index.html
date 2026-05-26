@@ -318,46 +318,13 @@
     .offering-cta { font-size:0.74rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--mocha); margin-top:0.8rem; display:inline-block; }
     .offering:hover .offering-cta { color:var(--ink); }
 
-    /* ── d) ORDER (How it works) — now AFTER offerings ── */
-    #order { background:var(--white); padding:3rem 3.5rem 1.5rem; }
-    .order-intro { display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:end; margin-bottom:1.5rem; }
-    .order-intro-right { font-size:1rem; color:var(--text-mid); line-height:1.7; }
-    .order-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
-    .step { border-top:1px solid var(--border); padding-top:1rem; padding-bottom:0.5rem; }
-    .step-title { font-family:var(--font-d); font-size:1.3rem; color:var(--ink); margin-bottom:0.4rem; }
-    .step-title-num { font-family:var(--font-d); font-weight:300; color:var(--light-gold); margin-right:0.4em; }
-    .step-body { font-size:0.95rem; color:var(--text-mid); line-height:1.65; }
-    /* d) Removed order note + coloured CTA buttons */
-
-    /* ── f) REVIEWS — embedded in contact right column ── */
-    .reviews-inline { margin-top:0; border-top:1px solid var(--border); padding-top:2rem; padding-bottom:2rem; grid-column:1/-1; }
-    .reviews-inline-label { font-size:0.75rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--rose); margin-bottom:1.6rem; }
-    .reviews-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--border); border:1px solid var(--border); width:100%; }
-    .review-card {
-      background:var(--white);
-      padding:2rem 2rem;
-      display:flex; flex-direction:column; justify-content:space-between;
-      position:relative;
-    }
-    .review-stars { color:var(--light-gold); font-size:0.96rem; letter-spacing:0.15em; margin-bottom:1.5rem; }
-    .review-text { font-family:var(--font-d); font-style:italic; font-size:1.2rem; color:var(--ink); line-height:1.65; margin-bottom:2rem; flex:1; }
-    .review-text::before { content:'"'; font-size:3rem; line-height:0; vertical-align:-0.4em; color:var(--blush); margin-right:0.1em; font-style:normal; }
-    .review-author { border-top:1px solid var(--border); padding-top:1.2rem; }
-    .review-name { font-family:var(--font-b); font-size:0.82rem; font-weight:500; letter-spacing:0.08em; color:var(--ink); }
-    .review-occasion { font-size:0.73rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--caramel); margin-top:0.18rem; }
-    .review-source { font-size:0.75rem; letter-spacing:0.1em; color:var(--text-light); margin-top:0.12rem; }
-    .reviews-note { margin-top:2rem; font-size:1rem; color:var(--text-light); font-style:italic; font-family:var(--font-d); text-align:center; }
-
-    /* ── g) CONTACT — form left, info+reviews right ── */
-    #contact { background:var(--white); padding:3rem 3.5rem 1.5rem; display:grid; grid-template-columns:1.4fr 1fr; column-gap:6rem; row-gap:1.5rem; align-items:stretch; border-top:1px solid var(--border); }
-    #contact > .reveal.d1 { display:flex; flex-direction:column; min-height:0; overflow:hidden; }
-    .contact-lbl { font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--rose); margin-bottom:0.2rem; }
-    .contact-val { font-family:var(--font-d); font-size:1.12rem; color:var(--ink); }
-    .contact-val a { color:var(--ink); text-decoration:none; transition:color 0.2s; }
-    .contact-val a:hover { color:var(--mocha); }
-    .contact-items { display:flex; flex-direction:column; gap:1.4rem; margin-top:2.5rem; }
-    .contact-note { margin-top:0.5rem; font-size:0.95rem; color:var(--text-mid); line-height:1.9; }
-    .contact-note strong { color:var(--ink); font-weight:500; }
+    /* ── CONTACT — single-column centred ── */
+    #contact { background:var(--white); padding:4rem 3.5rem 3rem; border-top:1px solid var(--border); }
+    .contact-inner { max-width:620px; margin:0 auto; display:flex; flex-direction:column; gap:2.2rem; }
+    .contact-header { text-align:center; }
+    .contact-header .display-title { margin-bottom:1.4rem; }
+    .contact-intro { font-family:var(--font-d); font-size:1.05rem; font-style:italic; font-weight:300; color:var(--text-mid); line-height:1.75; margin-top:0.6rem; }
+    .contact-sub-eyebrow { margin-top:2rem; }
     .contact-form { display:flex; flex-direction:column; gap:1.3rem; }
     .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.3rem; }
     .form-group { display:flex; flex-direction:column; gap:0.4rem; }
@@ -365,56 +332,10 @@
     .form-group input, .form-group select, .form-group textarea { background:var(--linen); border:1px solid var(--border); padding:0.82rem 1rem; font-family:var(--font-b); font-size:1rem; color:var(--ink); outline:none; transition:border-color 0.2s; -webkit-appearance:none; appearance:none; }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--rose); background:var(--white); }
     .form-group textarea { resize:vertical; min-height:120px; }
-    .btn-submit { align-self:flex-start; background:var(--ink); color:var(--linen); padding:0.95rem 3rem; font-family:var(--font-b); font-size:0.79rem; letter-spacing:0.14em; text-transform:uppercase; border:none; cursor:pointer; transition:all 0.25s; }
+    .btn-submit { display:inline-flex; align-items:center; justify-content:center; background:var(--ink); color:var(--linen); padding:0.95rem 2.4rem; font-family:var(--font-b); font-size:0.79rem; letter-spacing:0.14em; text-transform:uppercase; border:none; cursor:pointer; transition:all 0.25s; text-decoration:none; }
     .btn-submit:hover { background:var(--mocha); transform:translateY(-1px); }
-
-    /* ── IMAGE FRAME — image_31 overlay ── */
-    .frame-overlay {
-      position:relative;
-      display:block;
-      margin-top:1.5rem;
-      width:100%;
-      flex:1;
-      min-height:0;
-      overflow:hidden;
-      border-radius:8px;
-      box-shadow:0 6px 24px rgba(30,15,6,0.09), 0 2px 6px rgba(30,15,6,0.05);
-    }
-    .frame-overlay .frame-photo {
-      position:absolute;
-      inset:0;
-      display:block;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center top;
-    }
-    .frame-overlay .frame-border {
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center 20%;
-      pointer-events:none;
-      z-index:1;
-    }
-
-    /* Contact details grid — pushed to bottom of right column */
-    .contact-details-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.6rem 2rem;
-      margin-top: auto;
-      padding-top: 1.8rem;
-    }
-
-    /* Frame image fills available space between heading and details */
-    .frame-strip {
-      flex: 1;
-      min-height: 180px;
-      margin-top: 1.5rem;
-    }
+    .contact-cta-row { display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; justify-content:center; margin-top:0.8rem; }
+    .contact-or { font-family:var(--font-d); font-style:italic; font-size:1rem; color:var(--mocha); }
 
     /* ── INSTAGRAM — now AFTER contact ── */
     #insta { background:var(--linen); padding:2.5rem 3.5rem; text-align:center; border-top:1px solid var(--border); }
@@ -576,38 +497,16 @@
       .offering-cta { font-size:0.7rem; margin-top:0.4rem; }
 
       /* Order */
-      #order { padding:1rem 1.2rem; }
-      .order-intro { grid-template-columns:1fr; gap:0.4rem; margin-bottom:0.6rem; }
-      .order-intro-right { font-size:0.9rem; }
-      .order-steps { grid-template-columns:1fr; gap:0.5rem; }
-      .step { padding-top:0.5rem; padding-bottom:0.2rem; }
-      .step-title { font-size:1.1rem; margin-bottom:0.2rem; }
-      .step-title-num { font-size:1rem; }
-      .step-body { font-size:0.88rem; line-height:1.6; }
-
-      /* Contact & Reviews */
-      #contact { grid-template-columns:1fr; padding:1rem 1.2rem; gap:1rem; align-items:start; }
-      #contact .contact-form { order:2; }
-      #contact > .reveal.d1 { order:1; overflow:visible; min-height:auto; }
-      #contact .reviews-inline { order:3; }
-      .contact-items { margin-top:0.8rem; gap:0.5rem; }
-      .contact-note { margin-top:0.6rem; font-size:0.88rem; }
-      .reviews-inline { padding-top:0.8rem; padding-bottom:0.8rem; }
-      .reviews-grid { grid-template-columns:1fr; }
-      .review-card { padding:0.8rem 1rem; }
-      .review-stars { margin-bottom:0.5rem; }
-      .review-text { margin-bottom:0.6rem; font-size:1.05rem; }
-      .reviews-note { margin-top:0.6rem; }
-      .form-row { grid-template-columns:1fr; }
+      /* Contact — single-column centred on mobile */
+      #contact { padding:2rem 1.2rem; }
+      .contact-inner { gap:1.4rem; }
+      .contact-intro { font-size:0.98rem; }
+      .form-row { grid-template-columns:1fr; gap:0.8rem; }
       .form-group input, .form-group select, .form-group textarea { padding:0.65rem 0.8rem; font-size:0.92rem; }
       .contact-form { gap:0.8rem; }
-      .form-row { gap:0.8rem; }
-
-      /* Frame */
-      .frame-overlay { margin-top:1rem; max-height:none; height:auto; flex:none; }
-      .frame-overlay .frame-photo { position:relative; inset:auto; }
-      .contact-details-grid { gap: 0.8rem 1.5rem; margin-top: 1rem; padding-top: 0; }
-      .frame-strip { flex: none; min-height: auto; max-height: 220px; }
+      .contact-cta-row { gap:0.9rem; }
+      .btn-submit { padding:0.85rem 1.8rem; font-size:0.74rem; width:100%; }
+      .contact-or { width:100%; text-align:center; }
 
       /* Instagram */
       #insta { padding:1rem 1.2rem; }
@@ -683,7 +582,6 @@
     <li><a href="gallery.html">Weddings</a></li>
     <li><a href="about.html">About Me</a></li>
     <li><a href="weekend-cakes.html">The Kitchen</a></li>
-    <li><a href="#order">How It Works</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="btn-primary" style="margin-top:1.5rem; align-self:flex-start;">Enquire Now</a>
@@ -830,117 +728,68 @@
   </div>
 </section>
 
-<!-- c) HOW IT WORKS — now after offerings -->
-<section id="order">
-  <div class="order-intro">
-    <div class="reveal">
-      <p class="eyebrow">Wedding Cakes &amp; Commissions</p>
-      <h2 class="display-title">How it <em>works</em></h2>
-    </div>
-    <p class="order-intro-right reveal d1">Every commission begins the same way — a personal conversation. Kanya works directly with every client. No brief is too specific, no flavour too ambitious.</p>
-  </div>
-  <div class="order-steps">
-    <div class="step reveal">
-      <h3 class="step-title"><span class="step-title-num">01</span> Tell me your vision</h3>
-      <p class="step-body">WhatsApp or the form below. Share your occasion, date, guest count, and any flavour or style inspiration. Every enquiry is welcomed personally by Kanya.</p>
-    </div>
-    <div class="step reveal d1">
-      <h3 class="step-title"><span class="step-title-num">02</span> We design together</h3>
-      <p class="step-body">Chocolate varieties, flavour profiles, aesthetic direction. This is where your vision and the craft find each other — a dietician's precision meets a cake artist's eye.</p>
-    </div>
-    <div class="step reveal d2">
-      <h3 class="step-title"><span class="step-title-num">03</span> Your cake is created</h3>
-      <p class="step-body">Every element sculpted by hand with premium couverture chocolate. Collected or delivered fresh on the day — exactly as you imagined it, and better than you expected.</p>
-    </div>
-  </div>
-</section>
-
-<!-- f) REVIEWS — in place of old "As They Said" press quote -->
-<!-- CONTACT — form LEFT, Say Hello + reviews RIGHT -->
+<!-- CONTACT — single-column centred -->
 <section id="contact">
-  <form class="contact-form reveal" onsubmit="handleSubmit(event)">
-    <div class="form-row">
-      <div class="form-group"><label>Your Name</label><input type="text" placeholder="Jane Smith" required/></div>
-      <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@example.com" required/></div>
+  <div class="contact-inner">
+    <div class="contact-header reveal">
+      <p class="eyebrow">Say Hello</p>
+      <h2 class="display-title">Let's create something<br><em>extraordinary</em></h2>
+      <p class="contact-intro">Every commission begins the same way &mdash; a personal conversation. Kanya works directly with every client. No brief is too specific, no flavour too ambitious.</p>
+      <p class="eyebrow contact-sub-eyebrow">Tell me your vision</p>
+      <p class="contact-intro">WhatsApp or the form below. Share your occasion, date, guest count, and any flavour or style inspiration. Every enquiry is welcomed personally by Kanya.</p>
     </div>
-    <div class="form-row">
-      <div class="form-group"><label>WhatsApp / Phone</label><input type="tel" placeholder="+27 00 000 0000"/></div>
-      <div class="form-group"><label>Date Needed</label><input type="date"/></div>
-    </div>
-    <div class="form-group">
-      <label>Occasion</label>
-      <select>
-        <option value="">Select occasion...</option>
-        <option>Wedding Cake — Couverture Chocolate</option>
-        <option>Wedding Cake — White Couverture</option>
-        <option>Celebration Cake (birthday, anniversary, milestone)</option>
-        <option>Petite Creations (mini cakes, cupcakes, croquembouche)</option>
-        <option>Buttercream or Sugar Art</option>
-        <option>Styled Shoot / Editorial Collaboration</option>
-        <option>Other</option>
-      </select>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>Approx. Guests</label>
-        <select>
-          <option value="">Select size...</option>
-          <option>Under 20</option><option>20–50</option>
-          <option>50–100</option><option>100–200</option><option>200+</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Chocolate Preference</label>
-        <select>
-          <option value="">Select if known...</option>
-          <option>Dark Chocolate</option><option>Milk Chocolate</option>
-          <option>White Chocolate</option><option>Mixed / Surprise me</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Tell me about your vision</label>
-      <textarea placeholder="Style inspiration, flavour dreams, venue, anything special..."></textarea>
-    </div>
-    <button type="submit" class="btn-submit">Send Enquiry &#8594;</button>
-    <p class="contact-note">
-      <strong>Fine couverture wedding cakes from R[X] for up to [Y] guests.</strong>
-      Every commission is made to order — final investment depends on scale and design.
-      <br><br>
-      All enquiries welcomed personally. <strong>Kanya responds to every message herself</strong> — usually within 24 hours. Wedding dates fill quickly; please enquire at least 2–3 months ahead.
-    </p>
-    <!-- PLACEHOLDER: Replace R[X] with realistic minimum (e.g. R8 500) and [Y] with default guest count (e.g. 50) — per roadmap Section 4 Step 4 Fix 3 -->
-  </form>
 
-  <!-- RIGHT: Say Hello info -->
-  <div class="reveal d1">
-    <p class="eyebrow">Say Hello</p>
-    <h2 class="display-title">Let's create something<br><em>extraordinary</em></h2>
-    <div class="frame-overlay frame-strip">
-      <img class="frame-photo" src="images/home-contact.jpg?v=1" alt="Hand-sculpted chocolate sail crown on a glossy ganache drip cake, on a silver pedestal — couverture artistry by Kanya Hunt" loading="lazy"/>
-    </div>
-    <div class="contact-details-grid">
-      <div>
-        <div class="d-label">WhatsApp</div>
-        <div class="d-value"><a href="https://wa.me/27XXXXXXXXX">+27 XX XXX XXXX</a></div>
+    <form class="contact-form reveal d1" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Jane Smith" required/></div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@example.com" required/></div>
       </div>
-      <div>
-        <div class="d-label">Email</div>
-        <div class="d-value"><a href="mailto:kanya@kanyahunt.co.za">kanya@kanyahunt.co.za</a></div>
+      <div class="form-row">
+        <div class="form-group"><label>WhatsApp / Phone</label><input type="tel" placeholder="+27 00 000 0000"/></div>
+        <div class="form-group"><label>Date Needed</label><input type="date"/></div>
       </div>
-      <div>
-        <div class="d-label">Instagram</div>
-        <div class="d-value"><a href="https://www.instagram.com/kanyahunt/" target="_blank">@kanyahunt</a></div>
+      <div class="form-group">
+        <label>Occasion</label>
+        <select>
+          <option value="">Select occasion...</option>
+          <option>Wedding Cake — Couverture Chocolate</option>
+          <option>Wedding Cake — White Couverture</option>
+          <option>Celebration Cake (birthday, anniversary, milestone)</option>
+          <option>Petite Creations (mini cakes, cupcakes, croquembouche)</option>
+          <option>Buttercream or Sugar Art</option>
+          <option>Styled Shoot / Editorial Collaboration</option>
+          <option>Other</option>
+        </select>
       </div>
-      <div>
-        <div class="d-label">Location</div>
-        <div class="d-value">Melkbosstrand, Cape Town</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Approx. Guests</label>
+          <select>
+            <option value="">Select size...</option>
+            <option>Under 20</option><option>20–50</option>
+            <option>50–100</option><option>100–200</option><option>200+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Chocolate Preference</label>
+          <select>
+            <option value="">Select if known...</option>
+            <option>Dark Chocolate</option><option>Milk Chocolate</option>
+            <option>White Chocolate</option><option>Mixed / Surprise me</option>
+          </select>
+        </div>
       </div>
-    </div>
-    <a href="https://wa.me/27XXXXXXXXX" target="_blank" class="btn-secondary" style="margin-top:1.8rem; align-self:flex-start;">WhatsApp Kanya</a>
+      <div class="form-group">
+        <label>Tell me about your vision</label>
+        <textarea placeholder="Style inspiration, flavour dreams, venue, anything special..."></textarea>
+      </div>
+      <div class="contact-cta-row">
+        <button type="submit" class="btn-submit">Send Enquiry &#8594;</button>
+        <span class="contact-or">or</span>
+        <a href="https://wa.me/27XXXXXXXXX" target="_blank" class="btn-submit btn-submit-alt">WhatsApp Kanya</a>
+      </div>
+    </form>
   </div>
-
-  <!-- Reviews section removed per roadmap Section 4 Step 4 Fix 1 — re-add when 3+ real client testimonials are collected -->
 </section>
 
 <!-- INSTAGRAM — after contact -->
