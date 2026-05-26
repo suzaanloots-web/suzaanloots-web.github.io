@@ -1,7 +1,8 @@
-# Kanya Hunt Website — Full Image Inventory
+# Kanya Hunt Website - Full Image Inventory
 
 > Generated for Kanya's review of every image's alt-text description and caption.
 > Each entry shows: **filename**, the long descriptive *alt text* (used by screen-readers and SEO), and the short *caption* shown on hover for portfolio thumbnails.
+> Last regenerated 2026-05-26.
 
 ---
 
@@ -11,25 +12,25 @@
 
 - **Alt text:** Kanya Hunt in her kitchen, headwrap on, focused on her craft — couverture cake artist, Cape Town
 
-**2. `cw-01-hero.jpg`**
+**2. `home-cw-card.jpg`**
 
-- **Alt text:** Dark couverture chocolate wedding cake — towers of handcrafted petals, berries, and shards by Kanya Hunt
+- **Alt text:** Tall multi-tier dark couverture chocolate wedding cake with sculpted chocolate ruffles, strawberries and blueberries cascading throughout, on an ornate silver pedestal by Kanya Hunt
 
 **3. `home-ww-card.jpg`**
 
 - **Alt text:** Tall ivory white couverture wedding cake with cascading hand-sculpted chocolate ruffles, on an ornate antique silver pedestal set against a marble statue and green garden foliage
 
-**4. `cc-01-curl-tower.jpg`**
+**4. `bs-05-sculpted-roses.jpg`**
+
+- **Alt text:** Buttercream and sugar art — cascading sculpted roses on a handcrafted wedding cake by Kanya Hunt
+
+**5. `cc-01-curl-tower.jpg`**
 
 - **Alt text:** Handcrafted celebration cake — dark chocolate curl tower with cape gooseberry accents by Kanya Hunt
 
-**5. `home-petite-card.jpg`**
+**6. `home-petite-card.jpg`**
 
 - **Alt text:** Petite creations — a single cream-swirled cupcake topped with a fresh daffodil, resting on garden moss in soft natural light
-
-**6. `bs-05-sculpted-roses.jpg`**
-
-- **Alt text:** Buttercream and sugar art — cascading sculpted roses on a handcrafted celebration cake by Kanya Hunt
 
 **7. `home-insta-01-white-peony.jpg`**
 
@@ -145,12 +146,7 @@ _Total on this page: **4** images._
 - **Alt text:** Detail of chocolate ribbons cascading into sugar-dusted mixed berries
 - **Caption (hover):** _Chocolate ribbons meet sugared berries_
 
-**15. `cw-17-profiterole-tower.jpg`**
-
-- **Alt text:** A croquembouche wedding tower of couverture-chocolate-dipped profiteroles, draped with hand-curled white couverture ribbons and finished with a white chocolate flower at the base
-- **Caption (hover):** _Couverture croquembouche — chocolate-dipped & ribboned_
-
-_Total on this page: **15** images._
+_Total on this page: **14** images._
 
 ---
 
@@ -226,7 +222,12 @@ _Total on this page: **15** images._
 - **Alt text:** Detail of white couverture ruffle cake topped with icing-sugar-dusted crimson roses
 - **Caption (hover):** _Crimson roses on white couverture ruffles_
 
-_Total on this page: **14** images._
+**15. `ww-15-croquembouche.jpg`**
+
+- **Alt text:** Tall croquembouche tower of chocolate-dipped profiteroles, draped with cascading white couverture chocolate ribbons and crowned with white chocolate carnation flowers, on a deep charcoal-grey background
+- **Caption (hover):** _White couverture ribbons & carnation crown_
+
+_Total on this page: **15** images._
 
 ---
 
@@ -521,75 +522,70 @@ _Total on this page: **18** images._
 - **Alt text:** Bride laughing with joy as she cuts her white couverture petal wedding cake in a Cape barn, black and white editorial photography
 - **Caption (hover):** _The cut — laughter and white couverture, captured in black & white_
 
-**4. `rw-04-patrick-garden.jpg`**
-
-- **Alt text:** Patrick and Christiane laughing together as they cut their couverture chocolate cake in a garden setting
-- **Caption (hover):** _The sweetest moment — laughter and couverture petals_
-
-**5. `rw-05-charlotte-harry.jpg`**
+**4. `rw-05-charlotte-harry.jpg`**
 
 - **Alt text:** Charlotte and Harry cutting their white chocolate couverture wedding cake outdoors in an elegant garden
 - **Caption (hover):** _Charlotte & Harry — white chocolate garden elegance_
 
-**6. `rw-06-thunder-barn.jpg`**
+**5. `rw-06-thunder-barn.jpg`**
 
 - **Alt text:** Romantic cake-cutting moment in a rustic Cape barn, couverture chocolate cake with wild florals
 - **Caption (hover):** _Wild and romantic — couverture in a Cape barn_
 
-**7. `rw-07-wesley-vineyard.jpg`**
+**6. `rw-07-wesley-vineyard.jpg`**
 
 - **Alt text:** Wesley and Endri cutting their hand-painted botanical couverture cake at a Winelands vineyard wedding
 - **Caption (hover):** _Hand-painted in couverture — botanical artistry at the vineyard_
 
-**8. `rw-08-something-floral.jpg`**
+**7. `rw-08-something-floral.jpg`**
 
 - **Alt text:** Striking couverture chocolate wedding cake adorned with bold coloured blooms in a floral editorial setting
 - **Caption (hover):** _Bold in bloom — couverture meets colour_
 
-**9. `rw-09-lizelle-1148.jpg`**
+**8. `rw-09-bride-ruffle.jpg`**
 
-- **Alt text:** Elegant white couverture cake decorated with sugar roses displayed under a marquee at a wedding reception
-- **Caption (hover):** _Roses in white couverture — a marquee moment_
+- **Alt text:** Bride embracing a tall multi-tier white couverture chocolate ruffle wedding cake decorated with blush pink garden roses, on an ornate silver pedestal in front of a fairy-light backdrop
+- **Caption (hover):** _Embraced — white couverture & blush roses_
 
-**10. `rw-10-lizelle-1156.jpg`**
+**9. `rw-10-lizelle-1156.jpg`**
 
 - **Alt text:** Couple sharing an intimate glance during their couverture chocolate cake-cutting moment
 - **Caption (hover):** _The glance — a couverture moment captured_
 
-**11. `rw-11-hands-detail.jpg`**
+**10. `rw-11-hands-detail.jpg`**
 
 - **Alt text:** Close-up detail of the couple's hands cutting through white chocolate rose couverture wedding cake
 - **Caption (hover):** _The cut — white chocolate roses, hands entwined_
 
-**12. `rw-12-gc-garden.jpg`**
+**11. `rw-12-gc-garden.jpg`**
 
 - **Alt text:** Couple smiling as they share couverture chocolate cake in a lush garden wedding setting
 - **Caption (hover):** _Love and chocolate — the perfect pairing_
 
-**13. `rw-13-sone-chris.jpg`**
+**12. `rw-13-sone-chris.jpg`**
 
 - **Alt text:** Sone and Chris stealing a taste of their couverture cake before the official cake cutting
 - **Caption (hover):** _Stealing a taste before the cut_
 
-**14. `rw-14-img0194.jpg`**
+**13. `rw-14-img0194.jpg`**
 
 - **Alt text:** Four-tiered couverture chocolate lace wedding cake displayed at a reception
 - **Caption (hover):** _Four tiers of couverture lace_
 
-**15. `rw-15-editorial-bride.jpg`**
+**14. `rw-15-editorial-bride.jpg`**
 
 - **Alt text:** Bride posing with a sculptural white couverture chocolate wedding cake in a modern editorial shoot
 - **Caption (hover):** _Chef's kiss — a white chocolate sculpture for the modern bride_
 
-**16. `rw-16-dahlia-drape.jpg`**
+**15. `rw-16-dahlia-drape.jpg`**
 
 - **Alt text:** Tiered white couverture chocolate wedding cake with draped panels and a cascade of orange and red dahlia blooms, captured at the wedding alongside a young flower girl
 - **Caption (hover):** _Draped white couverture, dahlia cascade_
 
-_Total on this page: **16** images._
+_Total on this page: **15** images._
 
 ---
 
-**Site-wide total: 109 images.**
+**Site-wide total: 108 images.**
 
-Generated 2026-05-25.
+Generated 2026-05-26.

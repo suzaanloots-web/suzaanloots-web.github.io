@@ -170,38 +170,58 @@ When Suzaan provides any of these, do a single find-and-replace across all 8 HTM
 9. **Reload the preview** and screenshot the result for Suzaan.
 10. **Be ready for swaps** — Suzaan often asks for a photo to be removed, rotated, or swapped after seeing the result. The optimizer script handles re-processing easily.
 
-## Per-page image slot counts (from the placeholders)
+## Per-page image slot counts (current — 2026-05-26)
 
 | Page | Slots | Status |
 |------|-------|--------|
-| `chocolate-weddings.html` | 14 | ✅ DONE |
-| `white-chocolate-weddings.html` | 14 | ✅ DONE |
-| `celebration-cakes.html` | 11 | ✅ DONE |
-| `croquembouche-minis.html` | 12 | ✅ DONE (two open concerns — see HANDOFF.md) |
-| `buttercream-sugar-art.html` | 11 | ✅ DONE |
-| `weekend-cakes.html` | 16 | ✅ DONE |
-| `gallery.html` *(nav label "Weddings")* | 15 | ✅ DONE |
-| `about.html` *(added 2026-05-22)* | 5+1 portrait | ✅ DONE — Afrikaans quote band + 2×2 grid + mother arched portrait |
-| Homepage (hero, condensed-about×1, offerings×6, contact, Instagram×4) | ~13 | ✅ DONE |
+| `index.html` | 10 | ✅ — hero + 3 §01 wedding cards + 2 §02 special-occ cards + 4 Instagram + condensed-about portrait |
+| `about.html` | 4 + mother arched portrait | ✅ — Afrikaans quote band + 2×2 grid + mother portrait + bio |
+| `chocolate-weddings.html` | 14 | ✅ |
+| `white-chocolate-weddings.html` | 15 | ✅ |
+| `celebration-cakes.html` | 11 | ✅ |
+| `croquembouche-minis.html` | 9 | ✅ |
+| `buttercream-sugar-art.html` | 12 | ✅ |
+| `weekend-cakes.html` | 18 | ✅ |
+| `gallery.html` *(nav label "Weddings")* | 15 | ✅ |
 
-**Total: ~110 photo slots all filled.** Remaining open items are content placeholders (WhatsApp number, price anchor, testimonials) — not photo work. See `HANDOFF.md` for the live punch-list.
+**Total: ~108 photo slots, all filled.** Full image-by-image inventory with alt text and captions lives in `IMAGE_INVENTORY.md` at the repo root — Suzaan uses it for Kanya's description review.
 
-### Important structural facts (as of 2026-05-22)
-- Site now has **9 pages** (added `about.html` on 2026-05-22).
-- Homepage about section is **condensed**: bio + chocolate quote + single Kanya portrait. Full bio lives on `about.html`.
-- Hero has **one CTA** (Commission a Cake). WhatsApp Kanya CTA is in the contact section now.
-- Nav across all 9 pages: **Creations · Weddings · About · The Kitchen · Contact** (Real Weddings was renamed to Weddings in nav only — gallery.html H1 stays "Real Weddings").
-- Footer Portfolios column has **two sub-groups** ("Wedding & Bespoke" + "The Kitchen"); separate **"Find Kanya"** column has About Kanya as first link.
+**Remaining open content placeholders** (not image work):
+- WhatsApp number `27XXXXXXXXX` — appears in all 9 HTML files; find/replace globally when Kanya provides the real number
+- Pricing anchor — no longer on the homepage (the old `R[X] for up to [Y] guests` note was removed when Say Hello was restructured). Will be re-introduced under a future FAQ section
+- Real client testimonials — reviews section is currently off the site, re-add when Kanya provides 3-4 real reviews
+- Designer-made logo — Kanya is currently typography-only in the nav; a photographic logo was tried and reverted
+
+### Important structural facts (as of 2026-05-26)
+- Site has **9 pages**.
+- **Nav across all 9 pages**: `MY CAKES · WEDDINGS · ABOUT ME · THE KITCHEN · CONTACT` (+ Enquire Now CTA). The 2026-05-22 names `Creations` and `About` were renamed.
+- Homepage about section is **condensed**: bio + chocolate quote + single Kanya portrait (aspect-ratio 21/9, object-position center 75%). Full bio lives on `about.html`.
+- **Hero has ONE CTA** (`Commission a Cake`). On mobile, hero eyebrow drops "Bespoke" and breaks "Cape Town" onto its own line.
+- **Homepage `What I Create`** is two sections:
+  - §01 Wedding Cakes (3 cards, full-width grid): Couverture Chocolate / White Couverture / Buttercream & Sugar Art (Buttercream moved here from §02 because Kanya frames it as a wedding offering)
+  - §02 Special Occasions (2 cards, constrained to max-width 48% centred, smaller text — deliberate hierarchy): Celebration Cakes / Petite Creations
+- **Say Hello / Contact section is a centred single-column form** (max-width 620px). No contact-details grid, no image, no pricing note, no 24-hour-response note. Bottom CTAs: `Send Enquiry → · or · WhatsApp Kanya` (both dark primary).
+- **`How It Works` section is gone** entirely. Don't reintroduce.
+- **Weekend Cakes (The Kitchen)** has the `Join the List` CTA section directly under the hero (above the gallery), with TWO primary CTAs side-by-side: `Join the WhatsApp List` + `View the Koekrun weekly menu` (Instagram).
+- Footer Portfolios column has **two sub-groups** (`Wedding & Commissions` + `The Kitchen`); separate `Find Kanya` column. **Koekedoor Season 2 Facebook link removed everywhere** — not maintained.
+- **Bespoke reduction**: the word "bespoke" appears in exactly ONE place site-wide — the hero eyebrow on `index.html:695` ("Bespoke Couverture Cake Artist · Cape Town"). Everywhere else uses "made to order" / "handcrafted" / "commissioned" / "fine couverture" / "Special Occasions".
+- **Homepage cards use separate files from portfolio heroes**: `home-cw-card.jpg` (squared with sampled #ABACAD background padding) for §01 chocolate card vs `cw-01-hero.jpg` for the chocolate-weddings portfolio page hero. Same pattern for White Couverture: `home-ww-card.jpg` vs `ww-01-gold-orchid.jpg`.
 
 ### Orphan files in `images/`
 Cleaned up 2026-05-20. Folder currently contains only referenced files. Don't expect orphans here unless something was just swapped.
 
 ## Strategic don'ts
 
-- ❌ Don't put buttercream or fondant work in any of the §1 Wedding Cake portfolios (chocolate weddings or white chocolate weddings). It breaks the "exclusively couverture chocolate" positioning that the entire 90-day strategy is built around.
-- ❌ Don't reintroduce "Kitchen Cakes" anywhere. The roadmap explicitly retires "Hunt House Kitchen" because the word *Kitchen* creates a ceiling on luxury positioning.
-- ❌ Don't add testimonial cards back to the site until Suzaan provides real client reviews. The roadmap is firm: placeholder reviews are worse than none.
-- ❌ Don't promise a Collaborations page — that's been explicitly deferred until later. Soft mentions of editorial collaborations in the Real Weddings page are fine; a dedicated planner-CTA page is not.
+- ❌ Don't put buttercream or fondant work in any of the §1 Wedding Cake **portfolio pages** (`chocolate-weddings.html` / `white-chocolate-weddings.html`). Despite the §01 homepage card grouping, the portfolio pages themselves stay chocolate-only. The "exclusively couverture chocolate" positioning is the brand's competitive moat.
+- ❌ Don't reintroduce "Kitchen Cakes" or "Hunt House Kitchen" anywhere. The word `Kitchen` survives only as the nav label pointing to `weekend-cakes.html`.
+- ❌ Don't reintroduce the **How It Works** section or `#order` CSS — removed entirely on 2026-05-26.
+- ❌ Don't reintroduce "bespoke" anywhere except the hero eyebrow on `index.html:695`. Use "made to order" / "handcrafted" / "commissioned" / "fine couverture" instead.
+- ❌ Don't add the contact-details grid (WhatsApp/Email/Instagram/Location) back into Say Hello — those lines live in the footer Contact column on every page now.
+- ❌ Don't normalise the §02 Special Occasions card size to match §01 on desktop. The size difference IS the visual hierarchy.
+- ❌ Don't add a photographic image as the nav logo. Tested 2026-05-26, doesn't read at 40px.
+- ❌ Don't reintroduce the Koekedoor Season 2 Facebook link — no longer maintained.
+- ❌ Don't add testimonial cards until Suzaan provides 3-4 real client reviews. Placeholder reviews are worse than none.
+- ❌ Don't promise a Collaborations page — deferred until later.
 - ❌ Don't rename portfolio pages or change the navigation labels without checking with Suzaan first.
 
 ## Git workflow

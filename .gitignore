@@ -1,0 +1,12 @@
+# Microsoft Office temp/lock files (Word/Excel create these while a doc is open)
+~$*
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor backups
+*~
+*.bak
+*.swp

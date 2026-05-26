@@ -1,231 +1,203 @@
 # Session Handoff — Kanya Hunt Website
-**Last updated:** 2026-05-22 (afternoon, by Opus 4.7 — handing to Sonnet 4.6)
+**Last updated:** 2026-05-26 (by Opus 4.7 — handing to Sonnet 4.6)
 **Live URL:** https://suzaanloots-web.github.io
+**Repo:** https://github.com/suzaanloots-web/suzaanloots-web.github.io
 
 ---
 
 ## Read this first
 
-**Suzaan Loots** runs the project. Non-technical — plain English always, no code dumps. Prefers natural conversation. Use `AskUserQuestion` sparingly.
+**Suzaan Loots** runs the project (Kanya's partner). Non-technical — plain English always, no code dumps. Prefers natural conversation. Use `AskUserQuestion` sparingly.
 
-**Push-on-every-change authorised.** Push commits straight to `origin/main` without asking. Still confirm before destructive operations (rm, force push, branch delete).
+**Push-on-every-change is authorised.** Push to `origin/main` straight after each sensible chunk of work — no need to ask. Still confirm before destructive operations (rm, force push, branch delete).
 
-Foundational context: `CLAUDE.md` in this folder (brand positioning, photo curation criteria, optimizer usage, don'ts list).
+**Foundational context:** `CLAUDE.md` in this folder (brand positioning, photo curation criteria, optimizer usage, don'ts list). Also see persistent memory at `C:\Users\suzaa\.claude\projects\G--My-Drive-Kanya-Hunt\memory\` — especially `MEMORY.md` (index), `project_kanya_hunt.md`, `feedback_orphan_id_css.md`, `user_profile_suzaan_kanya_hunt.md`, `feedback_couverture_cake_artist.md`.
 
 ---
 
 ## Git status
 
-Branch `main` is **fully up to date with `origin/main`**. Working tree is clean. All work committed and pushed.
+Branch `main` is **fully up to date with `origin/main`**. Working tree is clean apart from two Word artefacts (`IMAGE_INVENTORY.md.docx` + `~$AGE_INVENTORY.md.docx`) — Suzaan opens the inventory Markdown in Word for annotation; never commit those. Add a `.gitignore` entry for `~$*` when convenient.
 
 ---
 
-## What today (2026-05-22) shipped — 13 commits
+## What's shipped since the last handover (2026-05-22)
 
-In sequence, oldest first:
+Approx. 40+ commits across two sessions (2026-05-25 and 2026-05-26). Highlights, grouped:
 
-| # | Commit | What it did |
-|---|---|---|
-| 1 | `5f79dcb` | Offerings intro copy fix: "quiet Sunday cake" → "intimate celebration cake" |
-| 2 | `455e1f2` | File rename: `cm-11-heart-chocs.jpg` → `cm-12-heart-chocs.jpg` (fixed duplicate cm-11 file number) |
-| 3 | `e3f163b` | **Commit A** — Built new `about.html`: H1, Afrikaans quote band, 2×2 image grid, mother arched portrait, bio, credential strip, "A Different Kind of Cake" positioning section, CTA, footer with Find Kanya column. About marked active in nav. |
-| 4 | `e227dd3` | **Commit B** — Added "About" as 3rd nav item across remaining 8 pages (desktop + mobile menu). Renamed footer "Find the Work" → "Find Kanya" globally with About Kanya as first link. |
-| 5 | `2c732b6` | **Commit C** — Collapsed homepage about section to condensed bio + 5-image carousel (6s rotation). Removed full bio, image grid, mother portrait. |
-| 6 | `377a6f8` | Moved Afrikaans quote from homepage to about.html. Homepage #quote-strip restructured to clean full-width credentials-only row. |
-| 7 | `201abb8` | About 2×2 image grid: proper framed-photo treatment (gap 12px, radius 6px, drop shadow, per-image object-position tuning). |
-| 8 | `5d34050` | Carousel frame: match offering card treatment (radius 8px + shadow). |
-| 9 | `945a255` | Replaced carousel with single portrait IMG_2652 + longer reflective bio + chocolate quote moved from about.html. Removed carousel JS. |
-| 10 | `f95b880` | Three small fixes: hero eyebrow blush→linen for legibility; removed WhatsApp Kanya from hero (only Commission a Cake remains); WhatsApp moved to contact section below details grid; renamed "Real Weddings" → "Weddings" in nav + footer across all 9 pages. |
-| 11 | `9008f2a` | **Critical bug fix** — orphaned `#about { display:grid }` CSS from the original about-gallery design was silently constraining the new `.about-condensed-inner` to ~657px instead of using its 1440px max-width. Removed all orphan `.about-*` / `.ag-*` CSS rules (desktop and mobile). Widened max-width to 1440px, increased photo height to 480px. |
-| 12 | `fcf5631` | Swap to landscape portrait IMG_2296 (Kanya in headwrap, 16:9). Switched grid `align-items: center` → default `stretch`. Photo height became `min-height: 360px`. |
-| 13 | `1d93428` | Reduce photo min-height from 360px → 240px so the text content drives row height. Result: text and photo end at exactly the same line — no empty space below the "More about Kanya" link. |
+### Site architecture
+- **Removed `How It Works` section** from homepage entirely (#order). Removed from mobile menu.
+- **Restructured the `Say Hello` / Contact section** to a centred single-column form (max-width 620px). Removed: contact-details grid (WhatsApp / Email / Instagram / Location now live only in the footer), the frame image, the R[X] pricing note, the 24-hour-response note. Added a `Tell me your vision` eyebrow + "WhatsApp or complete the form below…" paragraph above the form. CTA row is `Send Enquiry → · or · WhatsApp Kanya` with both as primary dark CTAs and an italic mocha "or" between.
+- **Wedding Cakes / Special Occasions hierarchy.** Buttercream & Sugar Art card moved from §02 Special Occasions into §01 Wedding Cakes (Kanya's framing: "these are really wedding cakes too"). §01 is now 3 cards (Couverture / White Couverture / Buttercream & Sugar Art). §02 is now 2 cards (Celebration Cakes / Petite Creations).
+- **§02 visual hierarchy.** §02 cards on desktop are constrained to `max-width: 48%; margin: 0 auto` and the internal text is scaled smaller — cards display at ~73% the size of §01 cards so §02 reads as visually secondary. Mobile layout untouched.
+- **Weekend Cakes (The Kitchen) restructure.** Moved the "Join the List" CTA section from page bottom to immediately under the hero intro (above the gallery). Added a second primary CTA `View the Koekrun weekly menu` linking to `https://www.instagram.com/kanyahunt/`.
+- **Footer Koekedoor link removed** from all 9 pages (`kanyahuntkoekedoor2` Facebook link — no longer maintained).
+- **Bespoke reduction.** Stripped the word "bespoke" from the site EXCEPT the single hero eyebrow on index.html (`Bespoke Couverture Cake Artist · Cape Town`) which is the brand title. Replacement rules applied: "made to order" / "handcrafted" / "commissioned" / "made for you" / "fine couverture" / "Special Occasions" depending on context.
+- **Nav renames.** `Creations` → `My Cakes` and `About` → `About Me` across all 9 pages (desktop + mobile).
+- **Mobile hero eyebrow.** Below the 900px breakpoint, "Bespoke" is hidden and "Cape Town" breaks onto its own line — mobile reads:
+  ```
+  COUVERTURE CAKE ARTIST
+  CAPE TOWN
+  ```
+  Desktop is unchanged.
+
+### Image work
+- **109+ images** across 9 pages. See `IMAGE_INVENTORY.md` for the full reviewed inventory (filename + alt text + caption per slot, sectioned by page).
+- **Homepage condensed-about photo** sized to `aspect-ratio: 21/9` so the row height = text content height (no dead space below "MORE ABOUT KANYA"). `object-position: center 75%` so Kanya's mouth stays in the visible crop.
+- **Homepage Couverture Chocolate card** now uses `home-cw-card.jpg` — IMG_2386 squared with sampled #ABACAD padding bars so the full multi-tier cake + silver pedestal is visible, matching the White Couverture card framing. `cw-01-hero.jpg` (used on the portfolio page) is intentionally untouched.
+- Many slot replacements / additions / removals across cw, ww, cc, cm, bs, wc, rw — see commit log for specifics.
+- Logo experiment (peach rose + chocolate drizzle, circular 40px) was added then **fully reverted**. A photographic logo at small size reads as "a small rose photo" not as a brand mark. When Kanya is ready for a proper wordmark / icon mark, the `canvas-design` skill can mock up directions.
+
+### Standing facts (do not undo)
+- The single permitted use of "Bespoke" on the site is `index.html:695` hero eyebrow. Don't reintroduce elsewhere.
+- The homepage Couverture Chocolate offering card uses `home-cw-card.jpg`, **not** `cw-01-hero.jpg`. Two separate files for two different display contexts.
+- Same pattern for White Couverture: homepage uses `home-ww-card.jpg`, portfolio page uses `ww-01-gold-orchid.jpg`.
+- Special Occasions cards are deliberately smaller than Wedding Cakes cards on desktop (hierarchy choice). Don't normalise.
 
 ---
 
 ## The site as it currently stands
 
 ### Pages (9 total)
-1. **`index.html`** — homepage
-2. **`about.html`** — new dedicated story page
-3. `chocolate-weddings.html`, `white-chocolate-weddings.html`, `celebration-cakes.html`, `croquembouche-minis.html`, `buttercream-sugar-art.html`, `weekend-cakes.html` — 6 portfolio sub-pages
-4. `gallery.html` — Real Weddings
 
-### Homepage flow (top to bottom)
-
-1. **Hero** — single full-bleed dark sculptural cake image (Ken Burns zoom). Eyebrow "BESPOKE COUVERTURE CAKE ARTIST · CAPE TOWN" in linen (was blush — now readable). Title "Where chocolate becomes art" in cream serif with blush italic em. Single CTA: `Commission a Cake` (WhatsApp moved to contact section).
-2. **Credentials strip** — full-width 4-column row (Craft · Credentials · Location · Enquiries). Linen background. The Afrikaans quote that used to share this strip is now on about.html.
-3. **Condensed about (#about)** — two columns, max-width 1440px, gap 4rem, `align-items: stretch` so columns are exactly equal height:
-   - **Left**: longer reflective bio leading with *"Cake, for me, begins with a question — what do you want people to feel when they taste it?"* + the chocolate quote *"Chocolate is not just an ingredient. It is everything I want to say that words cannot."* (rose left-border) + **MORE ABOUT KANYA →** text link
-   - **Right**: single portrait `home-ab-kanya-portrait.jpg?v=2` (IMG_2296, 16:9 landscape of Kanya in headwrap) with `min-height: 240px` and `object-position: center`
-4. **What I Create** — two sections:
-   - Wedding Cakes (2 cards: Dark Couverture + White Couverture)
-   - Bespoke Occasions (3 cards: Celebration / Petite / Buttercream & Sugar Art)
-5. **Weekend Strip** — quiet framed noticeboard (linen section + parchment inner card + gold hairline border + text-link CTAs). See [[feedback_weekend_strip_pattern]] in persistent memory.
-6. **Wedding Cakes & Bespoke Commissions / How it works** — re-entry signal after the Weekend Strip detour (white background, full-width).
-7. **Contact** — form on left, "Say Hello" on right with WhatsApp / Email / Instagram / Location grid + **WhatsApp Kanya** button below.
-8. **Instagram + Footer** — footer Portfolios column has two sub-groups ("Wedding & Bespoke" + "The Kitchen"); separate "Find Kanya" column with About Kanya as first link.
-
-### Navigation (all 9 pages)
-
-Desktop nav + mobile hamburger menu: **Creations · Weddings · About · The Kitchen · Contact** + Enquire Now CTA.
-
-On `about.html`, the About link has `class="active"`. On `gallery.html`, the Weddings link has `class="active"` on desktop nav only (mobile menu doesn't — minor inconsistency, low priority).
-
-### about.html structure (top to bottom)
-
-1. Standard nav (About marked active)
-2. **Page hero strip** — H1 "The Story Behind *the Chocolate*" + intro line
-3. **Afrikaans quote band** — centred editorial band with the Afrikaans blockquote + English translation
-4. **Main about** — two-column: 2×2 image grid (signature top-left, kitchen top-right, laughing bottom-left, bundt bottom-right with proper framed-photo treatment — 12px gap, 6px radius, drop shadow, per-image object-position) + biography column with mother arched portrait, intro paragraph (italic Cormorant with gold left-border), two body paragraphs, run-and-cycle line, "Commission Your Cake" btn-primary
-5. **Credential strip** — 4 cards (Craft · Credentials · Location · Enquiries), full-width row on linen
-6. **A Different Kind of Cake** — two-column positioning section
-7. **Final CTA** — "Let's create something *extraordinary*" + Commission a Cake + WhatsApp Kanya buttons
-8. Standard footer with Find Kanya column
-
-Mobile breakpoint at 900px throughout.
-
----
-
-## What's still pending
-
-### From Kanya (placeholders to fill)
-
-| Placeholder | Where | Replace with |
+| Page | Slots | Notes |
 |---|---|---|
-| WhatsApp number | `+27 XX XXX XXXX` and `wa.me/27XXXXXXXXX` across all 9 HTML files | Real Kanya WhatsApp Business number |
-| Price anchor | `R[X] for up to [Y] guests` in `index.html` contact form | Real minimum + guest count |
-| Testimonials | Section already removed; will re-add when 3-4 reviews collected | 3-4 short client reviews |
+| `index.html` | 10 | hero + 3 wedding cards + 2 special-occ cards + 4 Instagram + condensed-about portrait |
+| `about.html` | 4 (+ mother arched portrait) | hero strip → Afrikaans quote band → 2×2 grid + bio + portrait → credentials → "A Different Kind of Cake" |
+| `chocolate-weddings.html` | 14 | §1.1 Couverture Chocolate portfolio |
+| `white-chocolate-weddings.html` | 15 | §1.2 White Couverture portfolio (added ww-15 croquembouche) |
+| `celebration-cakes.html` | 11 | §2.1 Celebration Cakes |
+| `croquembouche-minis.html` | 9 | §2.2 Petite Creations |
+| `buttercream-sugar-art.html` | 12 | §2.3 Buttercream & Sugar Art |
+| `weekend-cakes.html` | 18 | The Kitchen / Weekend Cakes |
+| `gallery.html` | 15 | Real Weddings (nav label "Weddings") |
 
-### Launch action (Suzaan/Kanya, not the implementer)
+**Site total: ~108 portfolio image slots + nav/contact/footer images.**
 
-Before sharing the site with any wedding planner, Kanya must send this broadcast to her 1000+ existing Friday cake clients **first**:
+### Homepage flow (top → bottom)
 
-> *"Quick note — I've built a website, mostly for the wedding side of my work, but I wanted you to know that nothing changes for the Friday cake list. Same WhatsApp number, Wednesday menu, Friday delivery — exactly as always. If you'd like to browse the rotation, the Friday cakes have their own page here: https://suzaanloots-web.github.io/weekend-cakes.html"*
+1. **Hero** — single full-bleed Ken Burns image (PB 32 sculptural chocolate cake on terracotta). Eyebrow "BESPOKE COUVERTURE CAKE ARTIST · CAPE TOWN" (linen). Title "Where chocolate becomes art" (cream serif, blush italic em). Single CTA: `Commission a Cake`. On mobile, eyebrow becomes `COUVERTURE CAKE ARTIST` / `CAPE TOWN` (Bespoke hidden, Cape Town on new line).
+2. **Credentials strip** — full-width 4-column row (Craft · Credentials · Location · Enquiries) on linen.
+3. **Condensed about (#about)** — 2-column, max-width 1440px, gap 4rem. Left: bio + chocolate quote + MORE ABOUT KANYA →. Right: landscape Kanya portrait `home-ab-kanya-portrait.jpg` with `aspect-ratio: 21/9; object-position: center 75%`.
+4. **What I Create (#offerings)** — two sections:
+   - **§01 Wedding Cakes** (3 cards full-width): Couverture Chocolate · White Couverture · Buttercream & Sugar Art
+   - **§02 Special Occasions** (2 cards centred at 48% max-width, smaller text): Celebration Cakes · Petite Creations
+5. **Weekend Strip** — quiet framed noticeboard (linen section + parchment inner card + hairline gold border + text-link CTAs).
+6. **Say Hello (#contact)** — centred single-column (max-width 620px). Headline + "Every commission begins…" + Tell me your vision eyebrow + "WhatsApp or complete the form below…" + form. Bottom CTAs: `Send Enquiry → · or · WhatsApp Kanya` (both dark primary).
+7. **Instagram (#insta)** — @kanyahunt handle + 4-image grid.
+8. **Footer** — Brand row + Portfolios (Wedding & Commissions sub-group + The Kitchen sub-group) + Find Kanya column + Contact column.
 
-The opening line ("nothing changes for the Friday cake list") is doing the load-bearing work. The strategy depends on this broadcast routing existing clients directly to weekend-cakes.html.
+### Navigation (all 9 pages, desktop + mobile)
 
-### Open concerns from prior sessions (low priority)
+`MY CAKES · WEDDINGS · ABOUT ME · THE KITCHEN · CONTACT` + Enquire Now CTA.
 
-1. **Petite Creations** — `cm-02-choc-cylinders.jpg` mis-captioned (shows chocolate-dipped strawberries, not cylinders). Could swap caption + alt or replace image.
-2. **Petite Creations** — `cm-06-hands-cupcake.jpg` portrait photo in a `feature-wide` landscape slot — cropped. Swap candidate.
-3. **Gallery active class** — `gallery.html` desktop nav has `class="active"` on Weddings, mobile menu doesn't. Minor inconsistency.
-4. **weekend-cakes.html** — The Kitchen link points to itself (self-referencing). Same pattern as Real Weddings → gallery.html on gallery.html. Could add `class="active"` for the polish, but harmless as-is.
+Active page styling: `.active` class applied on whichever nav link matches the current page (e.g. `About Me` is active on about.html).
 
----
+### Weekend Cakes / The Kitchen page
 
-## Image naming conventions
-
-- `home-XX-name` — homepage images
-- `home-hero-pb32.jpg` — current single hero image (sculptural dark chocolate on terracotta)
-- `home-ab-XX-name.jpg` — about gallery (01-bundt, 02-laughing, 03-kitchen, 04-mother, 05-signature)
-- `home-ab-kanya-portrait.jpg?v=2` — current homepage condensed about photo (IMG_2296 — Kanya in headwrap, landscape)
-- `home-contact.jpg` — contact section feature
-- `home-insta-XX-name.jpg` — Instagram row (4 tiles)
-- `cw-XX-name` — chocolate weddings
-- `ww-XX-name` — white chocolate weddings (plus `ww-offering.jpg`)
-- `cc-XX-name` — celebration cakes
-- `cm-XX-name` — croquembouche & minis (cm-12 is heart-chocs as of today — no more duplicate cm-11)
-- `bs-XX-name` — buttercream & sugar art
-- `wc-XX-name` — weekend cakes (`wc-offering.jpg` is no longer used on homepage but stays on weekend-cakes.html)
-- `rw-XX-name` — real weddings (gallery)
-
-**Cache-busting:** Always append `?v=N` to image src. Bump N when overwriting an image file.
-
----
-
-## Preview server quick start
-
-```
-preview_start name=kanya-hunt
-```
-Port 3458. Visit `http://localhost:3458/index.html`. For desktop testing: `preview_resize width=1440 height=900`. For mobile: `preview_resize preset=mobile`.
-
-Note: the preview pane in Claude Code is often narrower than 900px so it shows the mobile media query. Use explicit `preview_resize` for desktop layouts.
+Section order is now:
+1. Portfolio hero (intro)
+2. **Portfolio CTA** (Join the list) — moved up from page bottom. Two primary buttons side by side: `Join the WhatsApp List` (wa.me placeholder) + `View the Koekrun weekly menu` (Instagram).
+3. Portfolio gallery (18 images)
+4. Craft detail (long write-up)
+5. Footer
 
 ---
 
-## Standing architectural rules (banked)
+## Pending placeholders (still TBD from Kanya)
 
-1. **Detour-section re-entry signal rule** — every quiet-aside section must be followed by an explicit reanchoring eyebrow + intro in the next section. The Weekend Strip + "Wedding Cakes & Bespoke Commissions" eyebrow is the model.
-2. **Framed-noticeboard pattern** — for any future quiet aside: linen section + parchment inner card + hairline gold border + text-link CTAs (NOT buttons). Reusable.
-3. **Mobile menu JS pattern** — only `preventDefault()` for in-page anchors (`href` starting with `#`). External page links must navigate normally. (Critical bug fix from yesterday — index.html had the buggy version that silently broke The Kitchen + Real Weddings on mobile.)
-4. **WhatsApp link standardisation** — every `wa.me` link uses `?text=Hi%20Kanya%2C%20I%27d%20like%20to%20join%20the%20Friday%20cake%20list` (pre-filled message: *"Hi Kanya, I'd like to join the Friday cake list"*).
-5. **Watch out for orphaned ID-targeted CSS** — leaving dead `.class` CSS is safe, but leaving dead `#id` CSS that reuses element IDs across redesigns can silently break layout. The `#about { display:grid }` orphan today constrained the new condensed section to half its intended width before I caught it. Always grep `#about|#order|etc` after restructuring.
-
----
-
-## How to work with Suzaan
-
-- She sends photo picks as shortened codes: `2386` → `IMG_2386.JPG`, `PB32` → `PB (32).jpg`, `f8f5232a` → the UUID-named file. Use `Get-ChildItem -Filter "*pattern*"` to resolve.
-- She has "Definitely" and "Maybe" lists. For Definitelys: check against the 6 photo criteria honestly — flag failures. For Maybes: pick the strongest up to slot count.
-- For batch reviews of >5 photos, delegate to a general-purpose sub-agent.
-- She iterates a lot — expect rotation requests, swaps, refinements after seeing the rendered page. Hard refresh (`Ctrl+Shift+R`) is sometimes needed.
-- Communicates visually — often sends screenshots with annotations (circles, arrows). Read those carefully; the annotations matter more than the surrounding text.
+| Placeholder | Where | Action when ready |
+|---|---|---|
+| WhatsApp number `+27 XX XXX XXXX` / `wa.me/27XXXXXXXXX` | All 9 pages (nav CTAs, footer, weekend CTA buttons) | Find/replace `27XXXXXXXXX` globally |
+| Pricing anchor `R[X] for up to [Y] guests` | No longer on the homepage (removed when Say Hello was restructured) — earmarked for a future FAQ section | When you build the FAQ, drop this line in with real numbers |
+| Real reviews | Reviews section is not on the site yet — re-add once Kanya provides 3-4 real client testimonials | Don't add placeholder reviews per the roadmap |
+| Designer-made logo | Currently no logo in nav (typography-only). Kanya tried a photographic logo and removed it. | When ready, commission a proper wordmark/icon mark. Use `canvas-design` skill for mock-up directions if helpful. |
 
 ---
 
-## Site structure quick map
+## Things to NOT touch (standing dos / don'ts)
 
-```
-G:\My Drive\Kanya Hunt\Github\hunthouse-website\
-├── index.html                        homepage (condensed about + carousel-replaced-with-portrait)
-├── about.html                        NEW — full story page (Afrikaans quote + 2x2 grid + bio + position section)
-├── chocolate-weddings.html           §1 dark couverture portfolio
-├── white-chocolate-weddings.html     §1 white couverture portfolio
-├── celebration-cakes.html            §2 celebrations
-├── croquembouche-minis.html          §2 petite (cm-12 is heart-chocs as of today)
-├── buttercream-sugar-art.html        §2 buttercream
-├── weekend-cakes.html                §2 weekend cakes / "The Kitchen" target
-├── gallery.html                      Real Weddings (nav label is "Weddings")
-├── portfolio-style.css               shared CSS for portfolio pages
-├── scripts/optimize-image.ps1        image optimizer
-├── images/                           109 referenced files
-└── chocolate-pour-web.mp4            unused; rejected for hero video
+- ❌ Don't reintroduce "bespoke" anywhere except the hero eyebrow on index.html (single permitted instance).
+- ❌ Don't reintroduce the How It Works section or `#order` CSS — fully gone, intentionally.
+- ❌ Don't put buttercream/fondant work into the §1 wedding cake portfolios (chocolate-weddings / white-chocolate-weddings). Despite the §01 grouping on the homepage, the *portfolio pages* stay chocolate-only.
+- ❌ Don't add the contact-details grid (WhatsApp/Email/Instagram/Location) back to the Say Hello section. Those lines live in the footer Contact column on every page.
+- ❌ Don't add a photographic image as the nav logo. Was tried, doesn't read at 40px.
+- ❌ Don't add placeholder reviews. Wait for real testimonials.
+- ❌ Don't reintroduce "Hunt House Kitchen" or "Kitchen Cakes" anywhere. The "Kitchen" word survives only as the nav label pointing to weekend-cakes.html.
+- ❌ Don't reintroduce the Koekedoor Season 2 Facebook link. No longer maintained.
+- ❌ Don't normalise the §02 Special Occasions card size to match §01 on desktop — the size difference is the hierarchy.
+
+---
+
+## How Suzaan works (UX expectations)
+
+- Wants my honest opinion on quality/composition/repetition before image swaps — pattern is: assess → flag concerns → she greenlights/adjusts → I execute.
+- Will sometimes typo a filename (e.g. "4818" when she means "4814"). Search the source folder, propose the likely intended file, confirm in the response if there's any doubt.
+- She often opens `IMAGE_INVENTORY.md` in Word to annotate — keep the file UTF-8 (no BOM) so the em-dashes render.
+- She frequently asks "any questions?" — that's an invitation. Don't skip the clarifying step.
+
+---
+
+## Image optimizer
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\optimize-image.ps1" `
+    -Source "D:\Website with Suzaan [folder]\IMG_XXXX.JPG" `
+    -Name "cw-XX-descriptive-slug" `
+    -Slot "gallery"   # hero / gallery / offering / portrait / frame / instagram
 ```
 
----
+Slug naming: `cw-` (chocolate weddings), `ww-` (white chocolate), `cc-` (celebration), `cm-` (petite/croquembouche), `bs-` (buttercream/sugar art), `wc-` (weekend), `rw-` (real weddings gallery), `home-` (homepage assets).
 
-## When to escalate to Opus
+Cache-busting: always append `?v=2` (or bump v=3, v=4 on re-process) when slotting an image in HTML.
 
-- Brand-voice copywriting decisions
-- Architectural changes (new pages, new sections, restructure)
-- Pre-deploy strategic review before major content addition
-- Anything where the strategy needs fresh thinking
+### Notable optimiser technique: pre-padding to square
 
-For image swaps, captions, layout iteration, copy tweaks, mobile bug fixes — Sonnet 4.6 is the right tool.
+When a tall portrait source needs to fit a square `.offering-img` (1:1) without losing top/bottom of the cake, **pre-pad the source horizontally** with the sampled background colour. See the home-cw-card.jpg recipe: load source, sample top-left corner colour, build a square canvas at source height, fill with sampled colour, paste source centred, optimise. The grey/cream padding blends with the natural background.
 
 ---
 
-## Notable decisions logged today
+## Preview server
 
-- **Dedicated about.html page** — full story moved off the homepage so visitors reach the wedding cake portfolio within 2 scrolls of the hero.
-- **Two-document brief pattern reused** — strategic doc for Kanya + implementation spec for Claude Code worked again for Commit 7.
-- **Homepage condensed about: single portrait beats carousel** — Suzaan rejected the auto-rotating carousel as "no context", replaced with single portrait of Kanya + longer reflective bio + chocolate quote.
-- **IMG_2296 (landscape headwrap) chosen over IMG_2652** — better for matching a landscape container that aligns with text height via `align-items: stretch`.
-- **"Real Weddings" tab → "Weddings"** — nav label only; gallery.html page H1 stays "Real Weddings".
-- **Hero CTA simplified to one** — "Commission a Cake" only on hero. "WhatsApp Kanya" moved to the contact section below the details grid.
-- **Hero eyebrow color** — changed from blush to linen for legibility against the dark hero.
+Configured in `G:\My Drive\Kanya Hunt\.claude\launch.json` (port 3458). The server's docroot is `G:\My Drive\Kanya Hunt` so all paths are served from there. `preview_start name=kanya-hunt`.
+
+After file changes: `window.location.href = '/path.html?t=' + Date.now()` for cache-busted reload.
 
 ---
 
-## QA verification recommended on session pickup
+## When to escalate back to Opus
 
-Quick grep checks to confirm site state:
+- New page builds (FAQ, Collaborations) — copy and information architecture decisions
+- Major brand-voice copywriting (real testimonials integration, FAQ copy, refined price anchor wording)
+- Pre-deploy major refactors
+- Any strategy/positioning question you're stuck on
 
-```bash
-# Should all return clean — no remnants of old content:
-grep -n "Sunday cake\|process is simple\|Ready to Begin\|Real Weddings</a>\|small list of regulars\|Chocolatier" *.html
+---
 
-# Should return matches showing the live state:
-grep -n "Bespoke Couverture Cake Artist\|home-ab-kanya-portrait\|about.html" index.html
-grep -c "About</a>" *.html   # should be 1+ on every page (nav + sometimes footer)
-grep -c "Weddings</a>" *.html # should be 2+ on every page (desktop nav + mobile menu)
+## Today's notable architectural learnings
+
+1. **Pre-pad tall portraits to square** instead of relying on `object-position` when the entire subject needs to be visible in a 1:1 frame.
+2. **Visual hierarchy via container max-width**, not just font size — constraining `.offerings-grid-2` to 48% creates the §01 vs §02 secondary feel cleanly.
+3. **Orphan ID-targeted CSS is a hazard**: when restructuring a section but keeping the same `id`, grep `#id` and prune dead rules. Banked previously in `feedback_orphan_id_css.md`.
+4. **Photographic logos don't scale to nav-bar sizes.** Tested empirically. Document for future asks.
+
+---
+
+## QA checklist on pickup
+
+```powershell
+# 1. Verify no orphan images
+$used = @(); foreach ($f in (Get-ChildItem -Filter *.html)) { 
+  $c = Get-Content $f.FullName -Raw; 
+  $used += ([regex]::Matches($c, 'images/([a-z0-9-]+\.(?:jpg|jpeg|png|mp4))', 'IgnoreCase') | ForEach-Object { $_.Groups[1].Value }) 
+}
+$onDisk = Get-ChildItem "images" -File | Select-Object -ExpandProperty Name
+Compare-Object ($used | Sort-Object -Unique) ($onDisk | Sort-Object) -PassThru
+
+# 2. Verify no broken images on each page (load via preview, check naturalWidth === 0)
+
+# 3. Verify "bespoke" / "Bespoke" appears only once site-wide (index.html:695 hero eyebrow)
+Get-ChildItem -Filter *.html | Select-String -Pattern '[Bb]espoke'
 ```
 
-Visual verification (in browser):
-- Homepage hero eyebrow readable in cream against dark image
-- Single Commission a Cake button on hero (no WhatsApp button)
-- Condensed about section: text + photo same height, no empty linen above/below
-- about.html loads with Afrikaans quote, 2×2 grid framed photos, full bio
-- Nav reads "Creations · Weddings · About · The Kitchen · Contact" on all 9 pages
-- Footer Portfolios column has two sub-groups; separate "Find Kanya" column with About link
+Good luck. Live URL: https://suzaanloots-web.github.io
