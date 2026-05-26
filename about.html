@@ -41,8 +41,9 @@
 
     /* Biography column */
     .about-bio { display: flex; flex-direction: column; }
-    .about-bio-portrait { width: 180px; min-width: 180px; height: auto; border: 2px solid var(--light-gold); padding: 4px; display: block; object-fit: cover; object-position: center top; border-radius: 40% 40% 6px 6px / 20% 20% 2% 2%; margin: 0 0 1.6rem; }
-    .about-bio-intro { font-family: var(--font-d); font-style: italic; font-size: 1.28rem; color: var(--mocha); line-height: 1.65; margin: 0 0 1.8rem; padding-left: 1.2rem; border-left: 2px solid var(--light-gold); }
+    .about-bio-portrait-row { display: flex; gap: 1.6rem; align-items: flex-start; margin-bottom: 1.8rem; }
+    .about-bio-portrait { width: 160px; min-width: 160px; height: auto; border: 2px solid var(--light-gold); padding: 4px; display: block; object-fit: cover; object-position: center top; border-radius: 40% 40% 6px 6px / 20% 20% 2% 2%; margin: 0; flex-shrink: 0; }
+    .about-bio-intro { font-family: var(--font-d); font-style: italic; font-size: 1.28rem; color: var(--mocha); line-height: 1.65; margin: 0; padding-left: 1.2rem; border-left: 2px solid var(--light-gold); align-self: center; }
     .about-bio-body { font-size: 1rem; color: var(--text-mid); line-height: 1.95; margin-bottom: 1.2rem; }
     .about-bio-quote { font-family: var(--font-d); font-style: italic; font-size: 1.2rem; color: var(--ink); line-height: 1.65; margin: 1.8rem 0; padding: 1.4rem 1.6rem; background: var(--linen); border-left: 3px solid var(--rose); }
     .about-bio-wit { font-family: var(--font-d); font-style: italic; font-size: 1.12rem; color: var(--caramel); margin: 0.5rem 0 2.2rem; }
@@ -77,8 +78,9 @@
       .about-main { padding: 2rem 1.2rem; }
       .about-main-inner { grid-template-columns: 1fr; gap: 2rem; }
       .about-image-grid { height: 360px; }
-      .about-bio-portrait { width: 130px; min-width: 130px; margin-bottom: 1.2rem; }
-      .about-bio-intro { font-size: 1.12rem; }
+      .about-bio-portrait-row { flex-direction: column; gap: 1rem; }
+      .about-bio-portrait { width: 130px; min-width: 130px; }
+      .about-bio-intro { font-size: 1.12rem; padding-left: 0; border-left: none; margin: 0; }
       .about-bio-body { font-size: 0.95rem; line-height: 1.85; }
       .about-bio-quote { font-size: 1.05rem; padding: 1.1rem 1.2rem; }
 
@@ -161,8 +163,10 @@
 
     <!-- RIGHT — biography -->
     <div class="about-bio reveal d1">
-      <img class="about-bio-portrait" src="images/home-ab-04-mother.jpg?v=2" alt="Kanya Hunt with her mother — where the love of baking began" loading="lazy"/>
-      <p class="about-bio-intro">I was four years old when I baked my first cake. I will always remember my very first cake &mdash; pink, with pink icing. The most delicious cake I have ever tasted! And the most havoc any kitchen and mother ever had to manage.</p>
+      <div class="about-bio-portrait-row">
+        <img class="about-bio-portrait" src="images/home-ab-04-mother.jpg?v=2" alt="Kanya Hunt with her mother — where the love of baking began" loading="lazy"/>
+        <p class="about-bio-intro">I was four years old when I baked my first cake. I will always remember my very first cake &mdash; pink, with pink icing. The most delicious cake I have ever tasted! And the most havoc any kitchen and mother ever had to manage.</p>
+      </div>
       <p class="about-bio-body">Five decades later, I work exclusively with fine couverture chocolate &mdash; sculpting every decorative element entirely by hand. The protea petals. The delicate ruffles. The spirals. <strong>Everything you see is pure couverture chocolate, and everything is made by me.</strong></p>
       <p class="about-bio-body">My background in dietetics gives me a rare analytical understanding of how the chemistry of baking and developing flavours and textures work &mdash; how layers interact, how richness balances, how texture and temperature create a complete experience. I don't just bake. I design something you taste long after you've eaten it.</p>
       <p class="about-bio-body">Behind every Kanya Hunt cake is a small, extraordinary team. Thandeka &mdash; known in the kitchen as Winkie &mdash; is our head baker, with an instinctive feel for baking that no qualification could teach. Her chiffon cakes would win competitions worldwide. Alongside her is Norinkie, who keeps the kitchen in harmony and every surface spotless. We are a happy lot. Smiles all day long.</p>
@@ -173,27 +177,6 @@
   </div>
 </section>
 
-<!-- CREDENTIAL STRIP -->
-<section id="credentials-strip">
-  <div class="cs-inner">
-    <div class="cs-detail reveal">
-      <div class="cs-label">Craft</div>
-      <div class="cs-value">Couverture Cake Artist</div>
-    </div>
-    <div class="cs-detail reveal d1">
-      <div class="cs-label">Credentials</div>
-      <div class="cs-value">Qualified Dietician · Galliova 2003</div>
-    </div>
-    <div class="cs-detail reveal d2">
-      <div class="cs-label">Location</div>
-      <div class="cs-value">Melkbosstrand, Cape Town</div>
-    </div>
-    <div class="cs-detail reveal d3">
-      <div class="cs-label">Enquiries</div>
-      <div class="cs-value"><a href="https://wa.me/27XXXXXXXXX">WhatsApp Welcome</a></div>
-    </div>
-  </div>
-</section>
 
 <!-- A DIFFERENT KIND OF CAKE -->
 <section id="position">
