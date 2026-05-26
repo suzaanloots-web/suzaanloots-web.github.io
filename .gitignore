@@ -1,5 +1,6 @@
 # Microsoft Office temp/lock files (Word/Excel create these while a doc is open)
 ~$*
+*.docx
 
 # OS junk
 .DS_Store
