@@ -26,21 +26,22 @@
     .about-quote-afrikaans { font-family: var(--font-d); font-style: italic; font-size: clamp(1.5rem, 2.2vw, 2.3rem); font-weight: 300; color: var(--rose); line-height: 1.45; margin: 0 0 1.1rem; }
     .about-quote-trans { display: block; font-family: var(--font-d); font-style: italic; font-size: clamp(1.05rem, 1.5vw, 1.3rem); font-weight: 300; color: var(--ink); line-height: 1.5; }
 
-    /* MAIN ABOUT — two column */
+    /* MAIN ABOUT — float images left, text wraps beside and below */
     .about-main { padding: 4rem 3.5rem; background: var(--white); }
-    .about-main-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+    .about-main-inner { max-width: 1240px; margin: 0 auto; overflow: hidden; }
+    .about-main-inner::after { content: ''; display: table; clear: both; }
 
-    /* 2×2 image grid — framed photo treatment matching site convention */
-    .about-image-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 12px; }
-    .about-image-grid img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 6px; box-shadow: 0 6px 24px rgba(30,15,6,0.09), 0 2px 6px rgba(30,15,6,0.05); }
+    /* 2×2 image grid — floats left so bio text wraps beside then below */
+    .about-image-grid { float: left; width: calc(50% - 1.75rem); margin-right: 3.5rem; margin-bottom: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .about-image-grid img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: 6px; box-shadow: 0 6px 24px rgba(30,15,6,0.09), 0 2px 6px rgba(30,15,6,0.05); }
     /* Per-image focal point — subject (face / hands) must stay visible after square crop */
-    .about-image-grid img:nth-child(1) { object-position: center center; }   /* signature — chocolate rose hands centred */
-    .about-image-grid img:nth-child(2) { object-position: center 22%; }       /* kitchen — Kanya face */
-    .about-image-grid img:nth-child(3) { object-position: center 28%; }       /* laughing — face area */
-    .about-image-grid img:nth-child(4) { object-position: right top; }        /* bundt — face on right of source */
+    .about-image-grid img:nth-child(1) { object-position: center center; }
+    .about-image-grid img:nth-child(2) { object-position: center 22%; }
+    .about-image-grid img:nth-child(3) { object-position: center 28%; }
+    .about-image-grid img:nth-child(4) { object-position: right top; }
 
-    /* Biography column */
-    .about-bio { display: flex; flex-direction: column; }
+    /* Biography — plain block so text wraps naturally around the float */
+    .about-bio { display: block; }
     .about-bio-portrait-row { display: flex; gap: 1.6rem; align-items: flex-start; margin-bottom: 1.8rem; }
     .about-bio-portrait { width: 160px; min-width: 160px; height: auto; border: 2px solid var(--light-gold); padding: 4px; display: block; object-fit: cover; object-position: center top; border-radius: 40% 40% 6px 6px / 20% 20% 2% 2%; margin: 0; flex-shrink: 0; }
     .about-bio-intro { font-family: var(--font-d); font-style: italic; font-size: 1.28rem; color: var(--mocha); line-height: 1.65; margin: 0; padding-left: 1.2rem; border-left: 2px solid var(--light-gold); align-self: center; }
@@ -48,7 +49,6 @@
     .about-bio-quote { font-family: var(--font-d); font-style: italic; font-size: 1.2rem; color: var(--ink); line-height: 1.65; margin: 1.8rem 0; padding: 1.4rem 1.6rem; background: var(--linen); border-left: 3px solid var(--rose); }
     .about-bio-wit { font-family: var(--font-d); font-style: italic; font-size: 1.12rem; color: var(--caramel); margin: 0.5rem 0 2.2rem; }
     .about-bio-wit em { color: var(--rose); }
-    .about-bio .btn-primary { align-self: flex-start; }
 
     /* CREDENTIAL STRIP (ported pattern from index.html #quote-strip credentials side) */
     #credentials-strip { background: var(--linen); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 3rem 3.5rem; }
@@ -76,8 +76,8 @@
       .about-quote-trans { font-size: clamp(0.95rem, 3.2vw, 1.1rem); }
 
       .about-main { padding: 2rem 1.2rem; }
-      .about-main-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .about-image-grid { height: 360px; }
+      .about-image-grid { float: none; width: 100%; margin-right: 0; margin-bottom: 1.5rem; height: 360px; }
+      .about-image-grid img { height: 100%; aspect-ratio: auto; }
       .about-bio-portrait-row { flex-direction: column; gap: 1rem; }
       .about-bio-portrait { width: 130px; min-width: 130px; }
       .about-bio-intro { font-size: 1.12rem; padding-left: 0; border-left: none; margin: 0; }
