@@ -149,13 +149,13 @@ Treat each of these as a placeholder you'll find scattered across pages:
 
 | Placeholder | What you'll find | Real value needed |
 |-------------|------------------|-------------------|
-| WhatsApp number | `+27 XX XXX XXXX` and `wa.me/27XXXXXXXXX` | The real number when Kanya provides |
+| WhatsApp number | ✅ Real number inserted: `+27 82 375 5200` / `wa.me/27823755200` | Done — 2026-05-27 |
 | Price anchor | `R[X] for up to [Y] guests` *(in index.html contact form)* | Actual minimum, e.g. `R8,500 for 50 guests` |
 | Real reviews | (already removed; section will be re-added once 3-4 testimonials are collected) | 3-4 short client testimonials |
 
 When Suzaan provides any of these, do a single find-and-replace across all 8 HTML pages.
 
-**WhatsApp number appears in these files:** `chocolate-weddings.html`, `white-chocolate-weddings.html`, `celebration-cakes.html`, `croquembouche-minis.html`, `buttercream-sugar-art.html`, `weekend-cakes.html`, `gallery.html`, `index.html` — replace `27XXXXXXXXX` and `+27 XX XXX XXXX` in all of them at once.
+**WhatsApp number** is real as of 2026-05-27 (`+27 82 375 5200` / `wa.me/27823755200`) across all 10 HTML files. No more placeholder replacements needed for this field.
 
 ## Workflow when Suzaan sends photo picks
 
@@ -194,7 +194,7 @@ When Suzaan provides any of these, do a single find-and-replace across all 8 HTM
 
 ### Important structural facts (as of 2026-05-27)
 - Site has **9 pages**.
-- **Nav across all 9 pages**: `MY CAKES · WEDDINGS · ABOUT ME · THE KITCHEN · CONTACT` (+ Enquire Now CTA).
+- **Nav across all 9 pages**: `MY CAKES · WEDDINGS · ABOUT ME · WEEKEND CAKES · CONTACT` (+ Enquire Now CTA).
 - Homepage about section is **condensed**: bio + chocolate quote + single Kanya portrait (aspect-ratio 21/9, object-position center 75%). Full bio lives on `about.html`.
 - **Hero has ONE CTA** (`Commission a Cake`). On mobile, hero eyebrow drops "Bespoke" and breaks "Cape Town" onto its own line.
 - **Homepage `What I Create`** is two sections:
@@ -224,7 +224,7 @@ Cleaned up 2026-05-20. Folder currently contains only referenced files. Don't ex
 ## Strategic don'ts
 
 - ❌ Don't put buttercream or fondant work in any of the §1 Wedding Cake **portfolio pages** (`chocolate-weddings.html` / `white-chocolate-weddings.html`). Despite the §01 homepage card grouping, the portfolio pages themselves stay chocolate-only. The "exclusively couverture chocolate" positioning is the brand's competitive moat.
-- ❌ Don't reintroduce "Kitchen Cakes" or "Hunt House Kitchen" anywhere. The word `Kitchen` survives only as the nav label pointing to `weekend-cakes.html`.
+- ❌ Don't reintroduce "Kitchen Cakes" or "Hunt House Kitchen" anywhere. The nav tab pointing to `weekend-cakes.html` is now **"Weekend Cakes"** (not "The Kitchen"). The word "Kitchen" survives only in the footer sub-group label (`footer-subgroup-label`).
 - ❌ Don't reintroduce the **How It Works** section or `#order` CSS — removed entirely on 2026-05-26.
 - ❌ Don't reintroduce "bespoke" anywhere except the hero eyebrow on `index.html:695`. Use "made to order" / "handcrafted" / "commissioned" / "fine couverture" instead.
 - ❌ Don't add the contact-details grid (WhatsApp/Email/Instagram/Location) back into Say Hello — those lines live in the footer Contact column on every page now.
