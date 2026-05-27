@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Enquiry Received — Kanya Hunt</title>
+  <meta name="robots" content="noindex"/>
+
+  <link rel="icon" href="images/hero_01.jpg?v=2" type="image/jpeg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --white:      #FFFFFF;
+      --linen:      #FAF7F2;
+      --parchment:  #F4EFE5;
+      --border:     rgba(139,100,66,0.15);
+      --ink:        #1E0F06;
+      --mocha:      #6B3A1F;
+      --caramel:    #9B6035;
+      --light-gold: #D4AA60;
+      --font-d: 'Cormorant Garamond', Georgia, serif;
+      --font-b: 'Jost', sans-serif;
+    }
+    body { background:var(--linen); color:var(--ink); font-family:var(--font-b); font-weight:300; line-height:1.7; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem; }
+
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; padding:0 3.5rem; height:74px; display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.94); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
+    .nav-brand { text-decoration:none; display:flex; flex-direction:column; }
+    .nav-brand-main { font-family:var(--font-d); font-size:1.45rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink); line-height:1; }
+    .nav-brand-sub { font-family:var(--font-d); font-style:italic; font-size:1.15rem; color:var(--mocha); }
+
+    .thankyou-card {
+      background:var(--white);
+      border:1px solid var(--border);
+      max-width:560px;
+      width:100%;
+      padding:3.5rem 3rem;
+      text-align:center;
+      margin-top:74px;
+    }
+    .thankyou-divider {
+      width:40px;
+      height:1px;
+      background:var(--light-gold);
+      margin:0 auto 2rem;
+    }
+    .thankyou-eyebrow {
+      font-family:var(--font-b);
+      font-size:0.72rem;
+      letter-spacing:0.22em;
+      text-transform:uppercase;
+      color:var(--caramel);
+      margin-bottom:1.2rem;
+    }
+    .thankyou-heading {
+      font-family:var(--font-d);
+      font-size:2.4rem;
+      font-weight:300;
+      color:var(--ink);
+      line-height:1.2;
+      margin-bottom:1.4rem;
+    }
+    .thankyou-body {
+      font-size:0.95rem;
+      color:var(--mocha);
+      margin-bottom:2.2rem;
+      line-height:1.8;
+    }
+    .btn-home {
+      display:inline-block;
+      background:var(--ink);
+      color:var(--linen);
+      padding:0.72rem 2rem;
+      font-family:var(--font-b);
+      font-size:0.78rem;
+      letter-spacing:0.15em;
+      text-transform:uppercase;
+      text-decoration:none;
+      transition:background 0.25s;
+    }
+    .btn-home:hover { background:var(--mocha); }
+
+    @media (max-width: 600px) {
+      nav { padding:0 1.25rem; }
+      .thankyou-card { padding:2.5rem 1.5rem; }
+      .thankyou-heading { font-size:2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-main">Kanya Hunt</span>
+    <span class="nav-brand-sub">Couverture Cake Artist</span>
+  </a>
+</nav>
+
+<div class="thankyou-card">
+  <div class="thankyou-divider"></div>
+  <p class="thankyou-eyebrow">Enquiry received</p>
+  <h1 class="thankyou-heading">Thank you.<br>Kanya will be in touch.</h1>
+  <p class="thankyou-body">Your enquiry has been sent. Kanya personally reads every message and will respond within 48 hours. If your date is urgent, feel free to WhatsApp directly.</p>
+  <a href="index.html" class="btn-home">Back to the site &rarr;</a>
+</div>
+
+</body>
+</html>
