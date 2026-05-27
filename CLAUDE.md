@@ -1,7 +1,7 @@
 # Kanya Hunt website — agent handover notes
 
-> Last updated by Opus 4.7 (1M context), 2026-05-19 (evening session).
-> Four portfolio pages are now fully photographed. Three pages remain: Celebration Cakes, Croquembouche & Minis, and Real Weddings. Awaiting Suzaan's photo picks for each.
+> Last updated by Sonnet 4.6, 2026-05-27.
+> All 9 pages fully photographed and live. All copy changes applied. about.html underwent a major layout overhaul this session. See structural facts below for current state.
 
 ## The brand in one paragraph
 
@@ -192,20 +192,31 @@ When Suzaan provides any of these, do a single find-and-replace across all 8 HTM
 - Real client testimonials — reviews section is currently off the site, re-add when Kanya provides 3-4 real reviews
 - Designer-made logo — Kanya is currently typography-only in the nav; a photographic logo was tried and reverted
 
-### Important structural facts (as of 2026-05-26)
+### Important structural facts (as of 2026-05-27)
 - Site has **9 pages**.
-- **Nav across all 9 pages**: `MY CAKES · WEDDINGS · ABOUT ME · THE KITCHEN · CONTACT` (+ Enquire Now CTA). The 2026-05-22 names `Creations` and `About` were renamed.
+- **Nav across all 9 pages**: `MY CAKES · WEDDINGS · ABOUT ME · THE KITCHEN · CONTACT` (+ Enquire Now CTA).
 - Homepage about section is **condensed**: bio + chocolate quote + single Kanya portrait (aspect-ratio 21/9, object-position center 75%). Full bio lives on `about.html`.
 - **Hero has ONE CTA** (`Commission a Cake`). On mobile, hero eyebrow drops "Bespoke" and breaks "Cape Town" onto its own line.
 - **Homepage `What I Create`** is two sections:
-  - §01 Wedding Cakes (3 cards, full-width grid): Couverture Chocolate / White Couverture / Buttercream & Sugar Art (Buttercream moved here from §02 because Kanya frames it as a wedding offering)
+  - §01 Wedding Cakes (3 cards, full-width grid): Couverture Chocolate / White Couverture / Buttercream & Sugar Art
   - §02 Special Occasions (2 cards, constrained to max-width 48% centred, smaller text — deliberate hierarchy): Celebration Cakes / Petite Creations
 - **Say Hello / Contact section is a centred single-column form** (max-width 620px). No contact-details grid, no image, no pricing note, no 24-hour-response note. Bottom CTAs: `Send Enquiry → · or · WhatsApp Kanya` (both dark primary).
 - **`How It Works` section is gone** entirely. Don't reintroduce.
 - **Weekend Cakes (The Kitchen)** has the `Join the List` CTA section directly under the hero (above the gallery), with TWO primary CTAs side-by-side: `Join the WhatsApp List` + `View the Koekrun weekly menu` (Instagram).
+- **Weekend Cakes copy** (as of 2026-05-27): sixteen recipes in rotation, menu announced Monday, pre-orders close midday Wednesday, Friday Koekrun delivery, collection from 4 Starfish Way Atlantic Beach Estate Melkbosstrand, priced from R975/cake (16 portions).
 - Footer Portfolios column has **two sub-groups** (`Wedding & Commissions` + `The Kitchen`); separate `Find Kanya` column. **Koekedoor Season 2 Facebook link removed everywhere** — not maintained.
 - **Bespoke reduction**: the word "bespoke" appears in exactly ONE place site-wide — the hero eyebrow on `index.html:695` ("Bespoke Couverture Cake Artist · Cape Town"). Everywhere else uses "made to order" / "handcrafted" / "commissioned" / "fine couverture" / "Special Occasions".
-- **Homepage cards use separate files from portfolio heroes**: `home-cw-card.jpg` (squared with sampled #ABACAD background padding) for §01 chocolate card vs `cw-01-hero.jpg` for the chocolate-weddings portfolio page hero. Same pattern for White Couverture: `home-ww-card.jpg` vs `ww-01-gold-orchid.jpg`.
+- **Homepage cards use separate files from portfolio heroes**: `home-cw-card.jpg` (cropped 600×720px portrait, grey panels removed) for §01 chocolate card vs `cw-01-hero.jpg` for the chocolate-weddings portfolio page hero. Same pattern for White Couverture: `home-ww-card.jpg` vs `ww-01-gold-orchid.jpg`.
+
+### about.html layout — current architecture (2026-05-27)
+This page was substantially restructured. Do not revert without understanding the history.
+
+- **Credential strip removed** — the 4-column bar (Craft / Credentials / Location / Enquiries) no longer exists. Don't reintroduce.
+- **No "Commission Your Cake" button** in the bio section. The page-level CTA is the `portfolio-cta` section at the bottom ("Let's create something extraordinary").
+- **2×2 image grid uses CSS float, not a grid column.** `.about-image-grid` floats left at 50% minus gap. `.about-main-inner` is a simple block with `overflow: hidden` clearfix. This allows the bio text to wrap beside the images and then flow underneath — solving the tall-portrait-cell problem without leaving a gap. Images are `aspect-ratio: 1/1` (square).
+- **Mother portrait + "I was four years old" intro**: wrapped in `.about-bio-portrait-row` flex row — side by side on BOTH desktop (gap 1.6rem, portrait 160px) and mobile (gap 0.9rem, portrait 110px). Do NOT revert to column stacking on mobile.
+- **Section padding**: `.about-main` has `padding: 4rem 3.5rem 0` (no bottom padding — bio text ends close to next section). `#position` has `padding: 2.5rem 3.5rem 4rem`.
+- **Mobile image grid**: on `max-width: 900px`, float is cancelled (`float: none; width: 100%`), grid reverts to `height: 360px` with `height: 100%` images.
 
 ### Orphan files in `images/`
 Cleaned up 2026-05-20. Folder currently contains only referenced files. Don't expect orphans here unless something was just swapped.
