@@ -325,6 +325,24 @@
     .offering-cta { font-size:0.74rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--mocha); margin-top:0.8rem; display:inline-block; }
     .offering:hover .offering-cta { color:var(--ink); }
 
+    /* ── REVIEWS ── */
+    #reviews { background:var(--white); padding:5rem 3.5rem; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .reviews-inner { max-width:1100px; margin:0 auto; }
+    .reviews-header { text-align:center; margin-bottom:3.5rem; }
+    .reviews-eyebrow { font-family:var(--font-b); font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--caramel); margin-bottom:0.9rem; }
+    .reviews-heading { font-family:var(--font-d); font-size:clamp(2rem,3vw,3rem); font-weight:300; color:var(--ink); line-height:1.2; margin-bottom:1.2rem; }
+    .reviews-divider { width:40px; height:1px; background:var(--light-gold); margin:0 auto; }
+    .reviews-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; }
+    .review-card { padding:2rem 2rem 1.8rem 1.8rem; border-left:3px solid var(--light-gold); background:var(--linen); display:flex; flex-direction:column; justify-content:space-between; }
+    .review-quote { font-family:var(--font-d); font-style:italic; font-size:clamp(1rem,1.35vw,1.22rem); color:var(--ink); line-height:1.75; margin:0 0 1.5rem; }
+    .review-source { display:flex; flex-direction:column; gap:0.25rem; }
+    .review-name { font-family:var(--font-b); font-size:0.8rem; font-weight:500; letter-spacing:0.1em; color:var(--ink); }
+    .review-occasion { font-family:var(--font-b); font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-light); }
+    @media (max-width:768px) {
+      #reviews { padding:3rem 1.5rem; }
+      .reviews-grid { grid-template-columns:1fr; gap:1.8rem; }
+    }
+
     /* ── CONTACT — single-column centred ── */
     #contact { background:var(--white); padding:3rem 3.5rem 2.5rem; border-top:1px solid var(--border); }
     .contact-inner { max-width:620px; margin:0 auto; display:flex; flex-direction:column; gap:2.2rem; }
@@ -791,6 +809,65 @@
     <div class="weekend-strip-cta">
       <a href="weekend-cakes.html">View the rotation &rarr;</a>
       <a href="https://wa.me/27823755200?text=Hi%20Kanya%2C%20I%27d%20like%20to%20join%20the%20Friday%20cake%20list" target="_blank">Join the WhatsApp list &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS — standalone section, 4 cards, 2×2 grid -->
+<!-- TO ADD REVIEWS: replace the quote, name, and occasion in each .review-card below -->
+<section id="reviews">
+  <div class="reviews-inner">
+    <div class="reviews-header reveal">
+      <p class="reviews-eyebrow">What brides say</p>
+      <h2 class="reviews-heading">In their own words</h2>
+      <div class="reviews-divider"></div>
+    </div>
+    <div class="reviews-grid">
+
+      <!-- REVIEW 1 — replace quote, name, and occasion below -->
+      <div class="review-card reveal d1">
+        <blockquote class="review-quote">
+          &ldquo;<!-- REVIEW TEXT GOES HERE —  paste the full review in this space -->&rdquo;
+        </blockquote>
+        <div class="review-source">
+          <span class="review-name"><!-- BRIDE OR PLANNER NAME --></span>
+          <span class="review-occasion"><!-- Occasion · Venue · Month Year --></span>
+        </div>
+      </div>
+
+      <!-- REVIEW 2 — replace quote, name, and occasion below -->
+      <div class="review-card reveal d2">
+        <blockquote class="review-quote">
+          &ldquo;<!-- REVIEW TEXT GOES HERE —  paste the full review in this space -->&rdquo;
+        </blockquote>
+        <div class="review-source">
+          <span class="review-name"><!-- BRIDE OR PLANNER NAME --></span>
+          <span class="review-occasion"><!-- Occasion · Venue · Month Year --></span>
+        </div>
+      </div>
+
+      <!-- REVIEW 3 — replace quote, name, and occasion below -->
+      <div class="review-card reveal d3">
+        <blockquote class="review-quote">
+          &ldquo;<!-- REVIEW TEXT GOES HERE —  paste the full review in this space -->&rdquo;
+        </blockquote>
+        <div class="review-source">
+          <span class="review-name"><!-- BRIDE OR PLANNER NAME --></span>
+          <span class="review-occasion"><!-- Occasion · Venue · Month Year --></span>
+        </div>
+      </div>
+
+      <!-- REVIEW 4 — replace quote, name, and occasion below -->
+      <div class="review-card reveal d4">
+        <blockquote class="review-quote">
+          &ldquo;<!-- REVIEW TEXT GOES HERE —  paste the full review in this space -->&rdquo;
+        </blockquote>
+        <div class="review-source">
+          <span class="review-name"><!-- BRIDE OR PLANNER NAME --></span>
+          <span class="review-occasion"><!-- Occasion · Venue · Month Year --></span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
