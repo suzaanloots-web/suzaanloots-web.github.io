@@ -1,7 +1,7 @@
 # Kanya Hunt website — agent handover notes
 
 > Last updated by Sonnet 4.6, 2026-05-27.
-> All 9 pages fully photographed and live. All copy changes applied. about.html underwent a major layout overhaul this session. See structural facts below for current state.
+> **Domain migration COMPLETE.** Site is live at kanyahunt.co.za. HTTPS enforced. Reviews section with 4 real testimonials added. Web3Forms contact form active. All 10 pages fully photographed and live.
 
 ## The brand in one paragraph
 
@@ -237,7 +237,7 @@ Cleaned up 2026-05-20. Folder currently contains only referenced files. Don't ex
 
 ## Git workflow
 
-We commit + push to `origin/main` as save-points. **Suzaan has explicitly authorised pushing to GitHub Pages on every change** — the live URL is `https://suzaanloots-web.github.io`. You don't need to ask before each push; just do it after a sensible chunk of work.
+We commit + push to `origin/main` as save-points. **Suzaan has explicitly authorised pushing to GitHub Pages on every change** — the live URL is `https://kanyahunt.co.za` (migrated from suzaanloots-web.github.io on 2026-05-27). You don't need to ask before each push; just do it after a sensible chunk of work.
 
 Use `git log --oneline -10` to see the latest. The site has been live for many iterations since 2026-05-20.
 
