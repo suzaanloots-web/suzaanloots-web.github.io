@@ -37,6 +37,9 @@
       --text-light: #9B7A60;
       --font-d: 'Cormorant Garamond', Georgia, serif;
       --font-b: 'Jost', sans-serif;
+      /* ── Spacing scale: uniform vertical rhythm (desktop) ── */
+      --sec-pad-y: 2.5rem;   /* every content section: top & bottom padding */
+      --sec-pad-x: 3.5rem;   /* every content section: left & right padding */
     }
     html { scroll-behavior:smooth; }
     body { background:var(--white); color:var(--ink); font-family:var(--font-b); font-weight:300; line-height:1.7; overflow-x:hidden; }
@@ -262,7 +265,7 @@
     #quote-strip {
       background: var(--linen);
       border-bottom: 1px solid var(--border);
-      padding: 2rem 3.5rem;
+      padding: var(--sec-pad-y) var(--sec-pad-x);
     }
     .qs-right {
       max-width: 1200px;
@@ -275,7 +278,7 @@
     .qs-detail { }
 
     /* ── ABOUT CONDENSED (homepage) — bio + Kanya quote + single portrait ── */
-    .about-condensed { background: var(--linen); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2rem 3.5rem; }
+    .about-condensed { background: var(--linen); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: var(--sec-pad-y) var(--sec-pad-x); }
     .about-condensed-inner { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
     .about-condensed-bio { font-family: var(--font-d); font-size: clamp(1.05rem, 1.4vw, 1.3rem); font-weight: 300; font-style: italic; color: var(--ink); line-height: 1.7; margin: 0 0 1.4rem; }
     .about-condensed-quote { font-family: var(--font-d); font-style: italic; font-size: clamp(1rem, 1.3vw, 1.2rem); color: var(--mocha); line-height: 1.6; margin: 0 0 1.5rem; padding-left: 1.2rem; border-left: 2px solid var(--rose); }
@@ -287,8 +290,8 @@
 
 
     /* ── c) OFFERINGS (What I create) — now BEFORE order ── */
-    #offerings { background:var(--white); padding:2rem 3.5rem; border-top:1px solid var(--border); }
-    .offerings-intro { display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-bottom:2rem; align-items:end; }
+    #offerings { background:var(--white); padding:var(--sec-pad-y) var(--sec-pad-x); border-top:1px solid var(--border); }
+    .offerings-intro { display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-bottom:0.8rem; align-items:end; }
     .offerings-intro-right { font-size:1rem; color:var(--text-mid); line-height:2; }
     .offerings-intro-right strong { color:var(--ink); font-weight:500; }
 
@@ -311,7 +314,7 @@
     .offerings-grid-4 { grid-template-columns:repeat(4,1fr); }
 
     /* ── WEEKEND STRIP — quiet framed noticeboard between Offerings and How It Works ── */
-    #weekend-strip { background:var(--linen); padding:2rem 3.5rem; }
+    #weekend-strip { background:var(--linen); padding:var(--sec-pad-y) var(--sec-pad-x); }
     .weekend-strip-inner { max-width:780px; margin:0 auto; padding:2.2rem 2.5rem; background:var(--parchment); border:1px solid var(--light-gold); font-family:var(--font-d); font-size:1.05rem; color:var(--text-mid); line-height:1.7; }
     .weekend-strip-inner .lead { display:block; font-style:italic; color:var(--ink); font-size:1.35rem; margin-bottom:0.7rem; line-height:1.4; }
     .weekend-strip-cta { display:flex; gap:2.5rem; margin-top:1rem; flex-wrap:wrap; }
@@ -326,7 +329,7 @@
     .offering:hover .offering-cta { color:var(--ink); }
 
     /* ── REVIEWS ── */
-    #reviews { background:var(--white); padding:3rem 3.5rem; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    #reviews { background:var(--white); padding:var(--sec-pad-y) var(--sec-pad-x); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
     .reviews-inner { max-width:1100px; margin:0 auto; }
     .reviews-header { text-align:center; margin-bottom:2rem; }
     .reviews-eyebrow { font-family:var(--font-b); font-size:0.75rem; font-weight:400; letter-spacing:0.28em; text-transform:uppercase; color:var(--caramel); margin-bottom:0.8rem; }
@@ -339,12 +342,11 @@
     .review-name { font-family:var(--font-b); font-size:0.8rem; font-weight:500; letter-spacing:0.1em; color:var(--ink); }
     .review-occasion { font-family:var(--font-b); font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-light); }
     @media (max-width:768px) {
-      #reviews { padding:2rem 1.5rem; }
       .reviews-grid { grid-template-columns:1fr; gap:1.4rem; }
     }
 
     /* ── CONTACT — single-column centred ── */
-    #contact { background:var(--white); padding:3rem 3.5rem 2.5rem; border-top:1px solid var(--border); }
+    #contact { background:var(--white); padding:var(--sec-pad-y) var(--sec-pad-x); border-top:1px solid var(--border); }
     .contact-inner { max-width:620px; margin:0 auto; display:flex; flex-direction:column; gap:2.2rem; }
     .contact-header { text-align:center; }
     .contact-header .display-title { margin-bottom:1.4rem; }
@@ -363,7 +365,7 @@
     .contact-or { font-family:var(--font-d); font-style:italic; font-size:1rem; color:var(--mocha); }
 
     /* ── INSTAGRAM — now AFTER contact ── */
-    #insta { background:var(--linen); padding:2.5rem 3.5rem; text-align:center; border-top:1px solid var(--border); }
+    #insta { background:var(--linen); padding:var(--sec-pad-y) var(--sec-pad-x); text-align:center; border-top:1px solid var(--border); }
     .insta-handle { font-family:var(--font-d); font-size:2rem; font-style:italic; color:var(--ink); margin-bottom:0.3rem; }
     .insta-sub { font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-light); margin-bottom:2rem; }
     /* ── INSTAGRAM GRID ── */
@@ -400,7 +402,7 @@
     footer {
       background:var(--parchment);
       border-top:1px solid var(--border);
-      padding:2.5rem 3.5rem;
+      padding:var(--sec-pad-y) var(--sec-pad-x);
     }
     .footer-brand-row {
       margin-bottom:1.5rem;
@@ -446,6 +448,8 @@
 
     /* ── MOBILE ── */
     @media (max-width:900px) {
+      /* ── Spacing scale: uniform vertical rhythm (mobile) ── */
+      :root { --sec-pad-y: 2rem; --sec-pad-x: 1.2rem; }
       nav { padding: 0 1.2rem; padding-top: max(env(safe-area-inset-top, 0px), 1rem); height: calc(60px + max(env(safe-area-inset-top, 0px), 1rem)); position: fixed; }
       .nav-brand { flex-direction: row; align-items: baseline; gap: 0.5rem; }
       .nav-brand-main { font-size: 1.05rem; letter-spacing: 0.08em; }
@@ -486,17 +490,13 @@
 
       /* Quote strip */
       #quote-strip { grid-template-columns: 1fr; }
-      #quote-strip { padding: 1.4rem 1.2rem; }
       .qs-right { grid-template-columns: 1fr 1fr; gap: 0.8rem 1.5rem; }
 
       /* Condensed about — mobile */
-      .about-condensed { padding: 2rem 1.5rem; }
       .about-condensed-inner { grid-template-columns: 1fr; gap: 1.6rem; }
-      .about-condensed-photo { height: 300px; }
 
       /* Offerings */
-      #offerings { padding:1.5rem 1.2rem; }
-      .offerings-intro { grid-template-columns:1fr; gap:0.4rem; margin-bottom:1.5rem; }
+      .offerings-intro { grid-template-columns:1fr; gap:0.4rem; margin-bottom:0.6rem; }
       .offerings-intro-right { font-size:0.9rem; line-height:1.7; }
       .offerings-section { margin-bottom:2.5rem; }
       .offerings-section-header { gap:0.6rem; padding-bottom:0.4rem; margin-bottom:0.4rem; }
@@ -508,7 +508,6 @@
       .offerings-grid-4 { grid-template-columns:1fr 1fr; }
 
       /* Weekend Strip — mobile (framed noticeboard) */
-      #weekend-strip { padding:1.8rem 1.2rem; }
       .weekend-strip-inner { padding:1.5rem 1.4rem; font-size:0.95rem; }
       .weekend-strip-inner .lead { font-size:1.15rem; }
       .weekend-strip-cta { flex-direction:column; gap:0.6rem; margin-top:0.8rem; }
@@ -523,7 +522,6 @@
 
       /* Order */
       /* Contact — single-column centred on mobile */
-      #contact { padding:2rem 1.2rem; }
       .contact-inner { gap:1.4rem; }
       .contact-intro { font-size:0.98rem; }
       .form-row { grid-template-columns:1fr; gap:0.8rem; }
@@ -534,14 +532,12 @@
       .contact-or { width:100%; text-align:center; }
 
       /* Instagram */
-      #insta { padding:1rem 1.2rem; }
       .insta-handle { font-size:1.6rem; }
       .insta-sub { margin-bottom:0.6rem; font-size:0.72rem; }
       .insta-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
       .insta-card { border-radius:8px; }
 
       /* Footer */
-      footer { padding:1.2rem 1.2rem; }
       .footer-brand-row { margin-bottom:1rem; padding-bottom:1rem; }
       .footer-brand-name { font-size:1.1rem; }
       .footer-brand-tagline { font-size:0.82rem; }
