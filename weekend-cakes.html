@@ -13,6 +13,23 @@
   <meta property="og:image" content="https://kanyahunt.co.za/images/hero_01.jpg?v=2"/>
   <meta property="og:url" content="https://kanyahunt.co.za/weekend-cakes.html"/>
   <link rel="canonical" href="https://kanyahunt.co.za/weekend-cakes.html"/>
+  <!-- Twitter / X cards -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@kanyahunt"/>
+  <meta name="twitter:title" content="Weekend Cakes · Kanya Hunt"/>
+  <meta name="twitter:description" content="Weekend Cakes by Kanya Hunt — a weekly chef's-choice menu. Monday menu, Friday delivery. Join the WhatsApp list. Cape Town."/>
+  <meta name="twitter:image" content="https://kanyahunt.co.za/images/hero_01.jpg?v=2"/>
+  <!-- Local SEO / geo -->
+  <meta name="geo.region" content="ZA-WC"/>
+  <meta name="geo.placename" content="Cape Town"/>
+  <meta name="geo.position" content="-33.7269;18.4366"/>
+  <meta name="ICBM" content="-33.7269, 18.4366"/>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+  <meta name="theme-color" content="#2C1810"/>
+  <meta name="author" content="Kanya Hunt"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <link rel="dns-prefetch" href="https://www.instagram.com"/>
+  <link rel="dns-prefetch" href="https://wa.me"/>
 
   <link rel="icon" href="images/hero_01.jpg?v=2" type="image/jpeg"/>
 
@@ -21,7 +38,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="portfolio-style.css">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Service","name":"Weekend Cakes — Weekly Chef's Menu","description":"A weekly rotating artisan cake menu by Kanya Hunt. Menu announced Monday, orders close midday Wednesday, Friday delivery or collection from Melkbosstrand. Priced R975–R1,065, serves 16 portions.","url":"https://kanyahunt.co.za/weekend-cakes.html","provider":{"@type":"Bakery","@id":"https://kanyahunt.co.za/#business"},"areaServed":"Cape Town","serviceType":"Artisan Cake Delivery","offers":{"@type":"Offer","priceCurrency":"ZAR","priceSpecification":{"@type":"PriceSpecification","minPrice":"975","maxPrice":"1065","priceCurrency":"ZAR"}}}
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://kanyahunt.co.za/#website",
+        "url": "https://kanyahunt.co.za/",
+        "name": "Kanya Hunt — Couverture Cake Artist",
+        "description": "Bespoke couverture chocolate wedding and celebration cakes, hand-sculpted by Kanya Hunt. Cape Town & Winelands.",
+        "publisher": { "@id": "https://kanyahunt.co.za/#organization" }
+      },
+      {
+        "@type": ["LocalBusiness", "FoodEstablishment"],
+        "@id": "https://kanyahunt.co.za/#organization",
+        "name": "Kanya Hunt — Hunt House Kitchen",
+        "legalName": "Kanya Hunt t/a The Hunt House Kitchen",
+        "url": "https://kanyahunt.co.za/",
+        "image": "https://kanyahunt.co.za/images/hero_01.jpg",
+        "description": "Bespoke couverture chocolate wedding cakes, hand-sculpted by Kanya Hunt. Serving Cape Town and the Winelands.",
+        "telephone": "+27823755200",
+        "email": "kanya@kanyahunt.co.za",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4 Starfish Way, Atlantic Beach Estate",
+          "addressLocality": "Melkbosstrand",
+          "addressRegion": "Western Cape",
+          "postalCode": "7441",
+          "addressCountry": "ZA"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": -33.7269, "longitude": 18.4366 },
+        "areaServed": [
+          { "@type": "City", "name": "Cape Town" },
+          { "@type": "AdministrativeArea", "name": "Cape Winelands" }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/kanyahunt/",
+          "https://web.facebook.com/kanya.hunt.wedding.cakes"
+        ],
+        "priceRange": "R2,750–R6,500+",
+        "currenciesAccepted": "ZAR",
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "10:00", "closes": "17:00", "description": "Tasting sessions by appointment" }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Weekend Cakes by Kanya Hunt",
+        "provider": { "@id": "https://kanyahunt.co.za/#organization" },
+        "description": "A weekly rotating menu of 3–4 bespoke cakes. Announced Monday, delivered Friday. No customisation.",
+        "offers": { "@type": "Offer", "priceCurrency": "ZAR", "price": "975", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "975", "maxPrice": "1065", "priceCurrency": "ZAR", "description": "Serves 16 portions" } },
+        "areaServed": { "@type": "City", "name": "Cape Town" },
+        "url": "https://kanyahunt.co.za/weekend-cakes.html"
+      }
+    ]
+  }
   </script>
 </head>
 <body>

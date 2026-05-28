@@ -14,6 +14,23 @@
   <meta property="og:image" content="https://kanyahunt.co.za/images/hero_01.jpg?v=2"/>
   <meta property="og:url" content="https://kanyahunt.co.za/"/>
   <link rel="canonical" href="https://kanyahunt.co.za/"/>
+  <!-- Twitter / X cards -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@kanyahunt"/>
+  <meta name="twitter:title" content="Kanya Hunt — Where Chocolate Becomes Art"/>
+  <meta name="twitter:description" content="Handcrafted couverture chocolate wedding cakes by Kanya Hunt — every decorative element sculpted by hand in Cape Town. Cape Town & Winelands."/>
+  <meta name="twitter:image" content="https://kanyahunt.co.za/images/hero_01.jpg?v=2"/>
+  <!-- Local SEO / geo -->
+  <meta name="geo.region" content="ZA-WC"/>
+  <meta name="geo.placename" content="Cape Town"/>
+  <meta name="geo.position" content="-33.7269;18.4366"/>
+  <meta name="ICBM" content="-33.7269, 18.4366"/>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+  <meta name="theme-color" content="#2C1810"/>
+  <meta name="author" content="Kanya Hunt"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <link rel="dns-prefetch" href="https://www.instagram.com"/>
+  <link rel="dns-prefetch" href="https://wa.me"/>
 
   <!-- Favicon -->
   <link rel="icon" href="images/hero_01.jpg?v=2" type="image/jpeg"/>
@@ -580,53 +597,65 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Bakery",
-    "@id": "https://kanyahunt.co.za/#business",
-    "name": "Kanya Hunt — Couverture Cake Artist",
-    "description": "Bespoke couverture chocolate wedding and celebration cakes by Kanya Hunt. Every decorative element hand-sculpted from fine Belgian couverture chocolate. Cape Town & Winelands.",
-    "url": "https://kanyahunt.co.za/",
-    "telephone": "+27823755200",
-    "email": "kanya@kanyahunt.co.za",
-    "image": "https://kanyahunt.co.za/images/hero_01.jpg",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "4 Starfish Way, Atlantic Beach Estate",
-      "addressLocality": "Melkbosstrand",
-      "addressRegion": "Western Cape",
-      "postalCode": "7441",
-      "addressCountry": "ZA"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -33.7258,
-      "longitude": 18.4370
-    },
-    "areaServed": ["Cape Town", "Cape Winelands", "Western Cape"],
-    "priceRange": "R2750–R8000+",
-    "openingHours": "Mo 10:00-17:00",
-    "sameAs": [
-      "https://www.instagram.com/kanyahunt/",
-      "https://web.facebook.com/kanya.hunt.wedding.cakes"
-    ],
-    "founder": {
-      "@type": "Person",
-      "@id": "https://kanyahunt.co.za/about.html#kanya",
-      "name": "Kanya Hunt",
-      "jobTitle": "Couverture Cake Artist",
-      "sameAs": ["https://www.instagram.com/kanyahunt/"]
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Cake Commissions",
-      "itemListElement": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Couverture Chocolate Wedding Cakes", "url": "https://kanyahunt.co.za/chocolate-weddings.html"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "White Couverture Wedding Cakes", "url": "https://kanyahunt.co.za/white-chocolate-weddings.html"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Celebration Cakes", "url": "https://kanyahunt.co.za/celebration-cakes.html"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Petite Creations", "url": "https://kanyahunt.co.za/croquembouche-minis.html"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Buttercream & Sugar Art", "url": "https://kanyahunt.co.za/buttercream-sugar-art.html"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Weekend Cakes", "url": "https://kanyahunt.co.za/weekend-cakes.html"}}
-      ]
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://kanyahunt.co.za/#website",
+        "url": "https://kanyahunt.co.za/",
+        "name": "Kanya Hunt — Couverture Cake Artist",
+        "description": "Bespoke couverture chocolate wedding and celebration cakes, hand-sculpted by Kanya Hunt. Cape Town & Winelands.",
+        "publisher": { "@id": "https://kanyahunt.co.za/#organization" }
+      },
+      {
+        "@type": ["LocalBusiness", "FoodEstablishment"],
+        "@id": "https://kanyahunt.co.za/#organization",
+        "name": "Kanya Hunt — Hunt House Kitchen",
+        "legalName": "Kanya Hunt t/a The Hunt House Kitchen",
+        "url": "https://kanyahunt.co.za/",
+        "image": "https://kanyahunt.co.za/images/hero_01.jpg",
+        "description": "Bespoke couverture chocolate wedding cakes, hand-sculpted by Kanya Hunt. Serving Cape Town and the Winelands.",
+        "telephone": "+27823755200",
+        "email": "kanya@kanyahunt.co.za",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4 Starfish Way, Atlantic Beach Estate",
+          "addressLocality": "Melkbosstrand",
+          "addressRegion": "Western Cape",
+          "postalCode": "7441",
+          "addressCountry": "ZA"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": -33.7269, "longitude": 18.4366 },
+        "areaServed": [
+          { "@type": "City", "name": "Cape Town" },
+          { "@type": "AdministrativeArea", "name": "Cape Winelands" }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/kanyahunt/",
+          "https://web.facebook.com/kanya.hunt.wedding.cakes"
+        ],
+        "priceRange": "R2,750–R6,500+",
+        "currenciesAccepted": "ZAR",
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "10:00", "closes": "17:00", "description": "Tasting sessions by appointment" }
+        ],
+        "review": [
+          { "@type": "Review", "reviewBody": "Koek was asemrowend mooi Kanya ek kon nie ophou kyk na hom nie! En gister het ons die boonste laag ook verorber, sooooo lekker. Dankie!", "author": { "@type": "Person", "name": "Jomari" } },
+          { "@type": "Review", "reviewBody": "Kanya, you blew us all away with your love and attention to detail. Thank you precious cake lady, for over delivering on this beauty! It's the first time ever that the bride has wanted to do a second cutting moment at her wedding.", "author": { "@type": "Organization", "name": "Seon Event Interiors" } },
+          { "@type": "Review", "reviewBody": "Your cakes are truly magical! Every mouthful haunts my dreams, with flavours so rich and textures so perfectly crafted.", "author": { "@type": "Person", "name": "Vash" } },
+          { "@type": "Review", "reviewBody": "Thanks so much for creating such a beautiful wedding cake for us. All the guests were in absolute awe of how impressive it was.", "author": { "@type": "Person", "name": "Candice Chapman" } }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://kanyahunt.co.za/#webpage",
+        "url": "https://kanyahunt.co.za/",
+        "name": "Kanya Hunt — Where Chocolate Becomes Art · Couverture Cake Artist · Cape Town",
+        "description": "Handcrafted couverture chocolate wedding cakes by Kanya Hunt — every decorative element sculpted by hand in Cape Town.",
+        "isPartOf": { "@id": "https://kanyahunt.co.za/#website" },
+        "about": { "@id": "https://kanyahunt.co.za/#organization" },
+        "breadcrumb": { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kanyahunt.co.za/" } ] }
+      }
+    ]
   }
   </script>
 </head>

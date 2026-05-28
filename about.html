@@ -7,12 +7,29 @@
   <meta name="description" content="The story behind the chocolate — Kanya Hunt, couverture cake artist and qualified dietician. Cape Town & Winelands."/>
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website"/>
+  <meta property="og:type" content="profile"/>
   <meta property="og:title" content="About Kanya Hunt · Couverture Cake Artist"/>
   <meta property="og:description" content="The story behind the chocolate — Kanya Hunt, couverture cake artist and qualified dietician. Cape Town & Winelands."/>
   <meta property="og:image" content="https://kanyahunt.co.za/images/home-ab-kanya-portrait.jpg"/>
   <meta property="og:url" content="https://kanyahunt.co.za/about.html"/>
   <link rel="canonical" href="https://kanyahunt.co.za/about.html"/>
+  <!-- Twitter / X cards -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@kanyahunt"/>
+  <meta name="twitter:title" content="About Kanya Hunt · Couverture Cake Artist"/>
+  <meta name="twitter:description" content="The story behind the chocolate — Kanya Hunt, couverture cake artist and qualified dietician. Cape Town & Winelands."/>
+  <meta name="twitter:image" content="https://kanyahunt.co.za/images/home-ab-kanya-portrait.jpg"/>
+  <!-- Local SEO / geo -->
+  <meta name="geo.region" content="ZA-WC"/>
+  <meta name="geo.placename" content="Cape Town"/>
+  <meta name="geo.position" content="-33.7269;18.4366"/>
+  <meta name="ICBM" content="-33.7269, 18.4366"/>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+  <meta name="theme-color" content="#2C1810"/>
+  <meta name="author" content="Kanya Hunt"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <link rel="dns-prefetch" href="https://www.instagram.com"/>
+  <link rel="dns-prefetch" href="https://wa.me"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,27 +120,61 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": "https://kanyahunt.co.za/about.html#kanya",
-    "name": "Kanya Hunt",
-    "jobTitle": "Couverture Cake Artist",
-    "description": "Cape Town-based couverture cake artist and qualified dietician with 25 years of chocolate work. Galliova Award 2003. Known for hand-sculpted chocolate florals, contemporary textures, and cakes designed to be served as the wedding dessert.",
-    "url": "https://kanyahunt.co.za/about.html",
-    "image": "https://kanyahunt.co.za/images/home-ab-kanya-portrait.jpg",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Melkbosstrand",
-      "addressRegion": "Western Cape",
-      "addressCountry": "ZA"
-    },
-    "worksFor": {
-      "@type": "Bakery",
-      "@id": "https://kanyahunt.co.za/#business"
-    },
-    "knowsAbout": ["Couverture chocolate", "Wedding cake design", "Belgian chocolate", "Cake artistry", "Dietetics"],
-    "sameAs": [
-      "https://www.instagram.com/kanyahunt/",
-      "https://web.facebook.com/kanya.hunt.wedding.cakes"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://kanyahunt.co.za/#website",
+        "url": "https://kanyahunt.co.za/",
+        "name": "Kanya Hunt — Couverture Cake Artist",
+        "description": "Bespoke couverture chocolate wedding and celebration cakes, hand-sculpted by Kanya Hunt. Cape Town & Winelands.",
+        "publisher": { "@id": "https://kanyahunt.co.za/#organization" }
+      },
+      {
+        "@type": ["LocalBusiness", "FoodEstablishment"],
+        "@id": "https://kanyahunt.co.za/#organization",
+        "name": "Kanya Hunt — Hunt House Kitchen",
+        "legalName": "Kanya Hunt t/a The Hunt House Kitchen",
+        "url": "https://kanyahunt.co.za/",
+        "image": "https://kanyahunt.co.za/images/hero_01.jpg",
+        "description": "Bespoke couverture chocolate wedding cakes, hand-sculpted by Kanya Hunt. Serving Cape Town and the Winelands.",
+        "telephone": "+27823755200",
+        "email": "kanya@kanyahunt.co.za",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4 Starfish Way, Atlantic Beach Estate",
+          "addressLocality": "Melkbosstrand",
+          "addressRegion": "Western Cape",
+          "postalCode": "7441",
+          "addressCountry": "ZA"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": -33.7269, "longitude": 18.4366 },
+        "areaServed": [
+          { "@type": "City", "name": "Cape Town" },
+          { "@type": "AdministrativeArea", "name": "Cape Winelands" }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/kanyahunt/",
+          "https://web.facebook.com/kanya.hunt.wedding.cakes"
+        ],
+        "priceRange": "R2,750–R6,500+",
+        "currenciesAccepted": "ZAR",
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "10:00", "closes": "17:00", "description": "Tasting sessions by appointment" }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://kanyahunt.co.za/#kanya-hunt",
+        "name": "Kanya Hunt",
+        "url": "https://kanyahunt.co.za/about.html",
+        "image": "https://kanyahunt.co.za/images/home-ab-kanya-portrait.jpg",
+        "jobTitle": "Couverture Cake Artist",
+        "description": "Kanya Hunt is a bespoke couverture chocolate cake artist based in Melkbosstrand, Cape Town. A qualified dietician with 25 years of experience working with premium Callebaut couverture chocolate.",
+        "worksFor": { "@id": "https://kanyahunt.co.za/#organization" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Melkbosstrand", "addressRegion": "Western Cape", "addressCountry": "ZA" },
+        "sameAs": [ "https://www.instagram.com/kanyahunt/", "https://web.facebook.com/kanya.hunt.wedding.cakes" ],
+        "knowsAbout": ["Couverture chocolate", "Wedding cakes", "Cake design", "Dietetics", "Sugar art", "Buttercream"]
+      }
     ]
   }
   </script>
