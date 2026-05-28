@@ -63,13 +63,13 @@ nav {
 }
 .nav-links a:hover, .nav-links a.active { color: var(--ink); }
 .nav-cta {
-  background: var(--ink); color: var(--linen);
+  background: var(--mocha); color: var(--linen);
   padding: 0.52rem 1.4rem;
   font-size: 0.74rem; letter-spacing: 0.15em;
   text-transform: uppercase; text-decoration: none;
   transition: background 0.25s;
 }
-.nav-cta:hover { background: var(--mocha); }
+.nav-cta:hover { background: var(--ink); }
 
 /* ── MOBILE NAV ─────────────────────────────────────── */
 .nav-hamburger {
