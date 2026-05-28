@@ -39,17 +39,15 @@
     // Smart redirect: send old/broken links to the closest current page.
     (function () {
       var p = (location.pathname + location.search + location.hash).toLowerCase();
-      var dest = null;
-      if (/kitchen|weekend|koek/.test(p))            dest = '/weekend-cakes.html';
-      else if (/white/.test(p))                      dest = '/white-chocolate-weddings.html';
-      else if (/wedding|bride|chocolate-cake/.test(p)) dest = '/chocolate-weddings.html';
-      else if (/celebrat|birthday|anniversar/.test(p)) dest = '/celebration-cakes.html';
-      else if (/cupcake|mini|croquembouche|petite/.test(p)) dest = '/croquembouche-minis.html';
-      else if (/buttercream|sugar/.test(p))          dest = '/buttercream-sugar-art.html';
-      else if (/gallery|real-?wedding|portfolio/.test(p)) dest = '/gallery.html';
-      else if (/flavour|flavor|deliver|collection|order|booking|tasting|price|pricing|faq|question/.test(p)) dest = '/faq.html';
-      else if (/contact|enquir|inquir|quote/.test(p)) dest = '/index.html#contact';
-      else if (/about|story|kanya/.test(p))          dest = '/about.html';
+      var dest;
+      // Mirror the site's nav tabs: My Cakes · Weddings · About Me · Weekend Cakes · FAQ · Contact
+      if (/kitchen|weekend|koek/.test(p))                         dest = '/weekend-cakes.html';
+      else if (/order|booking|how.?to|tasting|pricing|price|deliver|collection|flavour|flavor|faq|question|ingredient|freshness/.test(p)) dest = '/faq.html';
+      else if (/contact|enquir|inquir|quote/.test(p))             dest = '/index.html#contact';
+      else if (/gallery|real.?wedding|cake.?cutting|portfolio/.test(p)) dest = '/gallery.html';
+      else if (/about|story|kanya/.test(p))                       dest = '/about.html';
+      else if (/wedding|cake|chocolate|couverture|white|buttercream|sugar|celebrat|birthday|anniversar|cupcake|mini|petite|croquembouche/.test(p)) dest = '/index.html#offerings';
+      else                                                        dest = '/index.html';
       if (dest) {
         // Brief pause so the page reads as intentional, then forward.
         setTimeout(function () { location.replace(dest); }, 1600);
@@ -70,11 +68,11 @@
 
   <div class="links">
     <a href="/index.html">Home</a>
-    <a href="/chocolate-weddings.html">Wedding Cakes</a>
+    <a href="/index.html#offerings">My Cakes</a>
+    <a href="/gallery.html">Weddings</a>
+    <a href="/about.html">About Me</a>
     <a href="/weekend-cakes.html">Weekend Cakes</a>
-    <a href="/gallery.html">Real Weddings</a>
     <a href="/faq.html">FAQ</a>
-    <a href="/about.html">About Kanya</a>
   </div>
 
   <div class="home-btn">
