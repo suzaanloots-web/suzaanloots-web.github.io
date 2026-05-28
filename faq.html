@@ -201,15 +201,17 @@
 
     /* ── PAGE HERO ── */
     .page-hero {
-      padding-top: 74px;
+      padding: 74px 3.5rem 0;
       background: var(--linen);
       border-bottom: 1px solid var(--border);
     }
     .page-hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
-      padding: 2.5rem 3.5rem 2.5rem;
+      padding: 2.5rem 0;
       align-items: end;
     }
     .page-hero-body {
@@ -225,12 +227,51 @@
       background: var(--white);
     }
     .faq-layout {
-      max-width: 860px;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3.5rem;
+      align-items: start;
     }
+
+    /* Jump-to-section nav (sticky, desktop) */
+    .faq-nav {
+      position: sticky;
+      top: calc(74px + 2rem);
+      align-self: start;
+    }
+    .faq-nav-label {
+      font-family: var(--font-b);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    .faq-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .faq-nav a {
+      display: block;
+      font-family: var(--font-b);
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      text-decoration: none;
+      padding: 0.5rem 0 0.5rem 0.95rem;
+      border-left: 2px solid var(--border);
+      line-height: 1.35;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .faq-nav a:hover { color: var(--ink); border-left-color: var(--light-gold); }
+    .faq-nav a.active { color: var(--mocha); border-left-color: var(--light-gold); font-weight: 500; }
 
     /* FAQ sections */
     .faq-content { min-width: 0; }
-    .faq-section { margin-bottom: 3.5rem; }
+    .faq-section { margin-bottom: 3.5rem; scroll-margin-top: calc(74px + 1.5rem); }
+    .faq-section:last-child { margin-bottom: 0; }
     .faq-section-title {
       font-family: var(--font-d);
       font-size: 1.45rem;
@@ -465,8 +506,13 @@
       .nav-hamburger { display: flex; }
       .mobile-menu { display: flex; }
 
+      .page-hero { padding-left: 0; padding-right: 0; }
       .page-hero-inner { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1.2rem; }
       #faq-main { padding: 1.5rem 1.2rem 3rem; }
+      /* Single column on mobile — hide jump-nav (mobile layout already perfect) */
+      .faq-layout { display: block; max-width: 100%; }
+      .faq-nav { display: none; }
+      .faq-content { max-width: 100%; }
       .faq-section { margin-bottom: 2.5rem; }
       .flavour-list { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr 1fr; }
@@ -530,6 +576,21 @@
 <!-- MAIN FAQ -->
 <section id="faq-main">
   <div class="faq-layout">
+
+    <!-- Jump-to-section nav (desktop only) -->
+    <aside class="faq-nav" aria-label="Jump to a section">
+      <p class="faq-nav-label">On this page</p>
+      <ul>
+        <li><a href="#faq-booking">Booking</a></li>
+        <li><a href="#faq-tasting">Tasting Session</a></li>
+        <li><a href="#faq-design">Design &amp; Flavours</a></li>
+        <li><a href="#faq-ingredients">Ingredients &amp; Freshness</a></li>
+        <li><a href="#faq-delivery">Delivery &amp; Setup</a></li>
+        <li><a href="#faq-pricing">Pricing</a></li>
+        <li><a href="#faq-tiers">Tiers &amp; Sizing</a></li>
+        <li><a href="#faq-contact">Getting in Touch</a></li>
+      </ul>
+    </aside>
 
     <!-- FAQ content -->
     <div class="faq-content">
@@ -1029,6 +1090,23 @@
       }
     });
   });
+
+  // FAQ jump-nav: highlight the section currently in view (scroll-spy)
+  const faqNavLinks = document.querySelectorAll('.faq-nav a');
+  if (faqNavLinks.length) {
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = '#' + e.target.id;
+          faqNavLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+        }
+      });
+    }, { rootMargin: '-15% 0px -75% 0px' });
+    faqNavLinks.forEach(a => {
+      const sec = document.querySelector(a.getAttribute('href'));
+      if (sec) spy.observe(sec);
+    });
+  }
 
   // Mobile menu
   const hamburger = document.getElementById('navHamburger');
