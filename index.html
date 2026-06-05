@@ -914,16 +914,16 @@
       <input type="hidden" name="from_name" value="KanyaHunt.co.za">
       <input type="hidden" name="redirect" value="https://kanyahunt.co.za/thankyou.html">
       <div class="form-row">
-        <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="Jane Smith" required/></div>
-        <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="jane@example.com" required/></div>
+        <div class="form-group"><label for="f-name">Your Name</label><input id="f-name" type="text" name="name" placeholder="Jane Smith" required/></div>
+        <div class="form-group"><label for="f-email">Email Address</label><input id="f-email" type="email" name="email" placeholder="jane@example.com" required/></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>WhatsApp / Phone</label><input type="tel" name="phone" placeholder="+27 00 000 0000"/></div>
-        <div class="form-group"><label>Date Needed</label><input type="date" name="date_needed"/></div>
+        <div class="form-group"><label for="f-phone">WhatsApp / Phone</label><input id="f-phone" type="tel" name="phone" placeholder="+27 00 000 0000"/></div>
+        <div class="form-group"><label for="f-date">Date Needed</label><input id="f-date" type="date" name="date_needed"/></div>
       </div>
       <div class="form-group">
-        <label>Occasion</label>
-        <select name="occasion">
+        <label for="f-occasion">Occasion</label>
+        <select id="f-occasion" name="occasion">
           <option value="">Select occasion...</option>
           <option>Wedding Cake — Couverture Chocolate</option>
           <option>Wedding Cake — White Couverture</option>
@@ -935,21 +935,21 @@
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label>Approx. Guests</label>
-          <select name="guests">
+          <label for="f-guests">Approx. Guests</label>
+          <select id="f-guests" name="guests">
             <option value="">Select size...</option>
             <option>Under 20</option><option>20–50</option>
             <option>50–100</option><option>100–200</option><option>200+</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Venue</label>
-          <input type="text" name="venue" placeholder="Venue name or location"/>
+          <label for="f-venue">Venue</label>
+          <input id="f-venue" type="text" name="venue" placeholder="Venue name or location"/>
         </div>
       </div>
       <div class="form-group">
-        <label>Tell me about your vision</label>
-        <textarea name="message" placeholder="Style inspiration, look and feel of your wedding, flavor preferences, will your cake be used for dessert or afterwards for coffee only?"></textarea>
+        <label for="f-message">Tell me about your vision</label>
+        <textarea id="f-message" name="message" placeholder="Style inspiration, look and feel of your wedding, flavor preferences, will your cake be used for dessert or afterwards for coffee only?"></textarea>
       </div>
       <div class="contact-cta-row">
         <button type="submit" class="btn-submit">Send Enquiry &#8594;</button>
